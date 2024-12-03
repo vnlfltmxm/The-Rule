@@ -10,7 +10,8 @@ public class TestPlayerMoveController : MonoBehaviour
     [SerializeField] private GameObject _cameraObject;
 
     private float _targetSpeed;
-    private float _runSpeed = 7f;
+    private float _walkSpeed = 7f;
+    private float _runSpeed = 14f;
     private float _speedOffset = 0.1f;
     private float _currentSpeed;
     private float _speedChangeValue = 100.0f;
@@ -65,7 +66,7 @@ public class TestPlayerMoveController : MonoBehaviour
 
     private void Movement()
     {
-        _targetSpeed = _runSpeed;
+        _targetSpeed = _inputSystem.IsRun ? _runSpeed : _walkSpeed;
 
         if (_inputSystem.Input == Vector2.zero)
         {
