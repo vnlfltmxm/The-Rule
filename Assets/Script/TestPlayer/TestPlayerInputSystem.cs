@@ -5,6 +5,7 @@ public class TestPlayerInputSystem : MonoBehaviour
 {
     public Vector2 Input { get; set; }
     public Vector2 Delta { get; set; }
+    public bool IsRun { get; set; }
 
     private void OnMove(InputValue value)
     {
@@ -28,6 +29,13 @@ public class TestPlayerInputSystem : MonoBehaviour
     public void SetDelta(Vector2 value)
     {
         Delta = value;
+    }
+
+    private void OnRun(InputValue value)
+    {
+        var isPressed = value.isPressed;
+
+        IsRun = isPressed;
     }
 
 }
