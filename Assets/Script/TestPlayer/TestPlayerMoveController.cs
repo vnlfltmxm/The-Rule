@@ -14,17 +14,12 @@ public class TestPlayerMoveController : MonoBehaviour
     private float _speedOffset = 0.1f;
     private float _currentSpeed;
     private float _speedChangeValue = 100.0f;
-    //private float _rotationVelocity;
-    //private float _rotationChangeValue = 0.12f;
-    //private float _targetRotation;
     private float _currentHorizontalSpeed;
 
     [Header("Rotation")]
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _maxVerticalAngle;
-    [SerializeField] private float _maxHorizontalAngel;
 
-    private float _currentBodyRotationY;
     private float _verticalRotation;
     private float _horizontalRotation;
 
@@ -33,8 +28,6 @@ public class TestPlayerMoveController : MonoBehaviour
         _inputSystem = GetComponent<TestPlayerInputSystem>();
         _rigidbody = GetComponent<Rigidbody>();
         _playerCamera = Camera.main;
-
-        _currentBodyRotationY = transform.eulerAngles.y;
     }
 
     private void FixedUpdate()
@@ -50,37 +43,24 @@ public class TestPlayerMoveController : MonoBehaviour
     private void Rotation()
     {
         var mouseDelta = _inputSystem.Delta;
+        VerticalRotation(mouseDelta);
+        HorizontalRotation(mouseDelta);
+    }
 
-        float bodyRotation = mouseDelta.x * _rotationSpeed * Time.deltaTime;
-        
-        float angle = Vector3.Angle(transform.forward, _cameraObject.transform.forward);
-        
-        if(angle > _maxHorizontalAngel)
-        {
+    private void HorizontalRotation(Vector2 mouseDelta)
+    {
+        _horizontalRotation = mouseDelta.x * _rotationSpeed * Time.deltaTime;
 
-        }
-        else
-        {
-            _cameraObject.transform.Rotate(0f, bodyRotation, 0f, Space.Self);
-        }
+        transform.Rotate(0f, _horizontalRotation, 0f, Space.Self);
+    }
 
+    private void VerticalRotation(Vector2 mouseDelta)
+    {
+        _verticalRotation -= mouseDelta.y * _rotationSpeed * Time.deltaTime;
 
-        //if(Mathf.Abs(angle) > _maxHorizontalAngel)
-        //{
-        //    float targetBodyRotation = _cameraObject.transform.eulerAngles.y;
+        _verticalRotation = Mathf.Clamp(_verticalRotation, -_maxVerticalAngle, _maxVerticalAngle);
 
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, targetBodyRotation, 0f), _rotationSpeed * Time.deltaTime);
-
-        //    if(Mathf.Abs(Vector3.SignedAngle(transform.forward, _cameraObject.transform.forward, Vector3.up)) < 0.1f)
-        //    {
-        //        _cameraObject.transform.localRotation = Quaternion.identity;
-        //    }
-        //}
-        //else
-        //{
-        //    _cameraObject.transform.Rotate(0f, bodyRotation, 0f, Space.Self);
-        //}
-
+        _cameraObject.transform.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
     }
 
     private void Movement()
@@ -109,26 +89,6 @@ public class TestPlayerMoveController : MonoBehaviour
         }
 
         Vector3 inputDirection = new Vector3(_inputSystem.Input.x, 0f, _inputSystem.Input.y).normalized;
-
-        //if (inputDirection != Vector3.zero)
-        //{
-        //    if(inputDirection.z >= 0)
-        //    {
-        //        _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg
-        //      + _playerCamera.transform.eulerAngles.y;
-
-        //        float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, _rotationChangeValue);
-
-        //        transform.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
-        //    }
-        //    else
-        //    {
-        //        _targetRotation = transform.eulerAngles.y;
-        //    }
-        //}
-
-        //Vector3 moveDirection = inputDirection.z < 0 ? Quaternion.Euler(0f, _targetRotation, 0f) * Vector3.back
-        //    : Quaternion.Euler(0f, _targetRotation, 0f) * Vector3.forward;
 
         Vector3 moveDirection = Quaternion.Euler(0f,_playerCamera.transform.eulerAngles.y, 0f) * inputDirection;
 

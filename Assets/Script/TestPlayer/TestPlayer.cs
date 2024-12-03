@@ -7,4 +7,9 @@ public class TestPlayer : MonoBehaviour
         gameObject.AddComponent<TestPlayerInputSystem>();
     }
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+
 }
