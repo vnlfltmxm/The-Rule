@@ -1,4 +1,4 @@
-namespace Script.Define
+namespace Script.Util
 {
     public enum InputType
     {
