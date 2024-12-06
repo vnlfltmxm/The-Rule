@@ -1,22 +1,35 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : Pawn
+namespace Script.Pawn.Player
 {
-    public PlayerBodyCondition PlayerBodyCondition;
-    public PlayerController PlayerController;
-    public ItemHolder ItemHolder;
-    [HideInInspector] public PlayerInput PlayerInput;
-    [HideInInspector] public Rigidbody Rigidbody;
-
-    protected override void Init()
+    public class Player : Pawn
     {
-        PlayerBodyCondition = new PlayerBodyCondition();
-        PlayerController = new PlayerController();
-        ItemHolder = new ItemHolder();
-        PlayerInput = GetComponent<PlayerInput>();
+        public PlayerBodyCondition PlayerBodyCondition;
+        public PlayerInputHandler PlayerInputHandler;
+        public ItemHolder ItemHolder;
         
-        PlayerBodyCondition.Init();
-        PlayerController.Init(PlayerInput);
+        [HideInInspector]public PlayerController PlayerController;
+        [HideInInspector] public PlayerInput PlayerInput;
+        [HideInInspector] public Rigidbody Rigidbody;
+        
+        public GameObject VirtualCamera;
+
+        protected override void Init()
+        {
+            PlayerBodyCondition = new PlayerBodyCondition();
+            PlayerInputHandler = new PlayerInputHandler();
+            ItemHolder = new ItemHolder();
+            
+            PlayerController = GetComponent<PlayerController>();
+            PlayerInput = GetComponent<PlayerInput>();
+            Rigidbody = GetComponent<Rigidbody>();
+        
+            PlayerBodyCondition.Init();
+            PlayerInputHandler.Init(PlayerInput);
+            PlayerController.Init(this);
+        }
     }
+
 }
+
