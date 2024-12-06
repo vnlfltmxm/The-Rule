@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public abstract class Pawn : MonoBehaviour
+namespace Script.Pawn
 {
-    private void Start()
+    public abstract class Pawn : MonoBehaviour
     {
-        Init();
-    }
+        private void Start()
+        {
+            Init();
+        }
 
-    protected abstract void Init();
+        protected abstract void Init();
+    }
 }
