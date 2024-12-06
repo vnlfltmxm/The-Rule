@@ -8,7 +8,7 @@ public static class Logger
     {
         if(color == default)
             color = Color.white;
-        Debug.Log($"<color=#{color.ToHexString()}>message</color>");
+        Debug.Log($"<color=#{color.ToHexString()}>{message}</color>");
     }
     
     [System.Diagnostics.Conditional("Dev_Version")]
@@ -16,7 +16,7 @@ public static class Logger
     {
         if(color == default)
             color = Color.white;
-        Debug.LogWarning($"<color=#{color.ToHexString()}>message</color>");
+        Debug.LogWarning($"<color=#{color.ToHexString()}>{message}</color>");
     }
     
     [System.Diagnostics.Conditional("Dev_Version")]
@@ -24,7 +24,7 @@ public static class Logger
     {
         if(color == default)
             color = Color.white;
-        Debug.LogError($"<color=#{color.ToHexString()}>message</color>");
+        Debug.LogError($"<color=#{color.ToHexString()}>{message}</color>");
     }
     
     [System.Diagnostics.Conditional("Dev_Version")]
