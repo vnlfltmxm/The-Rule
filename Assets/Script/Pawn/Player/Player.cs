@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Script.Pawn.Player
 {
@@ -9,11 +10,14 @@ namespace Script.Pawn.Player
         public PlayerInputHandler PlayerInputHandler;
         public ItemHolder ItemHolder;
         
-        [HideInInspector]public PlayerController PlayerController;
+        [HideInInspector] public PlayerMovementController PlayerMovementController;
+        [HideInInspector] public PlayerUtilityController PlayerUtilityController;
         [HideInInspector] public PlayerInput PlayerInput;
+        [HideInInspector] public RaycastPropDetector RaycastPropDetector;
         [HideInInspector] public Rigidbody Rigidbody;
         
-        public GameObject VirtualCamera;
+        [Header("시네머신 카메라 타겟 위치")] public GameObject VirtualCamera;
+        [Header("아이템이 위치할 손 위치")] public Transform HandTransform;
 
         protected override void Init()
         {
@@ -21,13 +25,18 @@ namespace Script.Pawn.Player
             PlayerInputHandler = new PlayerInputHandler();
             ItemHolder = new ItemHolder();
             
-            PlayerController = GetComponent<PlayerController>();
+            PlayerMovementController = GetComponent<PlayerMovementController>();
+            PlayerUtilityController = GetComponent<PlayerUtilityController>();
             PlayerInput = GetComponent<PlayerInput>();
+            RaycastPropDetector = GetComponent<RaycastPropDetector>();
             Rigidbody = GetComponent<Rigidbody>();
-        
+            
             PlayerBodyCondition.Init();
             PlayerInputHandler.Init(PlayerInput);
-            PlayerController.Init(this);
+            ItemHolder.Init(this);
+            PlayerMovementController.Init(this);
+            PlayerUtilityController.Init(this);
+            RaycastPropDetector.Init(this);
         }
     }
 

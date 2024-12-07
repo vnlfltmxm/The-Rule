@@ -19,6 +19,8 @@ public class PlayerInputHandler
     public bool IsCursorLocked { get; private set; } = true;
     public bool IsCursorInputForLook { get; private set; } = true;
 
+    public Action<bool> OnCrouchEvent;
+    
     public Action OnInteractEvent;
     public Action OnPrimaryEvent;
     public Action OnSecondaryEvent;
@@ -72,6 +74,7 @@ public class PlayerInputHandler
     private void OnCrouch(InputAction.CallbackContext value)
     {
         IsCrouch = value.ReadValueAsButton();
+        OnCrouchEvent?.Invoke(IsCrouch);
     }
     private void OnInteract(InputAction.CallbackContext value)
     {
