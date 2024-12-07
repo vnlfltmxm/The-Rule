@@ -5,18 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/GroundChecker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/GroundChecker.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IPickable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IPickable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IUsable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IUsable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveDevice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveDevice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveProp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveProp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/Waypoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/Waypoint.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Logger/Logger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Logger/Logger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerMovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerMovementController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +40,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/4b/7971a66e/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/ca/8448650f/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/ed/51030a74/Color.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/RebindInputAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionRebindingExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -45,7 +58,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;MoonSoo/Pawn&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -111,7 +124,8 @@
       <updated>1732634022247</updated>
       <workItem from="1732634024486" duration="849000" />
       <workItem from="1733332890949" duration="16597000" />
-      <workItem from="1733481898909" duration="16449000" />
+      <workItem from="1733481898909" duration="17047000" />
+      <workItem from="1733585852155" duration="13738000" />
     </task>
     <servers />
   </component>
