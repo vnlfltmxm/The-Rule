@@ -26,9 +26,9 @@ public class InvadeStateMachine : MonoBehaviour
         _stateMachine.StartState(InvadeState.Patrol);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        _stateMachine.FixedUpdate();
+        _stateMachine.StateUpdate();
     }
 
     public void ChangeObjectState(InvadeState newState)
