@@ -7,103 +7,144 @@ public class InvadeObjectPatrol : InvadeObjectState, IObjectState<InvadeObjectPa
     public InvadeObjectPatrol(InvadeObject invadeObject) : base(invadeObject)
     {
         _patrolAreaName = invadeObject.AreaName;
+        _rotationSpeed = invadeObject.RotationSpeed;
+        _moveSpeed = invadeObject.ObjectSpeed;
 
-        _agentPath = new NavMeshPath();
+        _path = new NavMeshPath();  
     }
 
     private Transform[] _destinationArray;
     private Transform _currentDestination;
-    private NavMeshPath _agentPath;
+    private NavMeshPath _path;
 
     private List<Vector3> _pathList = new List<Vector3>();
+    private Vector3 _currentTarget;
 
     private int _currentIndex;
-    private int _pathListIndex;
-    private float _offSet = 1f;
+    private int _currentPathIndex;
     private string _patrolAreaName;
+
+    private float _rotationSpeed;
+    private float _moveSpeed;
 
     public void StateEnter()
     {
-        if(_destinationArray == null || _currentIndex > _destinationArray.Length - 1)
-        {
-            _currentIndex = 0;
+        InitializeDestination();
 
-            _destinationArray = DestinationManager.Instance.GetWayPoints(_patrolAreaName);
+        CalculatePath();
+    }
+
+    private void InitializeDestination()
+    {
+        if (_currentIndex == 0)
+        {
+            RandomTransformArray();
         }
 
-        _currentDestination = _destinationArray[_currentIndex];
-
-        _currentIndex++;
-
-        _agent.CalculatePath(_currentDestination.position, _agentPath);
-
-        if(_agentPath.status == NavMeshPathStatus.PathComplete)
+        do
         {
-            Vector3[] corners = _agentPath.corners;
+            _currentDestination = _destinationArray[_currentIndex];
 
-            bool cornserLength = corners.Length > 2;
+            _currentIndex = (_currentIndex + 1) % _destinationArray.Length;
+        }
+        while (Vector3.Distance(_currentDestination.position, _invadeObject.transform.position) < 0.1f);
+    }
 
-            if (cornserLength)
-            {
-                for (int i = 1; i < corners.Length - 1; i++)
-                {
-                    Vector3 currentCorner = corners[i];
+    private void CalculatePath()
+    {
+        _pathList.Clear();
 
-                    Vector3 directionToPreviousCorner = (corners[i - 1] - corners[i]).normalized;
+        var sourcePosition = _invadeObject.transform.position;
 
-                    Vector3 directionToNextConrner = (corners[i + 1] - corners[i]).normalized;
+        var targetPosition = _currentDestination.position;
 
-                    Vector3 normal = -(directionToNextConrner + directionToPreviousCorner).normalized;
+        NavMesh.CalculatePath(sourcePosition, targetPosition, NavMesh.AllAreas, _path);
 
-                    if (normal != Vector3.zero)
-                    {
-                        Vector3 newCorner = currentCorner + normal * _offSet;
-
-                        corners[i] = newCorner;
-                    }
-                }
-            }
-
-            foreach (Vector3 corner in corners)
-            {
-                _pathList.Add(corner);
-            }
-
-            //Debug
-            _invadeObject.PathList = _pathList;
+        for (int i = 1; i < _path.corners.Length; i++)
+        {
+            _pathList.Add(_path.corners[i]);
         }
 
-        _agent.SetDestination(_pathList[_pathListIndex]);
+        if (_pathList.Count >= 1)
+        {
+            _currentTarget = _pathList[_currentPathIndex];
+        }
+    }
+
+    private void RandomTransformArray()
+    {
+        _destinationArray = DestinationManager.Instance.GetWayPoints(_patrolAreaName);
+
+        if(_destinationArray != null)
+        {
+            for (int i = _destinationArray.Length - 1; i > 0; i--)
+            {
+                int randomIndex = UnityEngine.Random.Range(0, i + 1);
+
+                var temp = _destinationArray[i];
+
+                _destinationArray[i] = _destinationArray[randomIndex];
+
+                _destinationArray[randomIndex] = temp;
+            }
+        }
     }
 
     public void StateUpdate()
     {
-        if(_agent.remainingDistance <= 0.1f)
+        Vector3 moveDirection = (_currentTarget - _invadeObject.transform.position).normalized;
+
+        RotateToTarget(moveDirection);
+
+        MoveToTarget(moveDirection);
+
+        if(Vector3.Distance(_invadeObject.transform.position, _currentTarget) < 0.1f)
         {
-            NextPath();
+            NextTarget();
         }
     }
 
-    private void NextPath()
+    private void RotateToTarget(Vector3 moveDirection)
     {
-        _pathListIndex++;
+        float angle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
 
-        if (_pathListIndex < _pathList.Count)
+        Quaternion rotation = Quaternion.Euler(0f, angle, 0f);
+
+        _invadeObject.transform.rotation = Quaternion.Slerp(_invadeObject.transform.rotation, rotation, _rotationSpeed * Time.fixedDeltaTime);
+    }
+
+    private void MoveToTarget(Vector3 moveDirection)
+    {
+        Vector3 moveVelocity = moveDirection * _moveSpeed;
+
+        moveVelocity.y = _rigidbody.linearVelocity.y;
+
+        _rigidbody.linearVelocity = moveVelocity;
+    }
+
+    private void NextTarget()
+    {
+        _currentPathIndex++;
+
+        if (_currentPathIndex < _pathList.Count)
         {
-            _agent.SetDestination(_pathList[_pathListIndex]);
+            _currentTarget = _pathList[_currentPathIndex];
         }
         else
         {
-            _agent.SetDestination(_invadeObject.transform.position);
-
-            _state.ChangeObjectState(InvadeState.Look);
+            EndPath();
         }
+    }
+
+    private void EndPath()
+    {
+        _rigidbody.linearVelocity = Vector3.zero;
+
+        _state.ChangeObjectState(InvadeState.Idle);
     }
 
     public void StateExit()
     {
-        _pathList.Clear();
-
-        _pathListIndex = 0;
+        _currentPathIndex = 0;
     }
 }

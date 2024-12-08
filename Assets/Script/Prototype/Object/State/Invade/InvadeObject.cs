@@ -1,37 +1,21 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class InvadeObject : MonoBehaviour
 {
     [Header("MyPatrolArea")]
     [SerializeField] private string _areaName;
 
+    [Header("WaitTime")]
+    [SerializeField] private float _waitTime;
+
+    [Header("RotationSpeed")]
+    [SerializeField] private float _rotationSpeed;
+
+    [Header("ObjectSpeed")]
+    [SerializeField] private float _objectSpeed;
+
     public string AreaName => _areaName;
-
-    public NavMeshPath Path { get; set; }
-    public List<Vector3> PathList { get; set; }
-
-    private void OnDrawGizmos()
-    {
-        if(PathList == null) return;
-
-        Gizmos.color = Color.red;
-
-        for (int i = 0; i < PathList.Count; i++)
-        {
-            Gizmos.DrawWireSphere(PathList[i], 0.2f);
-
-            if(i < PathList.Count - 1)
-            {
-                Gizmos.color = Color.white;
-
-                Gizmos.DrawLine(PathList[i], PathList[i + 1]);
-            }
-        }
-       
-
-       
-
-    }
+    public float WaitTime => _waitTime;
+    public float RotationSpeed => _rotationSpeed;
+    public float ObjectSpeed => _objectSpeed;
 }

@@ -43,10 +43,36 @@ public class DestinationManager : Singleton<DestinationManager>
     {
         if (!_areaTransformDictionary.ContainsKey(areaName))
         {
-            return null;
+            return FindArea(areaName);
         }
 
         return _areaTransformDictionary[areaName];
+    }
+
+    private Transform[] FindArea(string areaName)
+    {
+        Transform parentTransform  = transform.Find(areaName);
+        
+        if(parentTransform == null)
+        {
+            Logger.Log("No GameObject");
+            return null;
+        }
+
+        var childCount = parentTransform.childCount;
+
+        Transform[] wayPoints = new Transform[childCount];
+
+        for(int i = 0; i <  childCount; i++)
+        {
+            var childTransform = parentTransform.GetChild(i);
+
+            wayPoints[i] = childTransform;
+        }
+
+        _areaTransformDictionary.Add(areaName, wayPoints);
+
+        return wayPoints;
     }
 
 
