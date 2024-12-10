@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IPickable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IPickable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IUsable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IUsable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveDevice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveDevice.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveProp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveProp.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/Waypoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/Waypoint.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerMovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerMovementController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +104,7 @@
       <workItem from="1732634024486" duration="849000" />
       <workItem from="1733332890949" duration="16597000" />
       <workItem from="1733481898909" duration="17047000" />
-      <workItem from="1733585852155" duration="13738000" />
+      <workItem from="1733585852155" duration="15584000" />
     </task>
     <servers />
   </component>
