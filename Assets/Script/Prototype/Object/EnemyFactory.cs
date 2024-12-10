@@ -67,6 +67,8 @@ public class InvadeObjectStateFactory : IStateFactory<InvadeObject, InvadeState>
     {
         switch (enumType)
         {
+            case InvadeState.Idle:
+                return new InvadeObjectIdle(classType);
             case InvadeState.Look:
                 return new InvadeObjectLook(classType);
             case InvadeState.Patrol:

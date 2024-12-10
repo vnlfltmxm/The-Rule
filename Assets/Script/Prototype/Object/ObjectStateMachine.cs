@@ -15,9 +15,9 @@ public class ObjectStateMachine<T> where T : Enum
         _factory = new ObjectStateFactory();
     }
 
-    public void FixedUpdate()
+    public void StateUpdate()
     {
-        _currentState.StateFixedUpdate();
+        _currentState.StateUpdate();
     }
 
     public void StartState(T state)

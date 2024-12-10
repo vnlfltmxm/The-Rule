@@ -1,14 +1,8 @@
-using UnityEngine;
 
-public enum ObjectState
-{
-    Patrol,
-    Tracking,
-    Look
-}
 public enum InvadeState
 {
+    Idle,
     Look,
     Patrol,
-    Tracking
+    Tracking,
 }
