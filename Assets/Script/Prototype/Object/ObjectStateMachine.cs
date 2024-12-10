@@ -20,6 +20,11 @@ public class ObjectStateMachine<T> where T : Enum
         _currentState.StateUpdate();
     }
 
+    public void FixedUpdate()
+    {
+        _currentState.StateFixedUpdate();
+    }
+
     public void StartState(T state)
     {
         if(_stateDictionary.ContainsKey(state))

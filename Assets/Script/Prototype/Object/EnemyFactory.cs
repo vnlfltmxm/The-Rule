@@ -75,6 +75,8 @@ public class InvadeObjectStateFactory : IStateFactory<InvadeObject, InvadeState>
                 return new InvadeObjectPatrol(classType);
             case InvadeState.Tracking:
                 return new InvadeObjectTracking(classType);
+            case InvadeState.Trace:
+                return new InvadeObjectTrace(classType);
             default:
                 throw new ArgumentException();
         }
