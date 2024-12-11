@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DestinationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DestinationManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/SingletonMonoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/Singleton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/SingletonMonoBehaviour.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemHolder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemInventory.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerMovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +31,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/4b/7971a66e/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/ca/8448650f/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/ed/51030a74/Color.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/f2/7491a461/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/RebindInputAction.cs" root0="FORCE_HIGHLIGHTING" />
@@ -37,7 +50,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;Unity 에디터에 연결.Unity 에디터에 연결.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MoonSoo/Player&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -105,6 +119,9 @@
       <workItem from="1733332890949" duration="16597000" />
       <workItem from="1733481898909" duration="17047000" />
       <workItem from="1733585852155" duration="15584000" />
+      <workItem from="1733852960245" duration="5639000" />
+      <workItem from="1733931783447" duration="2836000" />
+      <workItem from="1733939131979" duration="9173000" />
     </task>
     <servers />
   </component>

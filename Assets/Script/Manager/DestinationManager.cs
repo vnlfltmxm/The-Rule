@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class DestinationManager : Singleton<DestinationManager>
+public class DestinationManager : SingletonMonoBehaviour<DestinationManager>
 {
     private Dictionary<string, Transform[]> _areaTransformDictionary;
 
