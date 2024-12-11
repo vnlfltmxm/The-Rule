@@ -12,7 +12,7 @@ public class RaycastPropDetector : MonoBehaviour
     [Header("감지할 레이어")]
     [SerializeField] private LayerMask _detectionLayer; // 감지할 레이어
     
-    private GameObject _playerCamera; // 플레이어 카메라
+    private Transform _playerCamera; // 플레이어 카메라
     
     private InteractiveProp _currentDetectedProp;
     public InteractiveProp CurrentDetectedProp => _currentDetectedProp;
@@ -36,7 +36,7 @@ public class RaycastPropDetector : MonoBehaviour
 
     private void DetectProp()
     {
-        Ray ray = new Ray(_playerCamera.transform.position, _playerCamera.transform.forward);
+        Ray ray = new Ray(_playerCamera.position, _playerCamera.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, _detectionRange, _detectionLayer))

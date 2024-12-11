@@ -2,7 +2,7 @@ using Script.Pawn.Player;
 using Script.Prop;
 using UnityEngine;
 
-public class ItemHolder
+public class ItemInventory
 {
     private Item _item = null;
     private bool _hasItem = false;

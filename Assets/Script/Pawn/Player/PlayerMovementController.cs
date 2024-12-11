@@ -6,25 +6,19 @@ using UnityEngine.WSA;
 
 namespace Script.Pawn.Player
 {
-	enum MoveType
-	{
-		Velocity,
-		AddForce,
-		MovePosition,
-	}
     public class PlayerMovementController : MonoBehaviour
     {
 	    
 	    #region Field----------------------------------------------------------------------
 	    private Rigidbody _rigidbody;
 	    private PlayerInputHandler _inputHandler;
-	    public GameObject CinemachineCameraTarget;
+	    public Transform CinemachineCameraTarget;
+	    public Transform HeadTransform;
+	    public Transform BodyTransform;
+	    
 		#region 이동 관련----------------------------------------------------------------------
 		[Header("이동 관련")]
 		[Space]
-		[SerializeField] private MoveType moveType;
-		[SerializeField] private ForceMode forceMode;
-		
 		[Header("앉기 속도")]
 		public float CrouchSpeed = 2.0f;
 		[Header("이동 속도")]
@@ -48,10 +42,15 @@ namespace Script.Pawn.Player
 	    public float TopClamp = 90.0f;
 	    public float BottomClamp = -90.0f;
 	    
-	    private float _deltaTimeMultiplier = 1.0f;
-	    private float _cinemachineTargetPitch;
+	    //머리가 움직일 수 있는 최대 각도
+	    private float _maxLookAngle = 70.0f;
 	    
-	    private float _rotationVelocity;
+	    private float _deltaTimeMultiplier = 1.0f;
+	    
+	    private float _xLookAngle;//현재 상하 각도
+	    private float _yLookAngle;//현재 좌우 각도
+	    private float _yBodyAngle;//현재 신체 좌우 각도
+	    
 	    private const float _threshold = 0.01f;
 	    #endregion ----------------------------------------------------------------------
 	    #endregion ----------------------------------------------------------------------
@@ -86,6 +85,8 @@ namespace Script.Pawn.Player
 			_rigidbody = player.Rigidbody;
 			_inputHandler = player.PlayerInputHandler;
 			CinemachineCameraTarget = player.VirtualCamera;
+			HeadTransform = player.HeadTransform;
+			BodyTransform = player.BodyTransform;
 
 			lastFixedPosition = player.transform.position;
 			nextFixedPosition = player.transform.position;
@@ -96,67 +97,47 @@ namespace Script.Pawn.Player
         private void Update()
         {
 	        OnUpdateCheakGround();
-	        switch (moveType)
-	        {
-		        case MoveType.Velocity:
-			        MoveUseRigid_Velocity();
-			        break;
-		        case MoveType.AddForce:
-			        MoveUseRigid_AddForce();
-			        break;
-		        case MoveType.MovePosition:
-			        MoveUseRigid_MovePosition_And_MoveTowards();
-			        break;
-	        }
-	        CameraRotation();
-        }
-
-        private void FixedUpdate()
-        {
-	        if (moveType == MoveType.MovePosition)
-	        {
-		        lastFixedPosition = nextFixedPosition;
-		        nextFixedPosition += FinalVelocity * Time.fixedDeltaTime;
-	        }
+	        OnUpdateRotation();
+	        OnUpdateMove();
+	        
+	        _rigidbody.linearVelocity = FinalVelocity;
+	        transform.rotation = Quaternion.Euler(0, _yBodyAngle, 0);
+	        HeadTransform.rotation = Quaternion.Euler(_xLookAngle, _yLookAngle, 0.0f);
+	        CinemachineCameraTarget.rotation = Quaternion.Euler(_xLookAngle, _yLookAngle, 0.0f);
         }
 
         #region 이동 관련 ----------------------------------------------------------------------
-        private void MoveUseRigid_Velocity()
+        private void OnUpdateMove()
         {
-	        _rigidbody.linearVelocity = FinalVelocity;
-	        //제일 간단하게 작성할 수 있는 이동로직, 정직하게 입력이 있을 때 움직이고 아닐 때는 멈춤
-        }
-        private void MoveUseRigid_AddForce()
-        {
-	        _rigidbody.AddForce(FinalVelocity, forceMode);
-	        //Velocity로 인하여 미끄러짐 현상이 일어남, 감속 로직 추가로 작성해야함
-        }
-        private void MoveUseRigid_MovePosition_And_MoveTowards()
-        {
-	        Vector3 position = Vector3.MoveTowards(lastFixedPosition, nextFixedPosition, MoveSpeed * Time.deltaTime);
-	        _rigidbody.MovePosition(position);
-	        //물체를 뚫고 지나감, 물체충동처리는 추가로 작성해야함
+	        if (FinalVelocity != Vector3.zero)
+		        _yBodyAngle = _yLookAngle;
         }
         #endregion ----------------------------------------------------------------------
         
         #region 회전 관련 ----------------------------------------------------------------------
-        private void CameraRotation()
+        private void OnUpdateRotation()
         {
-	        // if there is an input
 	        if (!(_inputHandler.LookInputValue.sqrMagnitude >= _threshold))
 		        return;
 	        
-	        _cinemachineTargetPitch += -_inputHandler.LookInputValue.y * RotationSpeed * _deltaTimeMultiplier;
-	        _rotationVelocity = _inputHandler.LookInputValue.x * RotationSpeed * _deltaTimeMultiplier;
-
-	        // clamp our pitch rotation
-	        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
-
-	        // Update Cinemachine camera target pitch
-	        CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
-
-	        // rotate the player left and right
-	        transform.Rotate(Vector3.up * _rotationVelocity);
+	        _xLookAngle += -_inputHandler.LookInputValue.y * RotationSpeed * _deltaTimeMultiplier;
+	        _xLookAngle = ClampAngle(_xLookAngle, BottomClamp, TopClamp);
+	        
+	        _yLookAngle += _inputHandler.LookInputValue.x * RotationSpeed * _deltaTimeMultiplier;
+	        _yLookAngle = Mathf.Repeat(_yLookAngle, 360f);
+	        
+	        OnUpdateBodyRotation();
+        }
+        private void OnUpdateBodyRotation()
+        {
+	        float diffAngle = -Mathf.DeltaAngle(_yLookAngle, _yBodyAngle);
+	        
+	        // 머리 각도가 제한을 넘어갔을 때 몸 회전 처리
+	        if (Mathf.Abs(diffAngle) >= _maxLookAngle)
+	        {
+		        float bodyTurn = diffAngle + Mathf.Sign(diffAngle) * -_maxLookAngle;
+		        _yBodyAngle = Mathf.Repeat(_yBodyAngle + bodyTurn, 360f);
+	        }
         }
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
         {
@@ -200,7 +181,7 @@ namespace Script.Pawn.Player
 	        }
         }
         #endregion ----------------------------------------------------------------------
-
+        
         #region 기타 ----------------------------------------------------------------------
         private void Crouch(bool crouch)
         {

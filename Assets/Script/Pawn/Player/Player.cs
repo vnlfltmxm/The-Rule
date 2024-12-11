@@ -8,7 +8,7 @@ namespace Script.Pawn.Player
     {
         public PlayerBodyCondition PlayerBodyCondition;
         public PlayerInputHandler PlayerInputHandler;
-        public ItemHolder ItemHolder;
+        public ItemInventory ItemInventory;
         
         [HideInInspector] public PlayerMovementController PlayerMovementController;
         [HideInInspector] public PlayerUtilityController PlayerUtilityController;
@@ -16,14 +16,17 @@ namespace Script.Pawn.Player
         [HideInInspector] public RaycastPropDetector RaycastPropDetector;
         [HideInInspector] public Rigidbody Rigidbody;
         
-        [Header("시네머신 카메라 타겟 위치")] public GameObject VirtualCamera;
+        [Header("시네머신 카메라 타겟 위치")] public Transform VirtualCamera;
         [Header("아이템이 위치할 손 위치")] public Transform HandTransform;
+
+        public Transform HeadTransform;
+        public Transform BodyTransform;
 
         protected override void Init()
         {
             PlayerBodyCondition = new PlayerBodyCondition();
             PlayerInputHandler = new PlayerInputHandler();
-            ItemHolder = new ItemHolder();
+            ItemInventory = new ItemInventory();
             
             PlayerMovementController = GetComponent<PlayerMovementController>();
             PlayerUtilityController = GetComponent<PlayerUtilityController>();
@@ -33,7 +36,7 @@ namespace Script.Pawn.Player
             
             PlayerBodyCondition.Init();
             PlayerInputHandler.Init(PlayerInput);
-            ItemHolder.Init(this);
+            ItemInventory.Init(this);
             PlayerMovementController.Init(this);
             PlayerUtilityController.Init(this);
             RaycastPropDetector.Init(this);
