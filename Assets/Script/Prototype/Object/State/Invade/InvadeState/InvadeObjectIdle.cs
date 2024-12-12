@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class InvadeObjectIdle : InvadeObjectState, IObjectState<InvadeObjectIdle>
@@ -19,8 +18,6 @@ public class InvadeObjectIdle : InvadeObjectState, IObjectState<InvadeObjectIdle
 
     public void StateUpdate()
     {
-        PlayerCheck();
-
         _currentTime = Time.time;
 
         if(_currentTime - _startTime > _waitTime)
@@ -34,11 +31,4 @@ public class InvadeObjectIdle : InvadeObjectState, IObjectState<InvadeObjectIdle
         _currentTime = 0f;
         _startTime = 0f;
     }
-
-    private void PlayerCheck()
-    {
-
-    }
-
-    
 }

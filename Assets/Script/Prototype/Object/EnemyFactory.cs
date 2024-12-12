@@ -33,7 +33,7 @@ public class ObjectStateFactory
 
             if(factory == null)
             {
-                Debug.Log("StateDictionary is Null");
+                Logger.Log("StateDictionary is Null");
                 return new Dictionary<TEnum, IObjectState>();
             }
 
@@ -51,6 +51,32 @@ public class ObjectStateFactory
             return stateDictionary;
         }
 
+        return null;
+    }
+
+    public IObjectState CreateState<TClass, TEnum>(TClass classType, TEnum enumType)
+        where TClass : class
+        where TEnum : Enum
+    {
+        var factoryType = typeof(IStateFactory<TClass, TEnum>);
+
+        if (_factorys.ContainsKey(factoryType))
+        {
+            var factory = _factorys[factoryType] as IStateFactory<TClass, TEnum>;
+
+            if(factory == null)
+            {
+                Logger.Log("Factory Null");
+
+                return null;
+            }
+
+            IObjectState state = factory.CreateState(classType, enumType);
+
+            return state;
+        }
+
+        Logger.Log("Factory Value Null");
         return null;
     }
 }
@@ -75,6 +101,8 @@ public class InvadeObjectStateFactory : IStateFactory<InvadeObject, InvadeState>
                 return new InvadeObjectPatrol(classType);
             case InvadeState.Tracking:
                 return new InvadeObjectTracking(classType);
+            case InvadeState.Trace:
+                return new InvadeObjectTrace(classType);
             default:
                 throw new ArgumentException();
         }
