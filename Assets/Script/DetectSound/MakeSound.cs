@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MakeSound
@@ -60,7 +59,7 @@ public class MakeSound
 
                     if (soundTrace != null)
                     {
-                        soundTrace.OnHearSound(_monobehaviour.transform.position);
+                        soundTrace.OnHearSound(_monobehaviour.transform.position, _monobehaviour.transform);
                     }
                 }
             }

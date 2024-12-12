@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InvadeStateMachine : MonoBehaviour
@@ -41,9 +42,29 @@ public class InvadeStateMachine : MonoBehaviour
         _stateMachine.ChangeObjectState(newState);
     }
 
-    public IObjectState GetObjectState()
+    public IObjectState GetCurrentObjectState()
     {
         return _stateMachine.CurrentState;
+    }
+
+    public Dictionary<InvadeState, IObjectState> GetStateDictionary()
+    {
+        return _stateMachine.StateDictionary;
+    }
+
+    public T GetObjectState<T>(InvadeState state) where T : class
+    {
+        var objectState = _stateMachine.GetObjectState<InvadeObject, InvadeState>(_invadeObject, state);
+
+        if(objectState is T tValue)
+        {
+            return tValue;
+        }
+        else
+        {
+            Logger.Log("T 변환 실패");
+            return null;
+        }
     }
 
 }

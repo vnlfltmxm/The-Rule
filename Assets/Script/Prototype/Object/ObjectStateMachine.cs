@@ -63,4 +63,29 @@ public class ObjectStateMachine<T> where T : Enum
             }
         }
     }
+
+    public IObjectState GetObjectState<TClass,TEnum>(TClass classType, T state)
+        where TClass : class
+        where TEnum : Enum
+    {
+        if(_stateDictionary.TryGetValue(state, out IObjectState objectState))
+        {
+            return objectState;
+        }
+
+        CreateCurrentState(classType, state);
+
+        return _stateDictionary[state];
+    }
+
+    private void CreateCurrentState<TClass>(TClass classType, T enumType)
+        where TClass : class
+    {
+        var currentState = _factory.CreateState(classType, enumType);
+
+        if(currentState != null)
+        {
+            _stateDictionary.Add(enumType, currentState);
+        }
+    }
 }

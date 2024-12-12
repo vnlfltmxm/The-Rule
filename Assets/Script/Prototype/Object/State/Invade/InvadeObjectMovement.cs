@@ -1,26 +1,30 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.AI;
 
-public class InvadeObjectState
+public class InvadeObjectMovement : InvadeObjectState
 {
-    public InvadeObjectState(InvadeObject invadeObject)
+    public InvadeObjectMovement(InvadeObject invadeObject) : base(invadeObject)
     {
-        _invadeObject = invadeObject;
+        _pathList = new List<Vector3>();
+        _path = new NavMeshPath();
 
-        _state = invadeObject.GetComponent<InvadeStateMachine>();
         _agent = invadeObject.GetComponent<NavMeshAgent>();
         _rigidbody = invadeObject.GetComponent<Rigidbody>();
 
-        _path = new NavMeshPath();
-        _agent.enabled = false;
+        _rotationSpeed = invadeObject.RotationSpeed;
+        _movementSpeed = invadeObject.ObjectSpeed;
     }
 
-    protected InvadeObject _invadeObject;
-    protected InvadeStateMachine _state;
-    protected NavMeshAgent _agent;
     protected NavMeshPath _path;
+    protected NavMeshAgent _agent;
     protected Rigidbody _rigidbody;
+    protected List<Vector3> _pathList;
+    protected Vector3 _currentTarget;
+
+    protected float _rotationSpeed;
+    protected float _movementSpeed;
+    protected int _pathListIndex;
 
     protected void CalculatePath(List<Vector3> pathList, Vector3 targetPosition, NavMeshPath path)
     {
@@ -30,7 +34,7 @@ public class InvadeObjectState
 
         NavMesh.CalculatePath(sourcePosition, targetPosition, NavMesh.AllAreas, path);
 
-        for(int i = 1; i < path.corners.Length; i++)
+        for (int i = 1; i < path.corners.Length; i++)
         {
             pathList.Add(path.corners[i]);
         }

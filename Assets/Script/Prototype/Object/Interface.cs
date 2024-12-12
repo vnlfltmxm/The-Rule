@@ -10,11 +10,16 @@ public interface IObjectState
     public void StateExit() { }
 }
 
+public interface ISetPlayer : IObjectState
+{
+    public void SetPlayer(Transform player);
+}
+
 public interface ITrace { }
 
 public interface ISoundTrace : ITrace
 {
-    public void OnHearSound(Vector3 position);
+    public void OnHearSound(Vector3 position, Transform player);
 }
 
 public interface ISystemTrace : ITrace

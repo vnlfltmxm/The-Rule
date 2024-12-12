@@ -1,23 +1,12 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InvadeObjectTrace : InvadeObjectState, IObjectState<InvadeObjectTrace>
+public class InvadeObjectTrace : InvadeObjectMovement, IObjectState<InvadeObjectTrace>, ISetPlayer
 {
-    public InvadeObjectTrace(InvadeObject invadeObject) : base(invadeObject)
-    {
-        _pathList = new List<Vector3>();
+    public InvadeObjectTrace(InvadeObject invadeObject) : base(invadeObject) { }
+    
+    private Transform _player;
 
-        _rotationSpeed = invadeObject.RotationSpeed;
-        _moveSpeed = invadeObject.ObjectSpeed;
-    }
-
-    private List<Vector3> _pathList;
-    private Vector3 _currentTarget;
-
-    private float _rotationSpeed;
-    private float _moveSpeed;
-    private int _pathListIndex;
-
+    #region StateMethods
     public void StateEnter()
     {
         CalculateTracePath();
@@ -29,11 +18,32 @@ public class InvadeObjectTrace : InvadeObjectState, IObjectState<InvadeObjectTra
 
         RotateToTarget(moveDirection, _rotationSpeed);
 
-        MoveToTarget(moveDirection, _moveSpeed);
+        MoveToTarget(moveDirection, _movementSpeed);
 
         if(Vector3.Distance(_currentTarget, _invadeObject.transform.position) < 0.1f)
         {
             NextTarget();
+        }
+    }
+
+    public void StateUpdate()
+    {
+        FieldOfView();
+    }
+
+    #endregion
+
+    private void FieldOfView()
+    {
+        if(_player == null)
+        {
+            return;
+        }
+
+        if(CalculateAngle(_player, _invadeObject.transform)
+            && CalculateDistance(_player, _invadeObject.transform))
+        {
+            RayCast(_player, _invadeObject.transform, InvadeState.Tracking);
         }
     }
 
@@ -46,6 +56,7 @@ public class InvadeObjectTrace : InvadeObjectState, IObjectState<InvadeObjectTra
         if (_pathList.Count >= 1)
         {
             _pathListIndex = 0;
+
             _currentTarget = _pathList[_pathListIndex];
 
             _rigidbody.linearVelocity = Vector3.zero;   
@@ -66,5 +77,10 @@ public class InvadeObjectTrace : InvadeObjectState, IObjectState<InvadeObjectTra
 
             _state.ChangeObjectState(InvadeState.Look);
         }
+    }
+
+    public void SetPlayer(Transform player)
+    {
+        _player = player;
     }
 }

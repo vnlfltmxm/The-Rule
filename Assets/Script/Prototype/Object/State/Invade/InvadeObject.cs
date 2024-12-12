@@ -27,8 +27,11 @@ public class InvadeObject : MonoBehaviour, ISoundTrace
     public float WaitTime => _waitTime;
     public float RotationSpeed => _rotationSpeed;
     public float ObjectSpeed => _objectSpeed;
+    public float ViewDistance => _viewDistance;
+    public float ViewAngle => _viewAngle;
     public Vector3 SoundPosition { get; set; }
 
+    private Transform _playerTransform;
     private InvadeStateMachine _state;
 
     private void Awake()
@@ -36,7 +39,7 @@ public class InvadeObject : MonoBehaviour, ISoundTrace
         _state = GetComponent<InvadeStateMachine>();
     }
 
-    public void OnHearSound(Vector3 position)
+    public void OnHearSound(Vector3 position, Transform player)
     {
         float distance = Vector3.Distance(transform.position, position);
 
@@ -47,7 +50,7 @@ public class InvadeObject : MonoBehaviour, ISoundTrace
 
         SoundPosition = position;
 
-        var currentState = _state.GetObjectState();
+        var currentState = _state.GetCurrentObjectState();
 
         if(currentState is InvadeObjectTrace traceState)
         {
@@ -55,16 +58,50 @@ public class InvadeObject : MonoBehaviour, ISoundTrace
 
             return;
         }
-        
+
+        SetPlayer(player);
+
         _state.ChangeObjectState(InvadeState.Trace);
     }
 
-   
+    private void SetPlayer(Transform transform)
+    {
+        if(_playerTransform != null)
+        {
+            return;
+        }
 
+        var stateDictionary = _state.GetStateDictionary();
+
+        foreach(var state in stateDictionary)
+        {
+            ISetPlayer setplayer = state.Value as ISetPlayer;
+
+            if(setplayer != null)
+            {
+                setplayer.SetPlayer(transform);
+            }
+        }
+    }
+
+    #region Gizmo
     private void OnDrawGizmos()
     {
+        if (!Application.isPlaying)
+            return;
+
+        var state = _state.GetCurrentObjectState();
+        
+        if(state is InvadeObjectLook look)
+        {
+            DrawView(_viewAngle, 10f, _viewDistance, look._head.transform);
+
+            return;
+        }
+
         DrawSoundRange(_soundDistance, transform.position, Color.red);
-        DrawView(60f, 10f, 10f);
+
+        DrawView(_viewAngle, 10f, _viewDistance, transform);
     }
 
     private void DrawSoundRange(float radius, Vector3 position, Color color)
@@ -74,10 +111,10 @@ public class InvadeObject : MonoBehaviour, ISoundTrace
         Gizmos.DrawWireSphere(position, radius);
     }
 
-    private void DrawView(float viewAngle, float segments, float range)
+    private void DrawView(float viewAngle, float segments, float range, Transform transform)
     {
         Gizmos.color = Color.blue;
-
+        
         Vector3 forward = transform.forward;
 
         for (int i = 0; i <= segments; i++) //부채꼴 선 그리기.
@@ -92,7 +129,6 @@ public class InvadeObject : MonoBehaviour, ISoundTrace
             Quaternion rotation = Quaternion.AngleAxis(currentAngle, transform.up);
 
             Vector3 direction = rotation * forward;
-
             Vector3 end = transform.position + direction * range; //내 포지션으로 이동
 
             Gizmos.DrawLine(transform.position, end);
@@ -112,4 +148,6 @@ public class InvadeObject : MonoBehaviour, ISoundTrace
             Gizmos.DrawLine(point1, point2);
         }
     }
+
+    #endregion
 }
