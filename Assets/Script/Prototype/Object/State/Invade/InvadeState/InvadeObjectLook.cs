@@ -31,6 +31,8 @@ public class InvadeObjectLook : InvadeObjectState, IObjectState<InvadeObjectLook
 
     public void StateExit()
     {
+        _head.StopHeadRotation();
+
         _head.Completed = false;
     }
 
@@ -46,8 +48,6 @@ public class InvadeObjectLook : InvadeObjectState, IObjectState<InvadeObjectLook
         {
             if (_hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                _head.StopHeadRotation();
-
                 _state.ChangeObjectState(state);
             }
         }
