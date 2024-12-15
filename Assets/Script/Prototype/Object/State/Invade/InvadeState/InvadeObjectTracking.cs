@@ -11,9 +11,11 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     private Transform _player;
     private WaitForSeconds _waitTime;
     private Coroutine _detectCoroutine;
+    private LayerMask _targetLayer = LayerMask.GetMask("Player", "Wall");
     
+    private float _calculateTime;
     private float _currentTime;
-    private float _maxTime = 1.0f;
+    private float _maxTime = 2.0f;
 
     private bool _isDetect;
 
@@ -26,14 +28,7 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     {
         _isDetect = true;
 
-        SetNavMeshAgent(true, 1f);
-
-        if(_detectCoroutine != null)
-        {
-            _invadeObject.StopCoroutine(_detectCoroutine);
-
-            _detectCoroutine = null;
-        }
+        SetNavMeshAgent(true, 3f);
 
         _detectCoroutine = _invadeObject.StartCoroutine(IsDetect());
     }
@@ -46,19 +41,41 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
 
             _agent.SetDestination(playerPosition);
         }
-        else
-        {
-            _state.ChangeObjectState(InvadeState.Look);
-        }
     }
 
     public void StateExit()
     {
         SetNavMeshAgent(false, 0f);
 
-        _detectCoroutine = null;
+        if (_detectCoroutine != null)
+        {
+            _invadeObject.StopCoroutine(_detectCoroutine);
+
+            _detectCoroutine = null;
+        }
 
         _currentTime = 0f;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Logger.Log("Àâ¾Ò´Ù");
+        }
+        else if(other.gameObject.layer == LayerMask.NameToLayer("SafeArea"))
+        {
+            _isDetect = false;
+
+            ChangeState(InvadeState.Idle);            
+        }
+    }
+
+    private void ChangeState(InvadeState state)
+    {
+        _agent.SetDestination(_invadeObject.transform.position);
+
+        _state.ChangeObjectState(state);
     }
 
     private void SetNavMeshAgent(bool isEnable, float stoppingDistance)
@@ -77,18 +94,11 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
             bool calculate = CalculateAngle(_player, _invadeObject.transform) 
                 && CalculateDistance(_player, _invadeObject.transform);
 
-            if (calculate)
+            if (calculate && RayCast())
             {
-                if (RayCast())
-                {
-                    _isDetect = true;
+                _isDetect = true;
 
-                    _currentTime = 0f;
-                }
-                else
-                {
-                    Timer();
-                }
+                _currentTime = Time.time;
             }
             else
             {
@@ -101,11 +111,13 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
 
     private void Timer()
     {
-        _currentTime += Time.deltaTime;
-
-        if (_currentTime > _maxTime)
+        _calculateTime = Time.time - _currentTime;
+        
+        if (_calculateTime >= _maxTime)
         {
             _isDetect = false;
+
+            ChangeState(InvadeState.Look);
         }
     }
 
@@ -115,9 +127,9 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
 
         _rayOrigin = _invadeObject.transform.position + _invadeObject.transform.TransformDirection(_offSet);
 
-        Debug.DrawRay(_rayOrigin, _rayDirection * (_viewDistance - 1f), Color.red);
+        Debug.DrawRay(_rayOrigin, _rayDirection * (_viewDistance - _offSet.z), Color.red);
 
-        if (Physics.Raycast(_rayOrigin, _rayDirection, out _hit, _viewDistance - 1f))
+        if (Physics.Raycast(_rayOrigin, _rayDirection, out _hit, _viewDistance - _offSet.z, _targetLayer,QueryTriggerInteraction.Ignore))
         {
             if (_hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {

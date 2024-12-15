@@ -48,14 +48,13 @@ public class InvadeObject : MonoBehaviour, ISoundTrace
             return;
         }
 
-        SoundPosition = position;
-
         var currentState = _state.GetCurrentObjectState();
 
-        if(currentState is InvadeObjectTrace traceState)
-        {
-            traceState.CalculateTracePath();
+        SoundPosition = position;
 
+        if(currentState is InvadeObjectTrace
+            || currentState is InvadeObjectTracking)
+        {
             return;
         }
 

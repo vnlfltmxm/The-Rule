@@ -37,6 +37,11 @@ public class InvadeStateMachine : MonoBehaviour
         _stateMachine.StateUpdate();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        _stateMachine.OnTriggerEnter(other);
+    }
+
     public void ChangeObjectState(InvadeState newState)
     {
         _stateMachine.ChangeObjectState(newState);

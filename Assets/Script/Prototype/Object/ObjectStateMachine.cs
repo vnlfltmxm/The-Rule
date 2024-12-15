@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ObjectStateMachine<T> where T : Enum
 {
@@ -23,6 +24,11 @@ public class ObjectStateMachine<T> where T : Enum
     public void FixedUpdate()
     {
         _currentState.StateFixedUpdate();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        _currentState.OnTriggerEnter(other);
     }
 
     public void StartState(T state)

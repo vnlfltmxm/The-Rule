@@ -8,6 +8,7 @@ public interface IObjectState
     public void StateUpdate() { }
     public void StateFixedUpdate() { }
     public void StateExit() { }
+    public void OnTriggerEnter(Collider other) { }
 }
 
 public interface ISetPlayer : IObjectState
@@ -24,5 +25,5 @@ public interface ISoundTrace : ITrace
 
 public interface ISystemTrace : ITrace
 {
-
+    public void OnSystemTracking(Transform player);
 }
