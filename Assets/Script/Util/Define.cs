@@ -11,4 +11,11 @@ namespace Script.Util
         CheckRules,
         Look,
     }
+
+    public enum GameDifficulty
+    {
+        Easy, 
+        Normal, 
+        Hard
+    }
 }
