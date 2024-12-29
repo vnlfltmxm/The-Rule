@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 502485788676405120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8625951274123243210}
   - component: {fileID: 7913499678200599809}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 808609262616220683}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.426, y: 0.12, z: 0.58}
+  m_LocalPosition: {x: 0.426, y: 1, z: 0.58}
   m_LocalScale: {x: 0.20020267, y: 0.19431166, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5cc261738f1bfe14c89bd6cb280b66b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 3171217941096184846}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.688, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -184,7 +184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5cc261738f1bfe14c89bd6cb280b66b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,9 +233,9 @@ Transform:
   m_GameObject: {fileID: 5623832776544958152}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.4}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5618185364842581080}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -270,7 +270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5cc261738f1bfe14c89bd6cb280b66b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 8943998489713458764}
   - component: {fileID: 3561469896744923799}
   - component: {fileID: 6895947646621343781}
+  - component: {fileID: 9030929278684412398}
   - component: {fileID: 1200321829784822671}
   - component: {fileID: 7970040943663118275}
   - component: {fileID: 788537487196002217}
@@ -381,8 +382,10 @@ MonoBehaviour:
   PlayerInput: {fileID: 0}
   RaycastPropDetector: {fileID: 0}
   Rigidbody: {fileID: 7970040943663118275}
-  VirtualCamera: {fileID: 5668061214835835885}
+  VirtualCamera: {fileID: 6387045592256398786}
   HandTransform: {fileID: 1046782045173548628}
+  HeadTransform: {fileID: 12968742582467238}
+  BodyTransform: {fileID: 2601217743468337808}
 --- !u!114 &3561469896744923799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,9 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2f1b30a62846ca970a3837df40f64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CinemachineCameraTarget: {fileID: 5668061214835835885}
-  moveType: 0
-  forceMode: 0
+  CinemachineCameraTarget: {fileID: 6387045592256398786}
+  HeadTransform: {fileID: 0}
+  BodyTransform: {fileID: 0}
   CrouchSpeed: 2
   MoveSpeed: 4
   SprintSpeed: 10
@@ -423,6 +426,18 @@ MonoBehaviour:
   EyePanel: {fileID: 0}
   AudioListener: {fileID: 0}
   RulePanel: {fileID: 0}
+--- !u!114 &9030929278684412398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491596561737529060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d162ea0a5cae6949827f7f60c2ff116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1200321829784822671
 MonoBehaviour:
   m_ObjectHideFlags: 0
