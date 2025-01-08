@@ -15,7 +15,7 @@ public class ClerkDialog : MonoBehaviour
     {
         _clerkDialogText.text = string.Empty;
 
-        string dialog = "May I take your order, sir?";
+        string dialog = "주문하시겠습니까?";
 
         foreach(var text in dialog)
         {
