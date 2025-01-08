@@ -11,5 +11,4 @@ public class TestPlayer : MonoBehaviour
     {
         Cursor.visible = false;
     }
-
 }

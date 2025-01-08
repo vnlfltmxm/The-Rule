@@ -27,3 +27,10 @@ public interface ISystemTrace : ITrace
 {
     public void OnSystemTracking(Transform player);
 }
+
+public interface IInteraction { }
+
+public interface IInteractionCafe : IInteraction
+{
+    public void Interaction(GameObject playerObject);
+}

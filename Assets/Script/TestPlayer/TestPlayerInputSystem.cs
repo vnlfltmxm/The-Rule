@@ -47,6 +47,39 @@ public class TestPlayerInputSystem : MonoBehaviour
         _makeSound.StartSound(isPressed, 20f);
     }
 
+    private void OnInteraction(InputValue value)
+    {
+        var isPressed = value.isPressed;
+
+        if (isPressed)
+        {
+            float sphereRadius = 1f;
+
+            Vector3 spherePosition = transform.position + new Vector3(0f, 0.5f, 0.1f);
+
+            LayerMask targetLayer = LayerMask.GetMask("Cafe");
+
+            Collider[] colliders = Physics.OverlapSphere(spherePosition, sphereRadius, targetLayer);
+
+            if(colliders.Length < 0)
+            {
+                return;
+            }
+
+            foreach(var collider in colliders)
+            {
+                IInteractionCafe cafe = collider.GetComponent<IInteractionCafe>();
+
+                if(cafe != null)
+                {
+                    cafe.Interaction(gameObject);
+
+                    return;
+                }
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (IsRun)
