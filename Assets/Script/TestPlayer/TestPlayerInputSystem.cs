@@ -4,10 +4,12 @@ using UnityEngine.InputSystem;
 public class TestPlayerInputSystem : MonoBehaviour
 {
     private MakeSound _makeSound;
+    private PlayerInput _playerInput;
 
     private void Awake()
     {
         _makeSound = new MakeSound(this);
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     public Vector2 Input { get; set; }
@@ -78,6 +80,11 @@ public class TestPlayerInputSystem : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PlayerLock(bool isLock)
+    {
+        _playerInput.enabled = !isLock;
     }
 
     private void OnDrawGizmos()
