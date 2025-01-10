@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -48,7 +49,7 @@ public class CafeUIController : MonoBehaviour
 
         yield return StartCoroutine(_bannerUI.StartClerkDialog());
 
-        //메뉴UI On
+        _menuUI.SetActive(true);
     }
 
     private IEnumerator WaitForAlpha(float targetAlpha)
@@ -58,4 +59,19 @@ public class CafeUIController : MonoBehaviour
             return Mathf.Approximately(_backGroundController.BackGroundImage.color.a, targetAlpha);
         }); //Mathf.Approximately -> 부동 소수점값 2개가 거의 같은지 확인. 거의 같다면 true, 벗어난다면 false 리턴
     }
+
+    #region Test
+    //private void Test()
+    //{
+    //    StartCoroutine(WaitForAlpha(1f, () => isReady));
+    //}
+
+    //private IEnumerator WaitForAlpha(float targetAlpha, Func<bool> func)
+    //{
+    //    yield return new WaitUntil(() =>
+    //    {
+    //        return Mathf.Approximately(_backGroundController.BackGroundImage.color.a, targetAlpha) && func();
+    //    });
+    //}
+    #endregion
 }
