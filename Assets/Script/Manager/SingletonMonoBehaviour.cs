@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : SingletonMonoBehaviour<T>
 {
     private static T _instance;
 
@@ -16,10 +16,13 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBe
                 {
                     var sigletonObject = new GameObject(typeof(T).Name);
                     _instance = sigletonObject.AddComponent<T>();
+                    _instance.Init();
                 }
             }
 
             return _instance;
         }
     }
+
+    protected abstract void Init();
 }

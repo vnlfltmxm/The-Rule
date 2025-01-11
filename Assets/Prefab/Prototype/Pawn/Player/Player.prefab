@@ -120,6 +120,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &869610868334717798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2431773095217368247}
+  m_Layer: 6
+  m_Name: PlayerInventoryRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2431773095217368247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869610868334717798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.368, y: 1.224, z: 1.097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8452961937235318834}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3171217941096184846
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +366,6 @@ GameObject:
   - component: {fileID: 8943998489713458764}
   - component: {fileID: 3561469896744923799}
   - component: {fileID: 6895947646621343781}
-  - component: {fileID: 9030929278684412398}
   - component: {fileID: 1200321829784822671}
   - component: {fileID: 7970040943663118275}
   - component: {fileID: 788537487196002217}
@@ -363,6 +393,7 @@ Transform:
   - {fileID: 5618185364842581080}
   - {fileID: 6387045592256398786}
   - {fileID: 1046782045173548628}
+  - {fileID: 2431773095217368247}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -23.875, z: 0}
 --- !u!114 &8943998489713458764
@@ -377,13 +408,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59652c7f776d3924fa9e8e205e3cf153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMovementController: {fileID: 0}
-  PlayerUtilityController: {fileID: 0}
-  PlayerInput: {fileID: 0}
-  RaycastPropDetector: {fileID: 0}
-  Rigidbody: {fileID: 7970040943663118275}
-  VirtualCamera: {fileID: 6387045592256398786}
-  HandTransform: {fileID: 1046782045173548628}
+  _virtualCamera: {fileID: 6387045592256398786}
+  _handTransform: {fileID: 1046782045173548628}
+  _inventoryTransform: {fileID: 2431773095217368247}
   HeadTransform: {fileID: 12968742582467238}
   BodyTransform: {fileID: 2601217743468337808}
 --- !u!114 &3561469896744923799
@@ -426,18 +453,6 @@ MonoBehaviour:
   EyePanel: {fileID: 0}
   AudioListener: {fileID: 0}
   RulePanel: {fileID: 0}
---- !u!114 &9030929278684412398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7491596561737529060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d162ea0a5cae6949827f7f60c2ff116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1200321829784822671
 MonoBehaviour:
   m_ObjectHideFlags: 0

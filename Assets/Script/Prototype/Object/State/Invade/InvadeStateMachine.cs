@@ -67,7 +67,7 @@ public class InvadeStateMachine : MonoBehaviour
         }
         else
         {
-            Logger.Log("T º¯È¯ ½ÇÆÐ");
+            Logger.Log("T ë³€í™˜ ì‹¤íŒ¨");
             return null;
         }
     }

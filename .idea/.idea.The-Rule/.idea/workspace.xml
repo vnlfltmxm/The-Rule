@@ -5,13 +5,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Data/PlayerData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Data/PlayerData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/HierarchyManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Manager/HierarchyManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IPoolable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Prop/IPoolable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/ScriptableData/ItemDataBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/DragDropUI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/DragDropUI/DragDropUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/DragDropUI/DragDropUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/DragDropUI/DraggableUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI/Element.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI/Element/OverlayItemUIElement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI/Element/OverlayItemUIElement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI/TradeInventoryUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/UI_Base.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/UI/UI_Base.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/UI/Element/ItemSlot.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/UI/Element/ItemSlot.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/UI/Element/ItemUI.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/UI/Element/ItemUI.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/UI/InGameCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/UI/InGameCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/UI/StartSceneCanvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/UI/StartSceneCanvas.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resource.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resource/Material.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resource/Material/PlayerMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resource/Material/PlayerMat.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Setting/GlobalSettion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Setting/GlobalSettion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/InventoryBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/InventoryBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/ItemBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/ItemBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ScriptableData/ItemData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/ItemData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ScriptableData/ItemData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/ItemUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI/Element/ItemUIElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/ItemUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI/Element/ItemUIElement.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DestinationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DestinationManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/ResourceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/ResourceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/SingletonMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/SingletonMonoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemInventory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/ItemInventory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prop/ItemBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prop/ItemBase.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DraggableUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DraggableUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DragDropUI/DraggableUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DroppableSlotUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DragDropUI/DroppableUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/DroppableSlotUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/DragDropUI/DroppableUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/InventoryUI/TradeInventoryUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Util/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Util/Utility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/What.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/What.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,29 +83,36 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45b9485b4ba64564b30d91e935218d549b6e00/4c/d92ab334/SerializedProperty.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45b9485b4ba64564b30d91e935218d549b6e00/c9/b7428a5e/PropertyDrawer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45b9485b4ba64564b30d91e935218d549b6e00/d9/6683fea5/EditorApplication.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/f3/bd342dea/Func`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/4b/7971a66e/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/ca/8448650f/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/ed/51030a74/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/f2/7491a461/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/f3/8645761a/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Data/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Data/ItemUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Monster/FSM/PapaStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Scene/SceneChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ScriptableData/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Serialized/SerializedPropertyExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/InputSetting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/RebindInputAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Structure/TreeNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/UI/SettingUI/GameSettingUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionRebindingExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Editor/UGUI/UI/GraphicEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="없음" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -58,14 +126,14 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Unity 에디터에 연결.Unity 에디터에 연결.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;MoonSoo/Player&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MoonSoo/UI&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -93,10 +161,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="42860">
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="42860" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -133,6 +201,18 @@
       <workItem from="1735080634144" duration="7083000" />
       <workItem from="1735353160983" duration="13553000" />
       <workItem from="1735403192711" duration="16747000" />
+      <workItem from="1735743021151" duration="4914000" />
+      <workItem from="1735833139536" duration="7578000" />
+      <workItem from="1735870521423" duration="14106000" />
+      <workItem from="1735886450860" duration="3653000" />
+      <workItem from="1735890505391" duration="891000" />
+      <workItem from="1735891479260" duration="5179000" />
+      <workItem from="1735976446218" duration="114000" />
+      <workItem from="1735976572754" duration="903000" />
+      <workItem from="1735977499892" duration="17239000" />
+      <workItem from="1736005798715" duration="2115000" />
+      <workItem from="1736031767760" duration="12422000" />
+      <workItem from="1736586881085" duration="3888000" />
     </task>
     <servers />
   </component>
@@ -148,5 +228,37 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/UI/InventoryUI/TradeInventoryUI.cs</url>
+          <line>94</line>
+          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\UI\InventoryUI\TradeInventoryUI.cs" containingFunctionPresentation="메서드 'OnUIDrop'">
+            <startOffsets>
+              <option value="3032" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3048" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/UI/DragDropUI/DragDropUI.cs</url>
+          <line>102</line>
+          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\UI\DragDropUI\DragDropUI.cs" containingFunctionPresentation="메서드 'SwapItem'">
+            <startOffsets>
+              <option value="3278" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3333" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

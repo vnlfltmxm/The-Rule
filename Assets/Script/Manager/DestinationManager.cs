@@ -6,11 +6,10 @@ public class DestinationManager : SingletonMonoBehaviour<DestinationManager>
 {
     private Dictionary<string, Transform[]> _areaTransformDictionary;
 
-    private void Awake()
+    protected override void Init()
     {
         InitializeOnAwake();
     }
-
     private void InitializeOnAwake()
     {
         _areaTransformDictionary = new Dictionary<string, Transform[]>();
@@ -91,4 +90,5 @@ public class DestinationManager : SingletonMonoBehaviour<DestinationManager>
             }
         }
     }
+
 }

@@ -6,6 +6,10 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public float MusicVolume = 0.5f;
     public float SFXVolume = 0.5f;
 
+    protected override void Init()
+    {
+        
+    }
     public void SetSoundEnabled(bool isEnabled)
     {
         IsSoundEnabled = isEnabled;
@@ -18,4 +22,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     {
         SFXVolume = volume;
     }
+
+    
 }

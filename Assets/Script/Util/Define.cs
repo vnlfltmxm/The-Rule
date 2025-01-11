@@ -1,5 +1,12 @@
 namespace Script.Util
 {
+    public enum PrefabDataType
+    {
+        Unit,
+        UI,
+        UIElement,
+        Item,
+    }
     public enum InputType
     {
         Move,

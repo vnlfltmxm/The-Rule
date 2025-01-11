@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb4faae96a31bd41a6804b4073627d0, type: 3}
+  m_Name: TestItem
+  m_EditorClassIdentifier: 
+  <ID>k__BackingField: 0
+  <Name>k__BackingField: TestItem
+  <Description>k__BackingField: TestItem
+  <Sprite>k__BackingField: {fileID: 8980438598086963491, guid: ede4b03d4049f481a80ce6756418b385, type: 3}

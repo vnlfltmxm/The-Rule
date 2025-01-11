@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerUtilityController : MonoBehaviour
 {
     private RaycastPropDetector _raycastPropDetector;
-    private ItemInventory _itemInventory;
 
     [SerializeField] private GameObject EyePanel;
     [SerializeField] private AudioListener AudioListener;
@@ -15,7 +14,6 @@ public class PlayerUtilityController : MonoBehaviour
     public void Init(Player player)
     {
         _raycastPropDetector = player.RaycastPropDetector;
-        _itemInventory = player.ItemInventory;
         PlayerInputHandler playerInputHandler = player.PlayerInputHandler;
 
         playerInputHandler.OnInteractEvent = Interact;
@@ -30,10 +28,11 @@ public class PlayerUtilityController : MonoBehaviour
         if (_raycastPropDetector.HasDetected == true)
         {
             InteractiveProp prop = _raycastPropDetector.CurrentDetectedProp;
-            if(prop is Item item)
+            if(prop is ItemContainer itemContainer)
             {
-                item.Interact();
-                _itemInventory.AddItem(item);
+                itemContainer.Interact();
+                UIManager.Instance.OpenUI<TradeInventoryUI>()
+                    .Init(Player.Instance.PlayerData.InventoryData, itemContainer.InventoryData);
             }
             else if(prop is InteractiveDevice device)
             {
