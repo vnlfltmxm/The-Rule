@@ -34,3 +34,8 @@ public interface IInteractionCafe : IInteraction
 {
     public void Interaction(GameObject playerObject);
 }
+
+public interface IResetMenuUI
+{
+    public void ResetMenu();
+}

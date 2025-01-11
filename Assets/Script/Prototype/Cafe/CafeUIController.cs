@@ -10,6 +10,9 @@ public class CafeUIController : MonoBehaviour
     private BannerUI _bannerUI;
     private CafeBackGroundController _backGroundController;
 
+    private GameObject _cafeCamera;
+    private TestPlayerInputSystem _playerInput;
+
     public Transform CafePosition { get; set; }
 
     private void Awake()
@@ -30,11 +33,12 @@ public class CafeUIController : MonoBehaviour
 
     private IEnumerator OnMenuUI(GameObject playerObject, GameObject cafeCamera)
     {
-        var testPlayerInput = playerObject.GetComponent<TestPlayerInputSystem>();
+        _playerInput = playerObject.GetComponent<TestPlayerInputSystem>();
+        _cafeCamera = cafeCamera;
 
-        if(testPlayerInput != null)
+        if (_playerInput != null)
         {
-            testPlayerInput.PlayerLock(true);
+            _playerInput.PlayerLock(true);
         }
 
         StartCoroutine(_backGroundController.FadeBackGround());
@@ -43,13 +47,24 @@ public class CafeUIController : MonoBehaviour
 
         playerObject.transform.position = CafePosition.position;
 
-        cafeCamera.SetActive(true);
+        _cafeCamera.SetActive(true);
 
         yield return WaitForAlpha(0f);
 
         yield return StartCoroutine(_bannerUI.StartClerkDialog());
 
         _menuUI.SetActive(true);
+    }
+
+    public void Exit()
+    {
+        CafeManager.Instance.ResetCafeMenu();
+
+        _playerInput.PlayerLock(false);
+
+        _cafeCamera.SetActive(false);
+
+        _menuUI.SetActive(false);
     }
 
     private IEnumerator WaitForAlpha(float targetAlpha)

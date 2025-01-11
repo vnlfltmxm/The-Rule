@@ -12,15 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01f88a4b64f8494ab1110ec83dc2e9e, type: 3}
   m_Name: CafeData
   m_EditorClassIdentifier: 
-  _menuData:
-  - "\uCEE4\uD53C"
-  - "\uB179\uCC28"
-  - "\uD64D\uCC28"
-  - "\uC870\uAC01 \uCF00\uC774\uD06C"
-  - "\uCE58\uC988"
-  - "\uB538\uAE30"
-  - "\uC0DD\uD06C\uB9BC"
-  - "\uCD08\uCF54"
+  _cafeMenuData:
+  - _menuName: "\uB179\uCC28"
+    _price: 4500
+    _foodSprite: {fileID: 443179524, guid: 12bef19fd3d26ed4d9331150694b350b, type: 3}
+  - _menuName: "\uB538\uAE30"
+    _price: 8000
+    _foodSprite: {fileID: -1548463334, guid: 9a10ce4fd612b9e4fb4abf9c96c41c52, type: 3}
+  - _menuName: "\uC0DD\uD06C\uB9BC"
+    _price: 1000
+    _foodSprite: {fileID: -153453960, guid: e4ff03755dfb21944aa9705251f8c607, type: 3}
+  - _menuName: "\uC870\uAC01 \uCF00\uC774\uD06C"
+    _price: 10000
+    _foodSprite: {fileID: -208513593, guid: cccfc5bbcef721140917f03c5256473c, type: 3}
+  - _menuName: "\uCD08\uCF54"
+    _price: 3000
+    _foodSprite: {fileID: -412269406, guid: 8ed243368ff21704691e4f36ad7e72f8, type: 3}
+  - _menuName: "\uCE58\uC988"
+    _price: 2000
+    _foodSprite: {fileID: 475293691, guid: b67adf48410dc9543831b5919c3173aa, type: 3}
+  - _menuName: "\uCEE4\uD53C"
+    _price: 5000
+    _foodSprite: {fileID: -211024603, guid: 23cc706aeb89f4e4a9ea2e9370f856a7, type: 3}
+  - _menuName: "\uD64D\uCC28"
+    _price: 5500
+    _foodSprite: {fileID: -1997340141, guid: 3efef84d9bfd13341afe64b8a9f64c25, type: 3}
   _notRecommendMenu:
   - "\uD64D\uCC28"
   - "\uCEE4\uD53C"
