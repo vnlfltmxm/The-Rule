@@ -46,7 +46,6 @@ public class InvadeObjectTrace : InvadeObjectMovement, IObjectState<InvadeObject
             RayCast(_player, _invadeObject.transform, InvadeState.Tracking);
         }
     }
-
     public void CalculateTracePath()
     {
         var targetPosition = _invadeObject.SoundPosition;
@@ -62,7 +61,6 @@ public class InvadeObjectTrace : InvadeObjectMovement, IObjectState<InvadeObject
             _rigidbody.linearVelocity = Vector3.zero;   
         }
     }
-
     private void NextTarget()
     {
         _pathListIndex++;
@@ -78,7 +76,6 @@ public class InvadeObjectTrace : InvadeObjectMovement, IObjectState<InvadeObject
             _state.ChangeObjectState(InvadeState.Look);
         }
     }
-
     public void SetPlayer(Transform player)
     {
         _player = player;

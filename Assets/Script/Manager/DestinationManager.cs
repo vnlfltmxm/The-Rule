@@ -47,6 +47,21 @@ public class DestinationManager : SingletonMonoBehaviour<DestinationManager>
 
         return _areaTransformDictionary[areaName];
     }
+    
+    public Transform[] GetRandomWayPoints(string areaName)
+    {
+        Transform[] destinationArray = DestinationManager.Instance.GetWayPoints(areaName);
+
+        if(destinationArray != null)
+        {
+            for (int i = destinationArray.Length - 1; i > 0; i--)
+            {
+                int randomIndex = UnityEngine.Random.Range(0, i + 1);
+                (destinationArray[i], destinationArray[randomIndex]) = (destinationArray[randomIndex], destinationArray[i]);
+            }
+        }
+        return destinationArray;
+    }
 
     private Transform[] FindArea(string areaName)
     {
