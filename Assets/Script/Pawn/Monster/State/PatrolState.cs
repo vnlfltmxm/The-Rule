@@ -6,7 +6,7 @@ using Script.Pawn;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PatrolState : State<Pawn>
+public class PatrolState : State
 {
     private Transform[] _destinationArray;
     private Transform _currentDestination;
@@ -26,9 +26,10 @@ public class PatrolState : State<Pawn>
     protected int _pathListIndex;
     
     
-    public PatrolState(Pawn stateObject) : base(stateObject)
+    public override void InitState(Pawn stateObject)
     {
-        _patrolAreaName = _stateObject.AreaName;
+        base.InitState(stateObject);
+        //_patrolAreaName = _stateObject.AreaName;
     }
     public override void StateEnter()
     {

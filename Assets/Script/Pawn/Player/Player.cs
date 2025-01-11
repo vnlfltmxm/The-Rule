@@ -47,7 +47,7 @@ namespace Script.Pawn.Player
         public Transform InventoryTransform => _inventoryTransform;
         #endregion
 
-        protected override void Init()
+        protected override void OnStart()
         {
             _instance = this;
 

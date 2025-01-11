@@ -20,6 +20,7 @@ public interface ITrace { }
 
 public interface ISoundTrace : ITrace
 {
+    public Vector3 SoundPosition { get; set; }
     public void OnHearSound(Vector3 position, Transform player);
 }
 

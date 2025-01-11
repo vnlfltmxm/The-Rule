@@ -6,8 +6,9 @@ using Script.Pawn;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SoundTraceState : State<Pawn>
+public class SoundTraceState : State
 {
+    private ISoundTrace _soundTrace;
     private Transform _player;
     
     protected NavMeshPath _path;
@@ -16,6 +17,8 @@ public class SoundTraceState : State<Pawn>
     protected List<Vector3> _pathList;
     protected Vector3 _currentPath;
 
+    protected float _soundDistance;
+    
     protected float _rotationSpeed;
     protected float _movementSpeed;
     protected int _pathListIndex;
@@ -27,16 +30,22 @@ public class SoundTraceState : State<Pawn>
     
     private LayerMask _targetLayer = LayerMask.GetMask("Player", "Wall");
     
-    public SoundTraceState(Pawn stateObject) : base(stateObject)
+    public override void InitState(Pawn stateObject)
     {
-        //내용
+        base.InitState(stateObject);
     }
+
     public override void StateEnter()
     {
         CalculateTracePath();
     }
     public override Type StateCheck()
     {
+        if (_stateObject is ISoundTrace soundTrace)
+            _soundTrace = soundTrace;
+        else
+            return typeof(IdleState);
+            
         if (_pathListIndex >= _pathList.Count)
         {
             _rigidbody.linearVelocity = Vector3.zero;
@@ -76,7 +85,7 @@ public class SoundTraceState : State<Pawn>
     }
     public void CalculateTracePath()
     {
-        var targetPosition = _stateObject.SoundPosition;
+        var targetPosition = _soundTrace.SoundPosition;
 
         AIUtil.CalculatePath(_pathList, _stateObject.transform.position, targetPosition, _path);
 
@@ -89,18 +98,16 @@ public class SoundTraceState : State<Pawn>
             _rigidbody.linearVelocity = Vector3.zero;   
         }
     }
-    private void NextTarget()
-    {
-        _pathListIndex++;
 
-        if (_pathListIndex < _pathList.Count)
-        {
-            _currentPath = _pathList[_pathListIndex];
-        }
-        else
-        {
-            _rigidbody.linearVelocity = Vector3.zero;
-            _state.ChangeObjectState(InvadeState.Look);
-        }
+    public override void AlwaysDrawGizmos()
+    {
+        DrawSoundRange(_soundDistance, _stateObject.transform.position, Color.red);
+    }
+    
+    private void DrawSoundRange(float radius, Vector3 position, Color color)
+    {
+        Gizmos.color = color;
+
+        Gizmos.DrawWireSphere(position, radius);
     }
 }

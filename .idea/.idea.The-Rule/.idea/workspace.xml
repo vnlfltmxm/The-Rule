@@ -6,14 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/DestinationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/DestinationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/FSM/MonsterPapa_FSM.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/FSM/MonsterPapa_FSM.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterPapa.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterMama.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterPapa.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterMama.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeState/InvadeObjectTrace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeState/InvadeObjectTrace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeState/InvadeObjectTracking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeState/InvadeObjectTracking.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Util/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Util/Utility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MoonSooMonsterTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MoonSooMonsterTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/MonsterManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/EnemyManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/MonsterManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/FSM/MonsterBase.FSM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/FSM/MonsterBase.FSM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/FSM/MonsterBase.FSM.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/FSM/MonsterBase.FSM.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/LookState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/LookState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/PatrolState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/PatrolState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/SoundTraceState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/SoundTraceState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/TrackingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/TrackingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/Interface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/Interface.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Monster/FSM/MonsterBase.FSM.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Monster/State/PatrolState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Monster/StateFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Scene/SceneChanger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -51,6 +59,9 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.multiplayer.center/Editor/Analytics/MultiplayerCenterAnalyticsFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.multiplayer.center/Editor/MultiplayerCenterWindow/UI/QuestionViewFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core/Editor/Volume/VolumeProfileFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Editor/UGUI/UI/GraphicEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
@@ -154,7 +165,7 @@
       <workItem from="1735977499892" duration="17239000" />
       <workItem from="1736005798715" duration="2115000" />
       <workItem from="1736031767760" duration="12422000" />
-      <workItem from="1736586881085" duration="15682000" />
+      <workItem from="1736586881085" duration="30906000" />
     </task>
     <servers />
   </component>

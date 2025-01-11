@@ -7,7 +7,7 @@ using Script.Pawn;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TrackingState : State<Pawn>
+public class TrackingState : State
 {
     private Transform _player;
     private WaitForSeconds _waitTime;
@@ -28,12 +28,13 @@ public class TrackingState : State<Pawn>
     protected NavMeshAgent _agent;
     protected Rigidbody _rigidbody;
     
-    public TrackingState(Pawn stateObject) : base(stateObject)
+    public override void InitState(Pawn stateObject)
     {
         _waitTime = new WaitForSeconds(0.1f);
         _agent = _stateObject.GetComponent<NavMeshAgent>();
         _rigidbody = _stateObject.GetComponent<Rigidbody>();
     }
+
     public override void StateEnter()
     {
         _isDetect = true;
@@ -91,10 +92,6 @@ public class TrackingState : State<Pawn>
             Logger.Log("잡았다");
         }
     }
-
-
-
-
 
     #region Func
     private void SetNavMeshAgent(bool isEnable, float stoppingDistance)
