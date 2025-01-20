@@ -7,47 +7,27 @@ public class CafeUIController : MonoBehaviour
     [Header("MenuUI")]
     [SerializeField] private GameObject _menuUI;
 
-    private BannerUI _bannerUI;
-    private CafeBackGroundController _backGroundController;
+    [Header("BannerUI")]
+    [SerializeField] private BannerUI _bannerUI;
 
-    private GameObject _cafeCamera;
-    private TestPlayerInputSystem _playerInput;
+    [Header("BackGroundController")]
+    [SerializeField] private CafeBackGroundController _backGroundController;
 
-    public Transform CafePosition { get; set; }
+    public Action UnLockPlayer { get; set; }
+    public Action<bool> SetActiveCamera { get; set; }
 
-    private void Awake()
+    public void OnActiveMenuUI(Action movePlayer)
     {
-        InitializeCafeUIController();
+        StartCoroutine(OnMenuUI(movePlayer));
     }
 
-    private void InitializeCafeUIController()
+    private IEnumerator OnMenuUI(Action movePlayer)
     {
-        _bannerUI = transform.GetComponentInChildren<BannerUI>();
-        _backGroundController = transform.GetComponentInChildren<CafeBackGroundController>();
-    }
-
-    public void OnActiveMenuUI(GameObject playerObject, GameObject cafeCamera)
-    {
-        StartCoroutine(OnMenuUI(playerObject, cafeCamera));
-    }
-
-    private IEnumerator OnMenuUI(GameObject playerObject, GameObject cafeCamera)
-    {
-        _playerInput = playerObject.GetComponent<TestPlayerInputSystem>();
-        _cafeCamera = cafeCamera;
-
-        if (_playerInput != null)
-        {
-            _playerInput.PlayerLock(true);
-        }
-
         StartCoroutine(_backGroundController.FadeBackGround());
 
         yield return WaitForAlpha(1f);
 
-        playerObject.transform.position = CafePosition.position;
-
-        _cafeCamera.SetActive(true);
+        movePlayer?.Invoke();
 
         yield return WaitForAlpha(0f);
 
@@ -60,9 +40,9 @@ public class CafeUIController : MonoBehaviour
     {
         CafeManager.Instance.ResetCafeMenu();
 
-        _playerInput.PlayerLock(false);
+        UnLockPlayer?.Invoke();
 
-        _cafeCamera.SetActive(false);
+        SetActiveCamera?.Invoke(false);
 
         _menuUI.SetActive(false);
     }

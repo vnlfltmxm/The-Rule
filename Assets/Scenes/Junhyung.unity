@@ -9360,6 +9360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuUI: {fileID: 921709901}
+  _bannerUI: {fileID: 889091420}
+  _backGroundController: {fileID: 1573803717}
 --- !u!1 &971095147
 GameObject:
   m_ObjectHideFlags: 0

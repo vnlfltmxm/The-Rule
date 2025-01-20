@@ -124,7 +124,7 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
             stringList[0] : stringList[_random.Next(stringList.Count)];
     }
 
-    public void ResetBannerMenu()
+    public void ResetBannerMenu() //배너 초기화 코드
     {
         InitializeBanner();
 

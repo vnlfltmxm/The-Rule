@@ -31,14 +31,14 @@ public class CafeBackGroundController : MonoBehaviour
     {
         float startAlpha = backGroundColor.a;
 
-        float elapsed = 0f;
+        float elapsed = 0f; //경과시간
 
-        while (elapsed < _duractionTime)
+        while (elapsed < _duractionTime) //경과시간이 총 시간보다 작다면 동작.
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.deltaTime; //코루틴이 실행된 총 경과시간.
 
-            backGroundColor.a = Mathf.Lerp(startAlpha, targetAlpha, elapsed / _duractionTime);
-
+            backGroundColor.a = Mathf.Lerp(startAlpha, targetAlpha, elapsed / _duractionTime); //경과시간 / 총 시간 = 진행도(0 ~ 1사이의 값) 
+                                                                                               //StartAlpha에서 targetAlpha까지 진행도 만큼 부드럽게 변화.  
             _backGroundImage.color = backGroundColor;
 
             yield return null;
