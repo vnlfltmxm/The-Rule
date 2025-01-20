@@ -8,24 +8,58 @@ public class Cafe : MonoBehaviour, IInteractionCafe
     [SerializeField] private GameObject _cafeCamera;
 
     private CafeUIController _cafeUIController;
+    private TestPlayerInputSystem _testPlayerInputSystem;
+    private GameObject _cafePlayer;
 
     private void Awake()
     {
-        SetCafeUIController();
+        InitializeCafe();
     }
 
-    private void SetCafeUIController()
+    private void InitializeCafe()
     {
         _cafeUIController = transform.GetComponentInChildren<CafeUIController>();
 
-        if(_cafeUIController != null )
+        if (_cafeUIController != null)
         {
-            _cafeUIController.CafePosition = _cafePlayerPosition;
+            _cafeUIController.UnLockPlayer = UnLockPlayer;
+
+            _cafeUIController.SetActiveCamera = SetActiveCamera;
         }
     }
 
     public void Interaction(GameObject playerObject)
     {
-        _cafeUIController.OnActiveMenuUI(playerObject, _cafeCamera);
+        _cafePlayer = playerObject;
+
+        _testPlayerInputSystem = playerObject.GetComponent<TestPlayerInputSystem>();
+
+        if(_testPlayerInputSystem == null)
+        {
+            return;
+        }
+
+        _testPlayerInputSystem.PlayerLock(true);
+        
+        _cafeUIController.OnActiveMenuUI(MovePlayer);
+    }
+
+    public void MovePlayer()
+    {
+        _cafePlayer.transform.position = _cafePlayerPosition.position;
+
+        SetActiveCamera(true);
+    }
+
+    public void UnLockPlayer()
+    {
+        SetActiveCamera(false);
+
+        _testPlayerInputSystem.PlayerLock(false);
+    }
+
+    public void SetActiveCamera(bool isActive)
+    {
+        _cafeCamera.SetActive(isActive);
     }
 }

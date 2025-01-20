@@ -22,10 +22,13 @@ public class CafeBottomMenu : MonoBehaviour, IResetMenuUI
 
     private void Awake()
     {
+        InitializeCafeBottonMenuUI();
+    }
+
+    private void InitializeCafeBottonMenuUI()
+    {
         _buyButtonImage = _buyButton.gameObject.GetComponent<Image>();
-
         SetAlpha(_disableBuyButtonAlpha, false);
-
         _totalPriceText.text = "0";
     }
 

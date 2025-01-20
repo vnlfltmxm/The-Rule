@@ -48,14 +48,10 @@ public class CafeMenu : MonoBehaviour, IResetMenuUI
         _data = cafeMenuData;
 
         InitializeViewModel();
-        InitializeButton(cafeMenuData);
 
-        _foodImage.sprite = cafeMenuData._foodSprite;
-        _foodNameText.text = cafeMenuData._menuName;
-        _foodPriceText.text = cafeMenuData._price.ToString();
+        InitializeButton();
 
-        _totalCountText.text = "0";
-        _totalPriceText.text = "0";
+        InitializeCafeMenuUI();
     }
 
     private void InitializeViewModel()
@@ -65,10 +61,20 @@ public class CafeMenu : MonoBehaviour, IResetMenuUI
         RegisterEvent();
     }
 
-    private void InitializeButton(CafeMenuData cafeMenuData)
+    private void InitializeCafeMenuUI()
     {
-        _nextButton.SetValue(cafeMenuData._menuName, cafeMenuData._price, 1);
-        _previousButton.SetValue(cafeMenuData._menuName, cafeMenuData._price, 1);
+        _foodImage.sprite = _data._foodSprite;
+        _foodNameText.text = _data._menuName;
+        _foodPriceText.text = _data._price.ToString();
+        _totalCountText.text = "0";
+        _totalPriceText.text = "0";
+    }
+
+    private void InitializeButton()
+    {
+        _nextButton.SetValue(_data._menuName, _data._price, 1);
+
+        _previousButton.SetValue(_data._menuName, _data._price, 1);
     }
 
     private void ChangeCafeMenu(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
@@ -76,20 +82,7 @@ public class CafeMenu : MonoBehaviour, IResetMenuUI
         switch(propertyChangedEventArgs.PropertyName)
         {
             case nameof(_menuViewModel.TotalCount):
-                _totalCountText.text = _menuViewModel.TotalCount.ToString();
-
-                if(_menuViewModel.TotalCount <= 0)
-                {
-                    _previousButton.SetAlpha(_previousButton.DisableAlpha, false);
-                }
-                else
-                {
-                    if (!_previousButton.IsEnabled)
-                    {
-                        _previousButton.SetAlpha(_previousButton.EnableAlpha, true);
-                    }
-                }
-
+                UpdateTotalCount();
                 break;
             case nameof(_menuViewModel.TotalPrice):
                 _totalPriceText.text = _menuViewModel.TotalPrice.ToString();
@@ -97,19 +90,30 @@ public class CafeMenu : MonoBehaviour, IResetMenuUI
         }
     }
 
+    private void UpdateTotalCount()
+    {
+        _totalCountText.text = _menuViewModel.TotalCount.ToString();
+
+        if(_menuViewModel.TotalCount <= 0)
+        {
+            _previousButton.SetAlpha(_previousButton.DisableAlpha, false);
+        }
+        else if (!_previousButton.IsEnabled)
+        {
+            _previousButton.SetAlpha(_previousButton.EnableAlpha, true);
+        }
+    }
+
     private void RegisterEvent()
     {
         _menuViewModel.PropertyChanged -= ChangeCafeMenu;
-
         _menuViewModel.PropertyChanged += ChangeCafeMenu;
-
         _menuViewModel.RegisterChangeEventOnEnable(_data._menuName, this);
     }
 
     private void UnRegisterEvent()
     {
         _menuViewModel.PropertyChanged -= ChangeCafeMenu;
-
         _menuViewModel.UnRegisterChangeEventOnDisable(_data._menuName);
     }
 
