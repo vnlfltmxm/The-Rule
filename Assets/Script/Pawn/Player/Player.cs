@@ -6,6 +6,8 @@ namespace Script.Pawn.Player
 {
     public class Player : Pawn
     {
+        public static Player S_Player;
+        
         public PlayerBodyCondition PlayerBodyCondition;
         public PlayerInputHandler PlayerInputHandler;
         public ItemInventory ItemInventory;
@@ -24,6 +26,7 @@ namespace Script.Pawn.Player
 
         protected override void Init()
         {
+            S_Player = this;
             PlayerBodyCondition = new PlayerBodyCondition();
             PlayerInputHandler = new PlayerInputHandler();
             ItemInventory = new ItemInventory();

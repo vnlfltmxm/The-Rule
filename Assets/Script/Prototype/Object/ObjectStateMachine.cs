@@ -2,22 +2,26 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectStateMachine<T> where T : Enum
+public class ObjectStateMachine<TObject, TEnum, TFactory> 
+    where TObject : class 
+    where TEnum : Enum
+    where TFactory : IStateFactory<TObject, TEnum>, new()
 {
-    private Dictionary<T, IObjectState> _stateDictionary = new Dictionary<T, IObjectState>();
-    private ObjectStateFactory _factory;
+    private Dictionary<TEnum, IObjectState> _stateDictionary = new Dictionary<TEnum, IObjectState>();
+    private ObjectStateFactory<TObject, TEnum, TFactory> _factory;
     private IObjectState _currentState;
 
-    public Dictionary<T, IObjectState> StateDictionary => _stateDictionary;
+    public Dictionary<TEnum, IObjectState> StateDictionary => _stateDictionary;
     public IObjectState CurrentState => _currentState;
     
     public void Initialize()
     {
-        _factory = new ObjectStateFactory();
+        _factory = new ObjectStateFactory<TObject, TEnum, TFactory>();
     }
 
     public void StateUpdate()
     {
+        Logger.Log($"{typeof(TObject)} CurrentState : {_currentState.GetType()}", Color.red);
         _currentState.StateUpdate();
     }
 
@@ -31,7 +35,7 @@ public class ObjectStateMachine<T> where T : Enum
         _currentState.OnTriggerEnter(other);
     }
 
-    public void StartState(T state)
+    public void StartState(TEnum state)
     {
         if(_stateDictionary.ContainsKey(state))
         {
@@ -41,7 +45,7 @@ public class ObjectStateMachine<T> where T : Enum
         }
     }
 
-    public void ChangeObjectState(T nextState)
+    public void ChangeObjectState(TEnum nextState)
     {
         if(_stateDictionary.ContainsKey(nextState))
         {
@@ -56,11 +60,11 @@ public class ObjectStateMachine<T> where T : Enum
     public void CreateState<TClass>(TClass classType)
         where TClass : class 
     {
-        var stateDictionary = _factory.CreateState<TClass, T>(classType);
+        var stateDictionary = _factory.CreateState<TClass, TEnum>(classType);
 
         if(stateDictionary != null)
         {
-            foreach (KeyValuePair<T, IObjectState> pair in stateDictionary)
+            foreach (KeyValuePair<TEnum, IObjectState> pair in stateDictionary)
             {
                 var key = pair.Key;
                 var value = pair.Value;
@@ -70,9 +74,8 @@ public class ObjectStateMachine<T> where T : Enum
         }
     }
 
-    public IObjectState GetObjectState<TClass,TEnum>(TClass classType, T state)
+    public IObjectState GetObjectState<TClass>(TClass classType, TEnum state)
         where TClass : class
-        where TEnum : Enum
     {
         if(_stateDictionary.TryGetValue(state, out IObjectState objectState))
         {
@@ -84,7 +87,7 @@ public class ObjectStateMachine<T> where T : Enum
         return _stateDictionary[state];
     }
 
-    private void CreateCurrentState<TClass>(TClass classType, T enumType)
+    private void CreateCurrentState<TClass>(TClass classType, TEnum enumType)
         where TClass : class
     {
         var currentState = _factory.CreateState(classType, enumType);

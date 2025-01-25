@@ -6,12 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MoonSoo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Setting/GlobalSettion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Setting/GlobalSettion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/Enum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/Enum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerBodyCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerBodyCondition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/EnemyFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/EnemyFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/ObjectStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/ObjectStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeState/InvadeObjectTracking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeState/InvadeObjectTracking.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/State/Invade/InvadeStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Util/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Util/Utility.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +33,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/f3/8645761a/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/ItemUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Data/SpawnData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Prototype/Object/State/MomMonster/MomMonsterTracking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Scene/SceneChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/InputSetting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/RebindInputAction.cs" root0="FORCE_HIGHLIGHTING" />
@@ -43,9 +49,6 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="없음" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -54,28 +57,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Unity 에디터에 연결.Unity 에디터에 연결.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;MoonSoo/Player&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Unity 에디터에 연결.Unity 에디터에 연결.executor": "Debug",
+    "git-widget-placeholder": "MoonSoo/Monster",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\GONG\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\GONG\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\GONG\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\GONG\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\GONG\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\GONG\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\UnityEditor\6000.0.28f1\Editor\Unity.exe" />
@@ -93,10 +96,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="42860">
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="60348">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="42860" />
+      <option name="pid" value="60348" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -133,6 +136,7 @@
       <workItem from="1735080634144" duration="7083000" />
       <workItem from="1735353160983" duration="13553000" />
       <workItem from="1735403192711" duration="16747000" />
+      <workItem from="1737751347452" duration="20506000" />
     </task>
     <servers />
   </component>

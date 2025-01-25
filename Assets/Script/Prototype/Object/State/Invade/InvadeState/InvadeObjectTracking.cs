@@ -61,7 +61,7 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Logger.Log("Àâ¾Ò´Ù");
+            Logger.Log("ìž¡ì•˜ë‹¤");
         }
         else if(other.gameObject.layer == LayerMask.NameToLayer("SafeArea"))
         {

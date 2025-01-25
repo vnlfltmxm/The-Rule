@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvadeStateMachine : MonoBehaviour
+public class ChildStateMachine : MonoBehaviour
 {
-    private ObjectStateMachine<InvadeObject, InvadeState, InvadeObjectStateFactory> _stateMachine;
-    private InvadeObject _invadeObject;
-
+    private ObjectStateMachine<ChildMonster, ChildState, ChildMonsterStateFactory> _stateMachine;
+    private ChildMonster _stateObject;
+    
     private void Awake()
     {
         InitializeOnAwake();
@@ -13,18 +13,18 @@ public class InvadeStateMachine : MonoBehaviour
 
     private void InitializeOnAwake()
     {
-        _invadeObject = GetComponent<InvadeObject>();
+        _stateObject = GetComponent<ChildMonster>();
 
-        _stateMachine = new ObjectStateMachine<InvadeObject, InvadeState, InvadeObjectStateFactory>();
+        _stateMachine = new ObjectStateMachine<ChildMonster, ChildState, ChildMonsterStateFactory>();
 
         _stateMachine.Initialize();
 
-        _stateMachine.CreateState(_invadeObject);
+        _stateMachine.CreateState(_stateObject);
     }
-
+    
     private void Start()
     {
-        _stateMachine.StartState(InvadeState.Patrol);
+        _stateMachine.StartState(ChildState.Idle);
     }
 
     private void FixedUpdate()
@@ -42,7 +42,7 @@ public class InvadeStateMachine : MonoBehaviour
         _stateMachine.OnTriggerEnter(other);
     }
 
-    public void ChangeObjectState(InvadeState newState)
+    public void ChangeObjectState(ChildState newState)
     {
         _stateMachine.ChangeObjectState(newState);
     }
@@ -52,14 +52,14 @@ public class InvadeStateMachine : MonoBehaviour
         return _stateMachine.CurrentState;
     }
 
-    public Dictionary<InvadeState, IObjectState> GetStateDictionary()
+    public Dictionary<ChildState, IObjectState> GetStateDictionary()
     {
         return _stateMachine.StateDictionary;
     }
 
-    public T GetObjectState<T>(InvadeState state) where T : class
+    public T GetObjectState<T>(ChildState state) where T : class
     {
-        var objectState = _stateMachine.GetObjectState<InvadeObject>(_invadeObject, state);
+        var objectState = _stateMachine.GetObjectState<ChildMonster>(_stateObject, state);
 
         if(objectState is T tValue)
         {
@@ -71,5 +71,4 @@ public class InvadeStateMachine : MonoBehaviour
             return null;
         }
     }
-
 }

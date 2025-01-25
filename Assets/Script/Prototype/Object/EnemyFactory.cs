@@ -12,18 +12,19 @@ public class EnemyFactory<TClass, TEnum>
 
 #region StateFactory
 
-public class ObjectStateFactory
+public class ObjectStateFactory<TObject, TState, TStateFactory> 
+    where TObject : class 
+    where TState : Enum 
+    where TStateFactory : IStateFactory<TObject, TState>, new()
 {
     private Dictionary<Type, object> _factorys = new Dictionary<Type, object>();
 
     public ObjectStateFactory()
     {
-        _factorys[typeof(IStateFactory<InvadeObject, InvadeState>)] = new InvadeObjectStateFactory();
+        _factorys[typeof(IStateFactory<TObject, TState>)] = new TStateFactory();
     }
 
-    public Dictionary<TEnum, IObjectState> CreateState<TClass, TEnum>(TClass classType)
-        where TClass : class
-        where TEnum : Enum
+    public Dictionary<TEnum, IObjectState> CreateState<TClass, TEnum>(TClass classType) where TClass : class where TEnum : Enum
     {
         var factoryType = typeof(IStateFactory<TClass, TEnum>);
 
@@ -103,6 +104,38 @@ public class InvadeObjectStateFactory : IStateFactory<InvadeObject, InvadeState>
                 return new InvadeObjectTracking(classType);
             case InvadeState.Trace:
                 return new InvadeObjectTrace(classType);
+            default:
+                throw new ArgumentException();
+        }
+    }
+}
+public class MomMonsterStateFactory : IStateFactory<MomMonster, MomState>
+{
+    public IObjectState CreateState(MomMonster classType, MomState enumType)
+    {
+        switch (enumType)
+        {
+            case MomState.Idle:
+                return new MomMonsterIdle(classType);
+            case MomState.Tracking:
+                return new MomMonsterTracking(classType);
+            default:
+                throw new ArgumentException();
+        }
+    }
+}
+public class ChildMonsterStateFactory : IStateFactory<ChildMonster, ChildState>
+{
+    public IObjectState CreateState(ChildMonster classType, ChildState enumType)
+    {
+        switch (enumType)
+        {
+            case ChildState.Idle:
+                return new ChildMonsterIdle(classType);
+            case ChildState.Cry:
+                return new ChildMonsterCry(classType);
+            case ChildState.Tracking:
+                return new ChildMonsterTracking(classType);
             default:
                 throw new ArgumentException();
         }
