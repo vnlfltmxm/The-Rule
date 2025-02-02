@@ -21,7 +21,7 @@ public class ObjectStateMachine<TObject, TEnum, TFactory>
 
     public void StateUpdate()
     {
-        Logger.Log($"{typeof(TObject)} CurrentState : {_currentState.GetType()}", Color.red);
+        //Logger.Log($"{typeof(TObject)} CurrentState : {_currentState.GetType()}", Color.red);
         _currentState.StateUpdate();
     }
 

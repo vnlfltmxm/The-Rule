@@ -8,19 +8,28 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
 
     private HashSet<string> _soldOutSet;
     private HashSet<string> _notRecommendSet;
+    private HashSet<string> _colorlessFoodSet;
 
     private Dictionary<string, Delegate> _cafeMenuEvent = new Dictionary<string, Delegate>();
     private List<IResetMenuUI> _resetMenuList = new List<IResetMenuUI>();
     private Action<int> _cafeBottomMenuEvent;
 
     private CafeData _data;
+    private CafeRule _rule;
     private System.Random _random;
     private Action _resetBannerMenu;
+
+    private GameObject _playerPrefab;
 
     public HashSet<string> SoldOutSet => _soldOutSet;
     public HashSet<string> NotRecommendSet => _notRecommendSet;
     public CafeData Data => _data;
     public string RecommendedMenu { get; set; }
+    public GameObject PlayerPrefab
+    {
+        get => _playerPrefab;
+        set => _playerPrefab = value;
+    }
 
     private void Awake()
     {
@@ -34,6 +43,8 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         LoadCafeData();
 
         InitializeBanner();
+
+        InitializeColorlessFoodHashSet();
     }
 
     private void LoadCafeData()
@@ -43,6 +54,23 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         if (scriptableData is CafeData data)
         {
             _data = data;
+
+            _rule = new CafeRule(data);
+        }
+    }
+
+    private void InitializeColorlessFoodHashSet()
+    {
+        _colorlessFoodSet = _colorlessFoodSet ?? new HashSet<string>();
+
+        foreach(var menu in _data.ColorlessFoodNames)
+        {
+            if (string.IsNullOrWhiteSpace(menu))
+            {
+                continue;
+            }
+
+            _colorlessFoodSet.Add(menu);
         }
     }
 
@@ -171,6 +199,17 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
 
     public void TriggerMenuEvent<TValue_1, TValue_2>(string key, TValue_1 totalCount, TValue_2 totalPrice)
     {
+        if (_cafeMenuEvent.ContainsKey(key))
+        {
+            int count = (int)(object)totalCount;
+
+            Action<string> addAction = (count > 0) ?
+                (string keyValue) => _rule.AddSelectedMenu(keyValue) :
+                (string keyValue) => _rule.RemoveSelectedMenu(keyValue);
+
+            addAction.Invoke(key);
+        }
+
         if(_cafeMenuEvent.TryGetValue(key, out Delegate callBack))
         {
             (callBack as Action<TValue_1, TValue_2>)?.Invoke(totalCount, totalPrice);
@@ -217,5 +256,12 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         }
     }
 
+    #endregion
+
+    #region Rule
+    public void ProcessPayment()
+    {
+
+    }
     #endregion
 }

@@ -32,6 +32,8 @@ public class Cafe : MonoBehaviour, IInteractionCafe
     {
         _cafePlayer = playerObject;
 
+        CafeManager.Instance.PlayerPrefab = playerObject;
+
         _testPlayerInputSystem = playerObject.GetComponent<TestPlayerInputSystem>();
 
         if(_testPlayerInputSystem == null)
