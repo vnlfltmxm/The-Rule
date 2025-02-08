@@ -1,3 +1,4 @@
+using Script.Util;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,22 +11,25 @@ public class SpawnData : ScriptableObject
     private float _spawnStartTime;
 
     [Header("시작 스폰확률"), SerializeField, Range(0f, 1f)]
-    public float _startSpawnProbability;
+    private float _startSpawnProbability;
 
     [Header("스폰확률 증가 여부"), SerializeField] 
-    public bool _isIncreasedSpawnProbability;
+    private bool _isIncreasedSpawnProbability;
 
     [Header("스폰확률 증가 수치"), SerializeField, Range(0f, 1f)]
-    public float _increasedSpawnProbability;
+    private float _increasedSpawnProbability;
 
     [Header("스폰확률 증가 간격"), SerializeField]
-    public float _increasedProbabilityIntervalTime;
+    private float _increasedProbabilityIntervalTime;
 
-    [Header("스폰불가 조건"), SerializeField]
-    public int _cantSpawnConditions;
+    [Header("스폰불가 타입"), SerializeField]
+    private Condition _cantSpawnConditionType;
+    
+    [Header("스폰불가 내용"), SerializeField]
+    private string _cantSpawnConditionContext;
 
     [Header("스폰위치"), SerializeField]
-    public int _spawnPositionType;
+    private int _spawnPositionType;
 
 
 
@@ -35,6 +39,7 @@ public class SpawnData : ScriptableObject
     public bool IsIncreasedSpawnProbability => _isIncreasedSpawnProbability;
     public float IncreasedSpawnProbability => _increasedSpawnProbability;
     public float IncreasedProbabilityIntervalTime => _increasedProbabilityIntervalTime;
-    public int CantSpawnConditions => _cantSpawnConditions;
+    public Condition CantSpawnConditionType => _cantSpawnConditionType;
+    public string CantSpawnConditionContext => _cantSpawnConditionContext;
     public int SpawnPositionType => _spawnPositionType;
 }

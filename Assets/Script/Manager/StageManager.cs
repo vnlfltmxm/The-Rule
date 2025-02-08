@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Script.Manager.Framework;
+using Script.Util;
 using UnityEngine;
 
 public class StageManager : SingletonMonoBehaviour<StageManager>
@@ -30,6 +31,29 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
             spawnBehavior.OnUpdateSpawn(deltaTime);
         }
     }
+
+    #region 스폰조건 체크
+    public bool CheckCondition(Condition condition, string context)
+    {
+        switch (condition)
+        {
+            case Condition.Null:
+                return true;
+            case Condition.ObjectSpawned:
+                return WhenObjectSpawned(context);
+            default:
+                throw new ArgumentOutOfRangeException(nameof(condition), condition, null);
+        }
+        return false;
+    }
+
+    private bool WhenObjectSpawned(string context)
+    {
+        return SpawnManager.Instance.HasObjectByName(context);
+    }
+    #endregion
+    
+    
 }
 
 public class SpawnBehavior
@@ -58,8 +82,8 @@ public class SpawnBehavior
             return;
         
         //스폰불가 조건을 넘기지 못하면 중단
-        //if (_spawnData.CantSpawnConditions == 0)
-        //    return;
+        if (StageManager.Instance.CheckCondition(_spawnData.CantSpawnConditionType, _spawnData.CantSpawnConditionContext) == false)
+            return;
         
         //누적시간
         _cumulativeTime += deltaTime;
@@ -83,8 +107,10 @@ public class SpawnBehavior
         //스폰확률에 들어왔을 시 스폰
         if (_currentSpawnProbability > randomValue)
         {
-            UnityEngine.Object.Instantiate(_spawnData.MonsterPrefab);
+            SpawnManager.Instance.SpawnObject(_spawnData.MonsterPrefab);
             _isSpawned = true;
         }
     }
+
+    
 }

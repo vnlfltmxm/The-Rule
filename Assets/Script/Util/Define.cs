@@ -1,3 +1,5 @@
+using System;
+
 namespace Script.Util
 {
     public enum InputType
@@ -17,5 +19,12 @@ namespace Script.Util
         Easy, 
         Normal, 
         Hard
+    }
+
+    [Flags]
+    public enum Condition
+    {
+        Null,
+        ObjectSpawned,
     }
 }
