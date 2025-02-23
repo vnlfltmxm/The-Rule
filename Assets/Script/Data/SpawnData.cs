@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Script.Util;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -22,14 +24,17 @@ public class SpawnData : ScriptableObject
     [Header("스폰확률 증가 간격"), SerializeField]
     private float _increasedProbabilityIntervalTime;
 
-    [Header("스폰불가 타입"), SerializeField]
-    private Condition _cantSpawnConditionType;
-    
-    [Header("스폰불가 내용"), SerializeField]
-    private string _cantSpawnConditionContext;
+    [Header("스폰불가 조건"), SerializeField] 
+    private List<SpawnCondition> _cantSpawnConditions;
 
     [Header("스폰위치"), SerializeField]
-    private int _spawnPositionType;
+    private AreaType _spawnAreaType;
+    
+    [Header("올바른 규칙"), SerializeField]
+    private string _correctRuleContext;
+    
+    [Header("틀린 규칙"), SerializeField]
+    private string _wrongRuleContext;
 
 
 
@@ -39,7 +44,17 @@ public class SpawnData : ScriptableObject
     public bool IsIncreasedSpawnProbability => _isIncreasedSpawnProbability;
     public float IncreasedSpawnProbability => _increasedSpawnProbability;
     public float IncreasedProbabilityIntervalTime => _increasedProbabilityIntervalTime;
-    public Condition CantSpawnConditionType => _cantSpawnConditionType;
-    public string CantSpawnConditionContext => _cantSpawnConditionContext;
-    public int SpawnPositionType => _spawnPositionType;
+    public List<SpawnCondition> CantSpawnConditions => _cantSpawnConditions;
+    public AreaType SpawnAreaType => _spawnAreaType;
+    public string CorrectRuleContext => _correctRuleContext;
+    public string WrongRuleContext => _wrongRuleContext;
+}
+
+[Serializable]
+public struct SpawnCondition
+{
+    [field: SerializeField]
+    public Condition CantSpawnConditionType { get; private set; }
+    [field: SerializeField]
+    public string CantSpawnConditionContext { get; private set; }
 }

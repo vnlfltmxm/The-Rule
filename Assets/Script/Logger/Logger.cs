@@ -6,9 +6,9 @@ public static class Logger
     [System.Diagnostics.Conditional("Dev_Version")]
     public static void Log(object message, Color color = default)
     {
-        if(color == default)
-            color = Color.white;
-        Debug.Log($"<color=#{color.ToHexString()}>{message}</color>");
+        //if(color == default)
+        //    color = Color.white;
+        //Debug.Log($"<color=#{color.ToHexString()}>{message}</color>");
     }
     
     [System.Diagnostics.Conditional("Dev_Version")]

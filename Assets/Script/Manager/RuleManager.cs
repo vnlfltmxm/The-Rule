@@ -1,16 +1,22 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class RuleManager : MonoBehaviour
+public class RuleManager : SingletonMonoBehaviour<RuleManager>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private Dictionary<string, string> _ruleDictionary = new Dictionary<string, string>();
 
-    // Update is called once per frame
-    void Update()
+    public void AddRule(string name, string rule)
     {
-        
+        _ruleDictionary.Add(name, rule);
+    }
+    public List<string> GetStageRules()
+    {
+        List<string> rules = new List<string>();
+        foreach (var rule in _ruleDictionary.Values)
+        {
+            rules.Add(rule);
+        }
+        return rules;
     }
 }

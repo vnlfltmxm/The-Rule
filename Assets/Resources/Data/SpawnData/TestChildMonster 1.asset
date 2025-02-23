@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab5846af8d3c0043ad8a061f6a24862, type: 3}
+  m_Name: TestChildMonster 1
+  m_EditorClassIdentifier: 
+  MonsterPrefab: {fileID: 7235725185423883570, guid: 034974ba2fde82e439d00953b885613d, type: 3}
+  _spawnStartTime: 1
+  _startSpawnProbability: 1
+  _isIncreasedSpawnProbability: 0
+  _increasedSpawnProbability: 0
+  _increasedProbabilityIntervalTime: 180
+  _cantSpawnConditions: []
+  _spawnPositionType: 0
+  _correctRuleContext: 
+  _wrongRuleContext: 

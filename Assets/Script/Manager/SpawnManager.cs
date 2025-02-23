@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Script.Util;
 using UnityEngine;
 
 public class SpawnManager : SingletonMonoBehaviour<SpawnManager>
 {
     private List<GameObject> _spawnedObjects = new List<GameObject>();
 
-    public void SpawnObject(GameObject prefab)
+    public void SpawnObject(GameObject prefab, AreaType areaType = AreaType.Null)
     {
         GameObject go = Instantiate(prefab);
         _spawnedObjects.Add(go);
