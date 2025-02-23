@@ -13,7 +13,7 @@ public class AreaBase : MonoBehaviour
     {
         StageManager.Instance.AddArea(this);
     }
-
+    
     /*private Vector3 GetRandomPosition()
     {
         Vector3 center = transform.position;

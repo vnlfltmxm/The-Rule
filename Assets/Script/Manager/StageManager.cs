@@ -26,7 +26,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         {
             SpawnBehavior spawnBehavior = new SpawnBehavior(spawnData);
             _spawnBehaviors.Add(spawnBehavior);
-            RuleManager.Instance.AddRule(spawnData.MonsterPrefab.name, spawnData.CorrectRuleContext);
+            RuleContextManager.Instance.AddRule(spawnData.MonsterPrefab.name, spawnData.CorrectRuleContext);
         }
         _isInit = true;
     }

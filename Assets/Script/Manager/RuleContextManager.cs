@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RuleManager : SingletonMonoBehaviour<RuleManager>
+public class RuleContextManager : SingletonMonoBehaviour<RuleContextManager>
 {
     private Dictionary<string, string> _ruleDictionary = new Dictionary<string, string>();
 
