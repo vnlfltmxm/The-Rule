@@ -10,12 +10,12 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     private HashSet<string> _notRecommendSet;
     private HashSet<string> _colorlessFoodSet;
 
+    private Dictionary<RuleHashSet, HashSet<string>> _ruleHashSetDictionary;
     private Dictionary<string, Delegate> _cafeMenuEvent = new Dictionary<string, Delegate>();
     private List<IResetMenuUI> _resetMenuList = new List<IResetMenuUI>();
     private Action<int> _cafeBottomMenuEvent;
 
     private CafeData _data;
-    private CafeRule _rule;
     private System.Random _random;
     private Action _resetBannerMenu;
 
@@ -23,6 +23,7 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
 
     public HashSet<string> SoldOutSet => _soldOutSet;
     public HashSet<string> NotRecommendSet => _notRecommendSet;
+    public HashSet<string> ColorlessFoodSet => _colorlessFoodSet;
     public CafeData Data => _data;
     public string RecommendedMenu { get; set; }
     public GameObject PlayerPrefab
@@ -41,10 +42,9 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     private void InitializeCafeManager()
     {
         LoadCafeData();
-
         InitializeBanner();
-
         InitializeColorlessFoodHashSet();
+        MakeRuleHashSetDictionary();
     }
 
     private void LoadCafeData()
@@ -54,8 +54,6 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         if (scriptableData is CafeData data)
         {
             _data = data;
-
-            _rule = new CafeRule(data);
         }
     }
 
@@ -72,6 +70,16 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
 
             _colorlessFoodSet.Add(menu);
         }
+    }
+
+    private void MakeRuleHashSetDictionary()
+    {
+        _ruleHashSetDictionary = new Dictionary<RuleHashSet, HashSet<string>>
+        {
+            {RuleHashSet.SoldOut, _soldOutSet },
+            {RuleHashSet.ColorlessFood, _colorlessFoodSet },
+            {RuleHashSet.NotRecommend, _notRecommendSet }
+        };
     }
 
     #region Banner
@@ -204,8 +212,8 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
             int count = (int)(object)totalCount;
 
             Action<string> addAction = (count > 0) ?
-                (string keyValue) => _rule.AddSelectedMenu(keyValue) :
-                (string keyValue) => _rule.RemoveSelectedMenu(keyValue);
+                (string keyValue) => CafeRule.AddSelectedMenu(keyValue) :
+                (string keyValue) => CafeRule.RemoveSelectedMenu(keyValue);
 
             addAction.Invoke(key);
         }
@@ -261,7 +269,7 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     #region Rule
     public void ProcessPayment()
     {
-
+        CafeRule rule = new CafeRule(_ruleHashSetDictionary, RecommendedMenu);
     }
     #endregion
 }
