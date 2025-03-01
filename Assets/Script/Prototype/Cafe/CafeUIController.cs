@@ -13,6 +13,12 @@ public class CafeUIController : MonoBehaviour
     [Header("BackGroundController")]
     [SerializeField] private CafeBackGroundController _backGroundController;
 
+    [Header("DialogData")]
+    [SerializeField] private CafeDialog _dialog;
+
+    [Header("SelectUI")]
+    [SerializeField] private CafeSelectUI _selectUI;
+
     public Action UnLockPlayer { get; set; }
     public Action<bool> SetActiveCamera { get; set; }
 
@@ -31,7 +37,7 @@ public class CafeUIController : MonoBehaviour
 
         yield return WaitForAlpha(0f);
 
-        yield return StartCoroutine(_bannerUI.StartClerkDialog());
+        yield return StartCoroutine(_bannerUI.StartClerkDialog(_dialog.OnMenuUI));
 
         _menuUI.SetActive(true);
     }
@@ -53,6 +59,27 @@ public class CafeUIController : MonoBehaviour
         {
             return Mathf.Approximately(_backGroundController.BackGroundImage.color.a, targetAlpha);
         }); //Mathf.Approximately -> 부동 소수점값 2개가 거의 같은지 확인. 거의 같다면 true, 벗어난다면 false 리턴
+    }
+
+    public void OnClickCancelButton()
+    {
+        CafeManager.Instance.ResetCafeMenu();
+    }
+
+    public void OnClickBuyButton()
+    {
+        CafeManager.Instance.ResetCafeMenu();
+
+        _menuUI.SetActive(false);
+
+        StartCoroutine(OnSelectUI());
+    }
+
+    private IEnumerator OnSelectUI()
+    {
+        yield return StartCoroutine(_bannerUI.StartClerkDialog(_dialog.SelectUI));
+
+        _selectUI.gameObject.SetActive(true);
     }
 
     #region Test

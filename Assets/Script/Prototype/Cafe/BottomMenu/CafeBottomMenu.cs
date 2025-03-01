@@ -86,16 +86,6 @@ public class CafeBottomMenu : MonoBehaviour, IResetMenuUI
         _buyButton.enabled = isEnable;
     }
 
-    public void OnClickBuyButton()
-    {
-        CafeManager.Instance.ResetCafeMenu();
-    }
-
-    public void OnClickCancelButton()
-    {
-        CafeManager.Instance.ResetCafeMenu();
-    }
-
     public void ResetMenu()
     {
         _totalPriceViewModel.TotalPrice = 0;

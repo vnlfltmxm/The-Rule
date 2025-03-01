@@ -28,26 +28,25 @@ public enum Rule
     SoldOutRule,
     RecommendedRule,
     Death,
+    BalckTeaRule,
     Live
 }
 
 public enum RuleHashSet
 {
     SoldOut,
-    NotRecommend,
     ColorlessFood
 }
 
-public class CafeRule
+public class CafeRule : IDisposable
 {
     private static Dictionary<string, int> _selectedMenuDictionary
         = new Dictionary<string, int>();
 
     private Dictionary<RuleHashSet, HashSet<string>> _ruleSetDictionary;
-
-    public static bool _blackTeaconcentrate;
-    public static bool _isOtherconcentrate;
-
+    
+    public static bool _isBlackTeaConcentrate;
+    public static bool _isConcentrate;
     private string _currentRecommendedMenu;
 
     public CafeRule(Dictionary<RuleHashSet, HashSet<string>> setDictionary,
@@ -88,34 +87,27 @@ public class CafeRule
 
     public Rule ProcessPayment()
     {
-        var soldOutSet = GetRuleHashSet(RuleHashSet.SoldOut);
-        var colorlessFoodSet = GetRuleHashSet(RuleHashSet.ColorlessFood);
-        var notRecommendSet = GetRuleHashSet(RuleHashSet.NotRecommend);
+        var ruleList = new List<(Rule, Func<bool>)>
+        {
+            {(Rule.Death, Death) },
+            {(Rule.IsItemRule, IsItemRule) },
+            {(Rule.ColorlessFoodRule, ColorlessFoodRule) },
+            {(Rule.SoldOutRule, SoldOutRule) },
+            {(Rule.RecommendedRule, RecommendedRule) },
+        };
 
-        bool isDeath = Death(colorlessFoodSet, soldOutSet);
+        if (_isConcentrate)
+        {
+            ruleList.Add((Rule.BalckTeaRule, BlackTeaRule));
+        }
 
-        if (isDeath)
-            return Rule.Death;
-
-        bool isItem = IsItemRule();
-
-        if (isItem)
-            return Rule.IsItemRule;
-
-        bool isColorlessFoodRule = ColorlessFoodRule(colorlessFoodSet);
-
-        if (isColorlessFoodRule)
-            return Rule.ColorlessFoodRule;
-
-        bool isSoldOutRule = SoldOutRule(soldOutSet);
-
-        if (isSoldOutRule)
-            return Rule.SoldOutRule;
-
-        bool isRecommend = RecommendedRule(_currentRecommendedMenu);
-
-        if (isRecommend)
-            return Rule.RecommendedRule;
+        foreach(var(rule, ruleCheck) in ruleList)
+        {
+            if (ruleCheck())
+            {
+                return rule;
+            }
+        }
 
         return Rule.Live;
     }
@@ -135,9 +127,6 @@ public class CafeRule
             case RuleHashSet.ColorlessFood:
                 hashset = CafeManager.Instance.ColorlessFoodSet;
                 return hashset;
-            case RuleHashSet.NotRecommend:
-                hashset = CafeManager.Instance.NotRecommendSet;
-                return hashset;
         }
 
         return null;
@@ -148,23 +137,30 @@ public class CafeRule
         return IsItem();
     }
 
-    private bool ColorlessFoodRule(HashSet<string> colorlessFoodSet)
+    private bool ColorlessFoodRule()
     {
+        var colorlessFoodSet = GetRuleHashSet(RuleHashSet.ColorlessFood);
+        //이 조건 수정해야함
         return ContainsHashSetItem(colorlessFoodSet);
     }
 
-    private bool SoldOutRule(HashSet<string> soldOutSet)
+    private bool SoldOutRule()
     {
+        var soldOutSet = GetRuleHashSet(RuleHashSet.SoldOut);
+
         return ContainsHashSetItem(soldOutSet);
     }
 
-    private bool RecommendedRule(string recommendedMenu)
+    private bool RecommendedRule()
     {
-        return _selectedMenuDictionary.ContainsKey(recommendedMenu);
+        return _selectedMenuDictionary.ContainsKey(_currentRecommendedMenu);
     }
 
-    private bool Death(HashSet<string> colorlessFoodSet, HashSet<string> soldOutSet)
+    private bool Death()
     {
+        var colorlessFoodSet = GetRuleHashSet(RuleHashSet.ColorlessFood);
+        var soldOutSet = GetRuleHashSet(RuleHashSet.SoldOut);
+
         bool isSubset = soldOutSet.IsSubsetOf(colorlessFoodSet);
 
         if (isSubset)
@@ -184,7 +180,17 @@ public class CafeRule
 
     private bool BlackTeaRule()
     {
-        return true;
+        bool blackTeaRule = _selectedMenuDictionary.Count == 1 &&
+            _selectedMenuDictionary.ContainsKey("홍차");
+
+        if (blackTeaRule)
+        {
+            blackTeaRule = _isBlackTeaConcentrate ? true : false;
+
+            return !blackTeaRule;
+        }
+
+        return !blackTeaRule;
     }
 
     private bool IsItemOrderHistory(string menuName)
@@ -195,7 +201,7 @@ public class CafeRule
 
     private bool IsItem()
     {
-        return _selectedMenuDictionary.Count > 0;
+        return _selectedMenuDictionary.Count <= 0;
     }
 
     private bool ContainsHashSetItem(HashSet<string> hashSet)
@@ -210,4 +216,11 @@ public class CafeRule
 
         return false;
     }
+
+    public void Dispose()
+    {
+        _isConcentrate = false;
+        _isBlackTeaConcentrate = false;
+    }
 }
+

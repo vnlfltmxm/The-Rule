@@ -37,13 +37,11 @@ public class BannerUI : MonoBehaviour
     }
 
     #region Dialog
-    public IEnumerator StartClerkDialog()
+    public IEnumerator StartClerkDialog(string dialog)
     {
         ActiveClerkImageUI(true);
 
         _clerkText.text = string.Empty;
-
-        string dialog = "주문하시겠습니까?";
 
         foreach(var text in dialog)
         {

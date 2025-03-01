@@ -7,14 +7,15 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     private const string _cafeDataPath = "Data/CafeData";
 
     private HashSet<string> _soldOutSet;
-    private HashSet<string> _notRecommendSet;
     private HashSet<string> _colorlessFoodSet;
+    private HashSet<string> _notRecommendSet;
 
     private Dictionary<RuleHashSet, HashSet<string>> _ruleHashSetDictionary;
     private Dictionary<string, Delegate> _cafeMenuEvent = new Dictionary<string, Delegate>();
     private List<IResetMenuUI> _resetMenuList = new List<IResetMenuUI>();
     private Action<int> _cafeBottomMenuEvent;
 
+    private Cafe _cafe;
     private CafeData _data;
     private System.Random _random;
     private Action _resetBannerMenu;
@@ -22,7 +23,6 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     private GameObject _playerPrefab;
 
     public HashSet<string> SoldOutSet => _soldOutSet;
-    public HashSet<string> NotRecommendSet => _notRecommendSet;
     public HashSet<string> ColorlessFoodSet => _colorlessFoodSet;
     public CafeData Data => _data;
     public string RecommendedMenu { get; set; }
@@ -45,6 +45,8 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         InitializeBanner();
         InitializeColorlessFoodHashSet();
         MakeRuleHashSetDictionary();
+
+        _cafe = GetComponent<Cafe>();
     }
 
     private void LoadCafeData()
@@ -78,7 +80,6 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         {
             {RuleHashSet.SoldOut, _soldOutSet },
             {RuleHashSet.ColorlessFood, _colorlessFoodSet },
-            {RuleHashSet.NotRecommend, _notRecommendSet }
         };
     }
 
@@ -269,7 +270,53 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     #region Rule
     public void ProcessPayment()
     {
-        CafeRule rule = new CafeRule(_ruleHashSetDictionary, RecommendedMenu);
+        using(CafeRule rule = new CafeRule(_ruleHashSetDictionary, RecommendedMenu))
+        {
+            var result = rule.ProcessPayment();
+
+            if (result == Rule.Live)
+            {
+                Logger.Log("생존함");
+
+                SetPlayer();
+
+                return;
+            }
+            else if (result == Rule.Death)
+            {
+                Logger.Log("재수없어서 사망");
+                return;
+            }
+            else
+            {
+                switch (result)
+                {
+                    case Rule.IsItemRule:
+                        Logger.Log("ItemRule 위반");
+                        break;
+                    case Rule.ColorlessFoodRule:
+                        Logger.Log("ColorlessFood 위반");
+                        break;
+                    case Rule.SoldOutRule:
+                        Logger.Log("SoldOut 위반");
+                        break;
+                    case Rule.RecommendedRule:
+                        Logger.Log("recommended 위반");
+                        break;
+                    case Rule.BalckTeaRule:
+                        Logger.Log("BlackTea 위반");
+                        break;
+                }
+            }
+        }
+
+        SetPlayer();
+    }
+
+    private void SetPlayer()
+    {
+        _cafe.UnLockPlayer();
+        _cafe.SetActiveCamera(false);
     }
     #endregion
 }
