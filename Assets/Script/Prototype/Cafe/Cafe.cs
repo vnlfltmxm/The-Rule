@@ -1,6 +1,7 @@
 using UnityEngine;
+using Script.Prop;
 
-public class Cafe : MonoBehaviour, IInteractionCafe
+public class Cafe : MonoBehaviour, IInteractableCafe
 {
     [Header("PlayerPosition")]
     [SerializeField] private Transform _cafePlayerPosition;
@@ -8,58 +9,45 @@ public class Cafe : MonoBehaviour, IInteractionCafe
     [SerializeField] private GameObject _cafeCamera;
 
     private CafeUIController _cafeUIController;
-    private TestPlayerInputSystem _testPlayerInputSystem;
-    private GameObject _cafePlayer;
 
-    private void Awake()
+    public bool IsInteractable { get; set; } = true;
+
+    public void MovePlayer(GameObject playerObject)
     {
-        InitializeCafe();
-    }
-
-    private void InitializeCafe()
-    {
-        _cafeUIController = transform.GetComponentInChildren<CafeUIController>();
-
-        if (_cafeUIController != null)
-        {
-            _cafeUIController.UnLockPlayer = UnLockPlayer;
-
-            _cafeUIController.SetActiveCamera = SetActiveCamera;
-        }
-    }
-
-    public void Interaction(GameObject playerObject)
-    {
-        _cafePlayer = playerObject;
-
-        _testPlayerInputSystem = playerObject.GetComponent<TestPlayerInputSystem>();
-
-        if(_testPlayerInputSystem == null)
-        {
-            return;
-        }
-
-        _testPlayerInputSystem.PlayerLock(true);
-        
-        _cafeUIController.OnActiveMenuUI(MovePlayer);
-    }
-
-    public void MovePlayer()
-    {
-        _cafePlayer.transform.position = _cafePlayerPosition.position;
+        playerObject.transform.position = _cafePlayerPosition.position;
 
         SetActiveCamera(true);
     }
 
-    public void UnLockPlayer()
+    public void UnLockPlayer(PlayerUtilityController controller)
     {
         SetActiveCamera(false);
 
-        _testPlayerInputSystem.PlayerLock(false);
+        controller.PlayerLock(false);
     }
 
     public void SetActiveCamera(bool isActive)
     {
         _cafeCamera.SetActive(isActive);
+    }
+
+    public void InteractObject(GameObject playerObject)
+    {
+        CafeManager.Instance.PlayerPrefab = playerObject;
+
+        PlayerUtilityController playerUtilityController =
+            playerObject.GetComponent<PlayerUtilityController>();
+
+        if(playerUtilityController != null)
+        {
+            playerUtilityController.PlayerLock(true);
+
+            _cafeUIController.SetAction(() => UnLockPlayer(playerUtilityController),
+                SetActiveCamera);
+            _cafeUIController.OnActiveMenuUI(MovePlayer, playerObject);
+
+            CafeManager.Instance.SetUnlockPlayerAction(() => UnLockPlayer(playerUtilityController),
+                () => SetActiveCamera(false));
+        }
     }
 }

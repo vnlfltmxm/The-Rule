@@ -25,9 +25,6 @@ MonoBehaviour:
   - _menuName: "\uC870\uAC01 \uCF00\uC774\uD06C"
     _price: 10000
     _foodSprite: {fileID: -208513593, guid: cccfc5bbcef721140917f03c5256473c, type: 3}
-  - _menuName: "\uCD08\uCF54"
-    _price: 3000
-    _foodSprite: {fileID: -412269406, guid: 8ed243368ff21704691e4f36ad7e72f8, type: 3}
   - _menuName: "\uCE58\uC988"
     _price: 2000
     _foodSprite: {fileID: 475293691, guid: b67adf48410dc9543831b5919c3173aa, type: 3}
@@ -42,3 +39,6 @@ MonoBehaviour:
   - "\uCEE4\uD53C"
   - "\uC0DD\uD06C\uB9BC"
   - "\uC870\uAC01 \uCF00\uC774\uD06C"
+  _colorlessFoodNames:
+  - "\uCEE4\uD53C"
+  - "\uC0DD\uD06C\uB9BC"

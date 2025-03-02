@@ -20,6 +20,10 @@ public class CafeData : ScriptableObject
     [Header("NotRecommendMenu")]
     [SerializeField] private string[] _notRecommendMenu;
 
+    [Header("ColorlessFood")]
+    [SerializeField] private string[] _colorlessFoodNames;
+
     public CafeMenuData[] CafeMenuData => _cafeMenuData;
     public string[] NotRecommendMenu => _notRecommendMenu;
+    public string[] ColorlessFoodNames => _colorlessFoodNames;
 }

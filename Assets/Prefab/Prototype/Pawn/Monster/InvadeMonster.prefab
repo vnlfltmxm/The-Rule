@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25693c3dddbc0a64baf696827e7a5f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: df414da73c28e844cb7c7a4d3b023239, type: 2}
   _areaName: Area_A
   _waitTime: 1
   _rotationSpeed: 10

@@ -1,16 +1,34 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : Singleton<EnemyManager>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Dictionary<EnemyType, IEnemy> _enemyDictionary
+         = new Dictionary<EnemyType, IEnemy>();
+
+    private List<InvadeObject> _stationWorkerList
+        = new List<InvadeObject>();
+
+    public List<InvadeObject> StationWorkerList => _stationWorkerList;
+
+    public void RegisterEnemy(EnemyType type, IEnemy enemy)
     {
-        
+        if (!_enemyDictionary.ContainsKey(type))
+        {
+            _enemyDictionary.Add(type, enemy);
+        }
+    }    
+
+    public IEnemy GetEnemy(EnemyType type)
+    {
+        if (_enemyDictionary.TryGetValue(type, out IEnemy enemy))
+            return enemy;
+
+        return null;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetStationWorker(InvadeObject invadeObject)
     {
-        
+        _stationWorkerList.Add(invadeObject);
     }
 }

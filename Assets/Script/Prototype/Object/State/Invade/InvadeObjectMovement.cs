@@ -12,8 +12,8 @@ public class InvadeObjectMovement : InvadeObjectState
         _agent = invadeObject.GetComponent<NavMeshAgent>();
         _rigidbody = invadeObject.GetComponent<Rigidbody>();
 
-        _rotationSpeed = invadeObject.RotationSpeed;
-        _movementSpeed = invadeObject.ObjectSpeed;
+        _rotationSpeed = _data.RotationSpeed;
+        _movementSpeed = _data.Speed;
     }
 
     protected NavMeshPath _path;

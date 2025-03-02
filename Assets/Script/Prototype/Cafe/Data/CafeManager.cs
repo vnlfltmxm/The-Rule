@@ -7,8 +7,10 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     private const string _cafeDataPath = "Data/CafeData";
 
     private HashSet<string> _soldOutSet;
+    private HashSet<string> _colorlessFoodSet;
     private HashSet<string> _notRecommendSet;
 
+    private Dictionary<RuleHashSet, HashSet<string>> _ruleHashSetDictionary;
     private Dictionary<string, Delegate> _cafeMenuEvent = new Dictionary<string, Delegate>();
     private List<IResetMenuUI> _resetMenuList = new List<IResetMenuUI>();
     private Action<int> _cafeBottomMenuEvent;
@@ -16,11 +18,20 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     private CafeData _data;
     private System.Random _random;
     private Action _resetBannerMenu;
+    private Action _unlockPlayer;
+    private Action _cameraAction;
+
+    private GameObject _playerPrefab;
 
     public HashSet<string> SoldOutSet => _soldOutSet;
-    public HashSet<string> NotRecommendSet => _notRecommendSet;
+    public HashSet<string> ColorlessFoodSet => _colorlessFoodSet;
     public CafeData Data => _data;
     public string RecommendedMenu { get; set; }
+    public GameObject PlayerPrefab
+    {
+        get => _playerPrefab;
+        set => _playerPrefab = value;
+    }
 
     private void Awake()
     {
@@ -32,8 +43,9 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     private void InitializeCafeManager()
     {
         LoadCafeData();
-
         InitializeBanner();
+        InitializeColorlessFoodHashSet();
+        MakeRuleHashSetDictionary();
     }
 
     private void LoadCafeData()
@@ -44,6 +56,30 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         {
             _data = data;
         }
+    }
+
+    private void InitializeColorlessFoodHashSet()
+    {
+        _colorlessFoodSet = _colorlessFoodSet ?? new HashSet<string>();
+
+        foreach(var menu in _data.ColorlessFoodNames)
+        {
+            if (string.IsNullOrWhiteSpace(menu))
+            {
+                continue;
+            }
+
+            _colorlessFoodSet.Add(menu);
+        }
+    }
+
+    private void MakeRuleHashSetDictionary()
+    {
+        _ruleHashSetDictionary = new Dictionary<RuleHashSet, HashSet<string>>
+        {
+            {RuleHashSet.SoldOut, _soldOutSet },
+            {RuleHashSet.ColorlessFood, _colorlessFoodSet },
+        };
     }
 
     #region Banner
@@ -171,6 +207,17 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
 
     public void TriggerMenuEvent<TValue_1, TValue_2>(string key, TValue_1 totalCount, TValue_2 totalPrice)
     {
+        if (_cafeMenuEvent.ContainsKey(key))
+        {
+            int count = (int)(object)totalCount;
+
+            Action<string> addAction = (count > 0) ?
+                (string keyValue) => CafeRule.AddSelectedMenu(keyValue) :
+                (string keyValue) => CafeRule.RemoveSelectedMenu(keyValue);
+
+            addAction.Invoke(key);
+        }
+
         if(_cafeMenuEvent.TryGetValue(key, out Delegate callBack))
         {
             (callBack as Action<TValue_1, TValue_2>)?.Invoke(totalCount, totalPrice);
@@ -217,5 +264,61 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         }
     }
 
+    #endregion
+
+    #region Rule
+    public void ProcessPayment()
+    {
+        using(CafeRule rule = new CafeRule(_ruleHashSetDictionary, RecommendedMenu))
+        {
+            var result = rule.ProcessPayment();
+
+            if (result == Rule.Live)
+            {
+                Debug.Log("생존함");
+
+                UnlockPlayer();
+
+                return;
+            }
+            else if (result == Rule.Death)
+            {
+                Debug.Log("재수없어서 사망");
+                return;
+            }
+            else
+            {
+                switch (result)
+                {
+                    case Rule.ColorlessFoodRule:
+                        Debug.Log("ColorlessFood 위반");
+                        break;
+                    case Rule.SoldOutRule:
+                        Debug.Log("SoldOut 위반");
+                        break;
+                    case Rule.RecommendedRule:
+                        Debug.Log("recommended 위반");
+                        break;
+                    case Rule.BalckTeaRule:
+                        Debug.Log("BlackTea 위반");
+                        break;
+                }
+            }
+        }
+
+        UnlockPlayer();
+    }
+
+    public void SetUnlockPlayerAction(Action unlock, Action camera)
+    {
+        _unlockPlayer = unlock;
+        _cameraAction = camera;
+    }
+
+    private void UnlockPlayer()
+    {
+        _unlockPlayer.Invoke();
+        _cameraAction.Invoke();
+    }
     #endregion
 }
