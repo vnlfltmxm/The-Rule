@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Script.Manager.Framework;
+using Script.Util;
 using UnityEngine;
 
 public class StageManager : SingletonMonoBehaviour<StageManager>
@@ -9,17 +10,30 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     [SerializeField] private List<SpawnData> _stageSpawnDatas = new List<SpawnData>();
     
     private List<SpawnBehavior> _spawnBehaviors = new List<SpawnBehavior>();
-    private bool _isInit = false;
+
+    private List<AreaBase> _mapAreaList;
     
+    private bool _isInit = false;
+
+    private void Start()
+    {
+        InitStage();
+    }
+
     public void InitStage()
     {
         foreach (var spawnData in _stageSpawnDatas)
         {
-            _spawnBehaviors.Add(new SpawnBehavior(spawnData));
+            SpawnBehavior spawnBehavior = new SpawnBehavior(spawnData);
+            _spawnBehaviors.Add(spawnBehavior);
+            RuleContextManager.Instance.AddRule(spawnData.MonsterPrefab.name, spawnData.CorrectRuleContext);
         }
         _isInit = true;
     }
-
+    public void AddArea(AreaBase areaBase)
+    {
+        _mapAreaList.Add(areaBase);
+    }
     private void Update()
     {
         if (_isInit == false)
@@ -30,6 +44,30 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
             spawnBehavior.OnUpdateSpawn(deltaTime);
         }
     }
+
+    #region 스폰조건 체크
+    public bool CheckCondition(SpawnCondition cantSpawnCondition)
+    {
+        Condition conditionType = cantSpawnCondition.CantSpawnConditionType;
+        string conditionContext = cantSpawnCondition.CantSpawnConditionContext;
+        switch (conditionType)
+        {
+            case Condition.Null:
+                return true;
+            case Condition.ObjectSpawned:
+                return WhenObjectSpawned(conditionContext);
+            default:
+                throw new ArgumentOutOfRangeException(nameof(conditionType), conditionType, null);
+        }
+        return false;
+    }
+
+    private bool WhenObjectSpawned(string context)
+    {
+        return SpawnManager.Instance.HasObjectByName(context);
+    }
+    #endregion
+
 }
 
 public class SpawnBehavior
@@ -46,10 +84,11 @@ public class SpawnBehavior
     public SpawnBehavior(SpawnData spawnData)
     {
         _spawnData = spawnData;
-        if (_spawnData.SpawnStartTime == 0f)
+        _currentSpawnProbability = _spawnData.StartSpawnProbability;
+        /*if (_spawnData.SpawnStartTime == 0f)
             _currentSpawnProbability = _spawnData.StartSpawnProbability;
         else
-            _currentSpawnProbability = 0f;
+            _currentSpawnProbability = 0f;*/
     }
 
     public void OnUpdateSpawn(float deltaTime)
@@ -58,8 +97,12 @@ public class SpawnBehavior
             return;
         
         //스폰불가 조건을 넘기지 못하면 중단
-        //if (_spawnData.CantSpawnConditions == 0)
-        //    return;
+        foreach (var cantSpawnCondition in _spawnData.CantSpawnConditions)
+        {
+            bool result = StageManager.Instance.CheckCondition(cantSpawnCondition);
+            if (result == true)
+                return;
+        }
         
         //누적시간
         _cumulativeTime += deltaTime;
@@ -83,8 +126,10 @@ public class SpawnBehavior
         //스폰확률에 들어왔을 시 스폰
         if (_currentSpawnProbability > randomValue)
         {
-            UnityEngine.Object.Instantiate(_spawnData.MonsterPrefab);
+            SpawnManager.Instance.SpawnObject(_spawnData.MonsterPrefab);
             _isSpawned = true;
         }
     }
+
+    
 }

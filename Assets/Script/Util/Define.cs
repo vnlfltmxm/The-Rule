@@ -1,3 +1,5 @@
+using System;
+
 namespace Script.Util
 {
     public enum InputType
@@ -17,5 +19,21 @@ namespace Script.Util
         Easy, 
         Normal, 
         Hard
+    }
+
+    public enum Condition
+    {
+        Null,
+        ObjectSpawned,
+    }
+
+    [Flags]
+    public enum AreaType
+    {
+        Null,
+        Shop,
+        Plane1,
+        Plane2,
+        Plane3,
     }
 }
