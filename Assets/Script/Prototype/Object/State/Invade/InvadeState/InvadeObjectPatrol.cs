@@ -4,7 +4,7 @@ public class InvadeObjectPatrol : InvadeObjectMovement, IObjectState<InvadeObjec
 {
     public InvadeObjectPatrol(InvadeObject invadeObject) : base(invadeObject)
     {
-        _patrolAreaName = invadeObject.AreaName;
+        _patrolAreaName = _data.Area;
     }
 
     private Transform[] _destinationArray;

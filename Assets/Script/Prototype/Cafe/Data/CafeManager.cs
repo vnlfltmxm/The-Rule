@@ -15,10 +15,11 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
     private List<IResetMenuUI> _resetMenuList = new List<IResetMenuUI>();
     private Action<int> _cafeBottomMenuEvent;
 
-    private Cafe _cafe;
     private CafeData _data;
     private System.Random _random;
     private Action _resetBannerMenu;
+    private Action _unlockPlayer;
+    private Action _cameraAction;
 
     private GameObject _playerPrefab;
 
@@ -45,8 +46,6 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
         InitializeBanner();
         InitializeColorlessFoodHashSet();
         MakeRuleHashSetDictionary();
-
-        _cafe = GetComponent<Cafe>();
     }
 
     private void LoadCafeData()
@@ -276,47 +275,50 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
 
             if (result == Rule.Live)
             {
-                Logger.Log("생존함");
+                Debug.Log("생존함");
 
-                SetPlayer();
+                UnlockPlayer();
 
                 return;
             }
             else if (result == Rule.Death)
             {
-                Logger.Log("재수없어서 사망");
+                Debug.Log("재수없어서 사망");
                 return;
             }
             else
             {
                 switch (result)
                 {
-                    case Rule.IsItemRule:
-                        Logger.Log("ItemRule 위반");
-                        break;
                     case Rule.ColorlessFoodRule:
-                        Logger.Log("ColorlessFood 위반");
+                        Debug.Log("ColorlessFood 위반");
                         break;
                     case Rule.SoldOutRule:
-                        Logger.Log("SoldOut 위반");
+                        Debug.Log("SoldOut 위반");
                         break;
                     case Rule.RecommendedRule:
-                        Logger.Log("recommended 위반");
+                        Debug.Log("recommended 위반");
                         break;
                     case Rule.BalckTeaRule:
-                        Logger.Log("BlackTea 위반");
+                        Debug.Log("BlackTea 위반");
                         break;
                 }
             }
         }
 
-        SetPlayer();
+        UnlockPlayer();
     }
 
-    private void SetPlayer()
+    public void SetUnlockPlayerAction(Action unlock, Action camera)
     {
-        _cafe.UnLockPlayer();
-        _cafe.SetActiveCamera(false);
+        _unlockPlayer = unlock;
+        _cameraAction = camera;
+    }
+
+    private void UnlockPlayer()
+    {
+        _unlockPlayer.Invoke();
+        _cameraAction.Invoke();
     }
     #endregion
 }

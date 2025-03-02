@@ -23,7 +23,6 @@ using System;
 
 public enum Rule
 {
-    IsItemRule,
     ColorlessFoodRule,
     SoldOutRule,
     RecommendedRule,
@@ -47,7 +46,9 @@ public class CafeRule : IDisposable
     
     public static bool _isBlackTeaConcentrate;
     public static bool _isConcentrate;
+
     private string _currentRecommendedMenu;
+    private const string BLACKTEA = "È«Â÷";
 
     public CafeRule(Dictionary<RuleHashSet, HashSet<string>> setDictionary,
         string recommendedMenu)
@@ -90,15 +91,18 @@ public class CafeRule : IDisposable
         var ruleList = new List<(Rule, Func<bool>)>
         {
             {(Rule.Death, Death) },
-            {(Rule.IsItemRule, IsItemRule) },
-            {(Rule.ColorlessFoodRule, ColorlessFoodRule) },
             {(Rule.SoldOutRule, SoldOutRule) },
+            {(Rule.ColorlessFoodRule, ColorlessFoodRule) },
             {(Rule.RecommendedRule, RecommendedRule) },
         };
 
-        if (_isConcentrate)
+        bool isItemOrderHistroy = IsItemOrderHistory(BLACKTEA);
+
+        if (isItemOrderHistroy)
         {
-            ruleList.Add((Rule.BalckTeaRule, BlackTeaRule));
+            var colorRuleIndex = ruleList.IndexOf((Rule.ColorlessFoodRule, ColorlessFoodRule));
+
+            ruleList.Insert(colorRuleIndex, (Rule.BalckTeaRule, BlackTeaRule));
         }
 
         foreach(var(rule, ruleCheck) in ruleList)
@@ -132,16 +136,15 @@ public class CafeRule : IDisposable
         return null;
     }
 
-    private bool IsItemRule()
-    {
-        return IsItem();
-    }
+    #region Rule
 
     private bool ColorlessFoodRule()
     {
         var colorlessFoodSet = GetRuleHashSet(RuleHashSet.ColorlessFood);
+
+        bool containsHashSetItem = ContainsHashSetItem(colorlessFoodSet);
         //ÀÌ Á¶°Ç ¼öÁ¤ÇØ¾ßÇÔ
-        return ContainsHashSetItem(colorlessFoodSet);
+        return !containsHashSetItem;
     }
 
     private bool SoldOutRule()
@@ -165,9 +168,7 @@ public class CafeRule : IDisposable
 
         if (isSubset)
         {
-            string menuName = "È«Â÷";
-
-            bool isContains = soldOutSet.Contains(menuName);
+            bool isContains = soldOutSet.Contains(BLACKTEA);
 
             if (isContains)
             {
@@ -181,7 +182,7 @@ public class CafeRule : IDisposable
     private bool BlackTeaRule()
     {
         bool blackTeaRule = _selectedMenuDictionary.Count == 1 &&
-            _selectedMenuDictionary.ContainsKey("È«Â÷");
+            _selectedMenuDictionary.ContainsKey(BLACKTEA);
 
         if (blackTeaRule)
         {
@@ -192,16 +193,12 @@ public class CafeRule : IDisposable
 
         return !blackTeaRule;
     }
+    #endregion
 
     private bool IsItemOrderHistory(string menuName)
     {
         return _selectedMenuDictionary.ContainsKey(menuName)
             && _selectedMenuDictionary[menuName] > 0;
-    }
-
-    private bool IsItem()
-    {
-        return _selectedMenuDictionary.Count <= 0;
     }
 
     private bool ContainsHashSetItem(HashSet<string> hashSet)

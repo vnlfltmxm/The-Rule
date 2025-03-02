@@ -19,26 +19,32 @@ public class CafeUIController : MonoBehaviour
     [Header("SelectUI")]
     [SerializeField] private CafeSelectUI _selectUI;
 
-    public Action UnLockPlayer { get; set; }
-    public Action<bool> SetActiveCamera { get; set; }
+    private Action _unlockPlayer;
+    private Action<bool> _setActiveCamera;
 
-    public void OnActiveMenuUI(Action movePlayer)
+    public void SetAction(Action unlockPlayer, Action<bool> setActiveCamera)
     {
-        StartCoroutine(OnMenuUI(movePlayer));
+        _unlockPlayer = unlockPlayer;
+        _setActiveCamera = setActiveCamera;
     }
 
-    private IEnumerator OnMenuUI(Action movePlayer)
+    public void OnActiveMenuUI(Action<GameObject> movePlayer, GameObject player)
+    {
+        StartCoroutine(OnMenuUI(movePlayer, player));
+    }
+
+    private IEnumerator OnMenuUI(Action<GameObject> movePlayer, GameObject player)
     {
         StartCoroutine(_backGroundController.FadeBackGround());
 
         yield return WaitForAlpha(1f);
 
-        movePlayer?.Invoke();
+        movePlayer?.Invoke(player);
 
         yield return WaitForAlpha(0f);
 
         yield return StartCoroutine(_bannerUI.StartClerkDialog(_dialog.OnMenuUI));
-
+        
         _menuUI.SetActive(true);
     }
 
@@ -46,9 +52,9 @@ public class CafeUIController : MonoBehaviour
     {
         CafeManager.Instance.ResetCafeMenu();
 
-        UnLockPlayer?.Invoke();
+        _unlockPlayer?.Invoke();
 
-        SetActiveCamera?.Invoke(false);
+        _setActiveCamera?.Invoke(false);
 
         _menuUI.SetActive(false);
     }
@@ -63,7 +69,19 @@ public class CafeUIController : MonoBehaviour
 
     public void OnClickCancelButton()
     {
+        //이 부분에 역무원이 현재 플레이어를 계속 추적하도록 하는 메서드 호출.
         CafeManager.Instance.ResetCafeMenu();
+
+        var enemy = EnemyManager.Instance.GetEnemy(EnemyType.Invade);
+
+        var player = CafeManager.Instance.PlayerPrefab;
+
+        if(enemy != null)
+        {
+            var invadeObject = enemy.GetSelf<InvadeObject>();
+
+            invadeObject.OnSystemTracking(player.transform);
+        }
     }
 
     public void OnClickBuyButton()
