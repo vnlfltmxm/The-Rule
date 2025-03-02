@@ -72,15 +72,16 @@ public class CafeUIController : MonoBehaviour
         //이 부분에 역무원이 현재 플레이어를 계속 추적하도록 하는 메서드 호출.
         CafeManager.Instance.ResetCafeMenu();
 
-        var enemy = EnemyManager.Instance.GetEnemy(EnemyType.Invade);
-
         var player = CafeManager.Instance.PlayerPrefab;
 
-        if(enemy != null)
-        {
-            var invadeObject = enemy.GetSelf<InvadeObject>();
+        var stationWorkerList = EnemyManager.Instance.StationWorkerList;
 
-            invadeObject.OnSystemTracking(player.transform);
+        foreach(var stationWorker in stationWorkerList)
+        {
+            if(stationWorker != null)
+            {
+                stationWorker.OnSystemTracking(player.transform);
+            }
         }
     }
 

@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace, IEnemy
+public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
 {
     [Header("Data"), SerializeField]
     private InvadeObjectData _data;
     public InvadeObjectData Data => _data;
 
     public Vector3 SoundPosition { get; set; }
+    public bool SystemTracking { get; set; }
 
     private Transform _playerTransform;
     private InvadeStateMachine _state;
@@ -18,7 +19,7 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace, IEnemy
 
     private void Start()
     {
-        EnemyManager.Instance.RegisterEnemy(EnemyType.Invade, this);
+        EnemyManager.Instance.SetStationWorker(this);
     }
 
     public void OnHearSound(Vector3 position, Transform player)
@@ -65,15 +66,13 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace, IEnemy
         }
     }
 
-    public T GetSelf<T>() 
-        where T : class
-    {
-        return this as T;
-    }
-
     public void OnSystemTracking(Transform player)
     {
-        throw new System.NotImplementedException();
+        SystemTracking = true;
+
+        SetPlayer(player);
+
+        _state.ChangeObjectState(InvadeState.Tracking);
     }
 
     #region Gizmo
