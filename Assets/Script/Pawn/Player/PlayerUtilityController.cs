@@ -2,11 +2,13 @@ using System;
 using Script.Pawn.Player;
 using Script.Prop;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerUtilityController : MonoBehaviour
 {
     private RaycastPropDetector _raycastPropDetector;
     private ItemInventory _itemInventory;
+    private PlayerInput _playerInput;
 
     [SerializeField] private GameObject EyePanel;
     [SerializeField] private AudioListener AudioListener;
@@ -14,6 +16,7 @@ public class PlayerUtilityController : MonoBehaviour
     
     public void Init(Player player)
     {
+        _playerInput = player.PlayerInput;
         _raycastPropDetector = player.RaycastPropDetector;
         _itemInventory = player.ItemInventory;
         PlayerInputHandler playerInputHandler = player.PlayerInputHandler;
@@ -45,6 +48,7 @@ public class PlayerUtilityController : MonoBehaviour
             }
         }
     }
+
     //귀막기
     private bool primaryActive = false;
     private void Primary()
@@ -65,4 +69,10 @@ public class PlayerUtilityController : MonoBehaviour
         ruleActive = !ruleActive;
         RulePanel.gameObject.SetActive(ruleActive);
     }
+    //PlayerInput 컴포넌트 제어
+    public void PlayerLock(bool isLock)
+    {
+        _playerInput.enabled = !isLock;
+    }
+
 }

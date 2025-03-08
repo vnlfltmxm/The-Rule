@@ -5,6 +5,7 @@ public class InvadeObjectState
     public InvadeObjectState(InvadeObject invadeObject)
     {
         _invadeObject = invadeObject;
+        _data = invadeObject.Data;
         _state = invadeObject.GetComponent<InvadeStateMachine>();
    
         InitializeFieldOfView(invadeObject);
@@ -12,12 +13,13 @@ public class InvadeObjectState
 
     protected InvadeObject _invadeObject;
     protected InvadeStateMachine _state;
+    protected InvadeObjectData _data;
    
     #region FieldOfView
     private void InitializeFieldOfView(InvadeObject invadeObject)
     {
-        _viewAngle = invadeObject.ViewAngle;
-        _viewDistance = invadeObject.ViewDistance;
+        _viewAngle = _data.DetectAngle;
+        _viewDistance = _data.DetectDistance;
     }
 
     protected float _viewDistance;

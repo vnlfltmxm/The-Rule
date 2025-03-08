@@ -28,6 +28,11 @@ public interface ISystemTrace : ITrace
     public void OnSystemTracking(Transform player);
 }
 
+public interface IEnemy
+{
+    public T GetSelf<T>() where T : class;
+}
+
 public interface IInteraction { }
 
 public interface IInteractionCafe : IInteraction

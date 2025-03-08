@@ -63,16 +63,16 @@ public class TestPlayerInputSystem : MonoBehaviour
 
             Collider[] colliders = Physics.OverlapSphere(spherePosition, sphereRadius, targetLayer);
 
-            if(colliders.Length < 0)
+            if (colliders.Length < 0)
             {
                 return;
             }
 
-            foreach(var collider in colliders)
+            foreach (var collider in colliders)
             {
                 IInteractionCafe cafe = collider.GetComponent<IInteractionCafe>();
 
-                if(cafe != null)
+                if (cafe != null)
                 {
                     cafe.Interaction(gameObject);
 

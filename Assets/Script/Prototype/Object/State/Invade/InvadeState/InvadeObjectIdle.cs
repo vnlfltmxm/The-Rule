@@ -4,7 +4,7 @@ public class InvadeObjectIdle : InvadeObjectState, IObjectState<InvadeObjectIdle
 {
     public InvadeObjectIdle(InvadeObject invadeObject) : base(invadeObject)
     {
-        _waitTime = invadeObject.WaitTime;
+        _waitTime = _data.WaitTime;
     }
 
     private float _waitTime;

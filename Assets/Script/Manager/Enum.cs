@@ -27,3 +27,8 @@ public enum ColliderType
     Mesh,
     Capsule
 }
+
+public enum EnemyType
+{
+    Invade
+}

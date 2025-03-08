@@ -30,7 +30,10 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
 
         SetNavMeshAgent(true, 3f);
 
-        _detectCoroutine = _invadeObject.StartCoroutine(IsDetect());
+        if (!_invadeObject.SystemTracking)
+        {
+            _detectCoroutine = _invadeObject.StartCoroutine(IsDetect());
+        }
     }
 
     public void StateUpdate()
@@ -63,7 +66,8 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
         {
             Logger.Log("잡았다");
         }
-        else if(other.gameObject.layer == LayerMask.NameToLayer("SafeArea"))
+        else if(!_invadeObject.SystemTracking &&
+            other.gameObject.layer == LayerMask.NameToLayer("SafeArea"))
         {
             _isDetect = false;
 
