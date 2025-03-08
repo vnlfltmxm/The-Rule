@@ -14,8 +14,8 @@ public class RaycastPropDetector : MonoBehaviour
     
     private Transform _playerCamera; // 플레이어 카메라
     
-    private InteractiveProp _currentDetectedProp;
-    public InteractiveProp CurrentDetectedProp => _currentDetectedProp;
+    private IInteractable _currentDetectedInteractable;
+    public IInteractable CurrentDetectedInteractable => _currentDetectedInteractable;
     
     public bool _hasDetected = false;
     public bool HasDetected => _hasDetected;
@@ -23,10 +23,15 @@ public class RaycastPropDetector : MonoBehaviour
     //UI활성화/비활성화 이벤트
     public Action OnDetectedEvent;
     public Action OnDetectionLostEvent;
+    
+    //임시 UI
+    public GameObject InteractUI;
 
     public void Init(Player player)
     {
         _playerCamera = player.VirtualCamera;
+        OnDetectedEvent = () => { InteractUI.SetActive(true); };
+        OnDetectionLostEvent = () => { InteractUI.SetActive(false); };
     }
     
     void Update()
@@ -43,24 +48,22 @@ public class RaycastPropDetector : MonoBehaviour
         {
             GameObject detectedProp = hit.collider.gameObject;
 
-            /*if (_hasDetected == false)
+            if (detectedProp.TryGetComponent<IInteractable>(out IInteractable detectedInteractable))
             {
-                _currentDetectedProp = detectedProp.GetComponent<InteractiveProp>();
-                OnDetectedEvent?.Invoke();
-            }
-            else if (_currentDetectedProp != null && _currentDetectedProp.gameObject != detectedProp)
-            {
-                _hasDetected = true;
-                _currentDetectedProp = detectedProp.GetComponent<InteractiveProp>();
-                OnDetectedEvent?.Invoke();
-            }
-            */
-            
-            if (_currentDetectedProp?.gameObject != detectedProp)
-            {
-                _hasDetected = true;
-                _currentDetectedProp = detectedProp.GetComponent<InteractiveProp>();
-                OnDetectedEvent?.Invoke();
+                // 감지된 아이템이 없으면 초기화
+                if (detectedInteractable.IsInteractable == false)
+                {
+                    _hasDetected = false;
+                    _currentDetectedInteractable = null;
+                    OnDetectionLostEvent?.Invoke();
+                }
+
+                if (_currentDetectedInteractable != detectedInteractable)
+                {
+                    _hasDetected = true;
+                    _currentDetectedInteractable = detectedProp.GetComponent<InteractiveProp>();
+                    OnDetectedEvent?.Invoke();
+                }
             }
         }
         else
@@ -69,7 +72,7 @@ public class RaycastPropDetector : MonoBehaviour
             if (HasDetected == true)
             {
                 _hasDetected = false;
-                _currentDetectedProp = null;
+                _currentDetectedInteractable = null;
                 OnDetectionLostEvent?.Invoke();
             }
         }

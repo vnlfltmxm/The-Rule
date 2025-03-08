@@ -30,10 +30,10 @@ namespace Script.Util
     [Flags]
     public enum AreaType
     {
-        Null,
-        Shop,
-        Plane1,
-        Plane2,
-        Plane3,
+        Null = 0,
+        Shop = 1 << 0,
+        Area1 = 1 << 1,
+        Area2 = 1 << 2,
+        Area3 = 1 << 3,
     }
 }

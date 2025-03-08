@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class AreaBase : MonoBehaviour
 {
     [SerializeField] public AreaType AreaType;
-    [SerializeField] public NavMeshSurface NavMeshSurface;
+    [SerializeField] public NavMeshModifierVolume NavMeshModifierVolume;
 
     private void Start()
     {
@@ -29,13 +29,11 @@ public class AreaBase : MonoBehaviour
     
     private void OnValidate()
     {
-        if (NavMeshSurface == null)
+        if (NavMeshModifierVolume == null)
         {
-            NavMeshSurface = GetComponent<NavMeshSurface>();
-            if (NavMeshSurface == null)
-                NavMeshSurface = gameObject.AddComponent<NavMeshSurface>();
-            NavMeshSurface.useGeometry = NavMeshCollectGeometry.PhysicsColliders;
-            NavMeshSurface.collectObjects = CollectObjects.Children;
+            NavMeshModifierVolume = GetComponent<NavMeshModifierVolume>();
+            if (NavMeshModifierVolume == null)
+                NavMeshModifierVolume = gameObject.AddComponent<NavMeshModifierVolume>();
         }
     }
 }

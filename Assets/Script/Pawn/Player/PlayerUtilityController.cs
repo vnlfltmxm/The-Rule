@@ -29,7 +29,7 @@ public class PlayerUtilityController : MonoBehaviour
         Logger.Log("Interact", Color.red);
         if (_raycastPropDetector.HasDetected == true)
         {
-            InteractiveProp prop = _raycastPropDetector.CurrentDetectedProp;
+            IInteractable prop = _raycastPropDetector.CurrentDetectedInteractable;
             if(prop is Item item)
             {
                 item.Interact();
@@ -38,6 +38,10 @@ public class PlayerUtilityController : MonoBehaviour
             else if(prop is InteractiveDevice device)
             {
                 device.Interact();
+            }
+            else if(prop is MonsterBase monster)
+            {
+                monster.Interact();
             }
         }
     }

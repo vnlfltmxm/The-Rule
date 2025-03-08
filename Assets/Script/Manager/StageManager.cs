@@ -11,7 +11,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     
     private List<SpawnBehavior> _spawnBehaviors = new List<SpawnBehavior>();
 
-    private List<AreaBase> _mapAreaList;
+    private List<AreaBase> _mapAreaList = new List<AreaBase>();
     
     private bool _isInit = false;
 

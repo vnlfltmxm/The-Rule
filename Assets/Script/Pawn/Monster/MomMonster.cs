@@ -1,20 +1,18 @@
+using Script.Util;
 using UnityEngine;
 
-public class MomMonster : MonoBehaviour
+public class MomMonster : MonsterBase
 {
-    [Header("WaitTime")]
-    [SerializeField] private float _waitTime;
-
-    [Header("ObjectSpeed")]
-    [SerializeField] private float _moveSpeed;
-    
-    public float WaitTime => _waitTime;
-    public float MoveSpeed => _moveSpeed;
-
     private MomStateMachine _state;
     
     private void Awake()
     {
         _state = GetComponent<MomStateMachine>();
+        IsInteractable = true;
+    }
+    
+    public override void Interact()
+    {
+        UIManager.Instance.UICanvas
     }
 }
