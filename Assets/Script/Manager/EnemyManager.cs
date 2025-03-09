@@ -31,4 +31,19 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         _stationWorkerList.Add(invadeObject);
     }
+
+    public void StationWorkerCatchPlayer(InvadeObject invadeObject)
+    {
+        foreach(var worker in _stationWorkerList)
+        {
+            if (!invadeObject.Equals(worker))
+            {
+                worker.SystemTracking = false;
+
+                worker.StopTarcking();
+            }
+        }
+
+        invadeObject.SystemTracking = false;
+    }
 }

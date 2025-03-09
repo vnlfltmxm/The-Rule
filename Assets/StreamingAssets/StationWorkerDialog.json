@@ -1,0 +1,18 @@
+[
+  {
+    "ID": "StationWorker_1",
+    "Dialog": "뛰시면 안됩니다. 벌금을 내셔야합니다."
+  },
+  {
+    "ID": "StationWorker_2",
+    "Dialog": "다음부턴 뛰지 마십시오."
+  },
+  {
+    "ID": "StationWorker_3",
+    "Dialog": "벌금을 징수하겠습니다."
+  },
+  {
+    "ID": "StationWorker_4",
+    "Dialog": "협조 감사드립니다."
+  }
+]

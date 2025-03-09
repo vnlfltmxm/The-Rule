@@ -104,6 +104,8 @@ public class InvadeObjectStateFactory : IStateFactory<InvadeObject, InvadeState>
                 return new InvadeObjectTracking(classType);
             case InvadeState.Trace:
                 return new InvadeObjectTrace(classType);
+            case InvadeState.CatchPlayer:
+                return new InvadeObjectCatchPlayer(classType);
             default:
                 throw new ArgumentException();
         }

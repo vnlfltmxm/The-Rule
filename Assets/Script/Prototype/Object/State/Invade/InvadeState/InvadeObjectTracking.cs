@@ -16,7 +16,6 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     private float _calculateTime;
     private float _currentTime;
     private float _maxTime = 2.0f;
-
     private bool _isDetect;
 
     public void SetPlayer(Transform player)
@@ -40,9 +39,7 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     {
         if (_isDetect)
         {
-            Vector3 playerPosition = _player.position;
-
-            _agent.SetDestination(playerPosition);
+            _agent.SetDestination(_player.position);
         }
     }
 
@@ -59,20 +56,32 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
 
         _currentTime = 0f;
     }
-
+    
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        switch (other.gameObject.layer)
         {
-            Logger.Log("잡았다");
+            case int layer when layer == LayerMask.NameToLayer("Player"):
+                Debug.Log("잡았다");
+                if (_invadeObject.SystemTracking)
+                {
+                    EnemyManager.Instance.StationWorkerCatchPlayer(_invadeObject);
+                }
+                break;
+            case int layer when layer == LayerMask.NameToLayer("SafeArea"):
+                if (!_invadeObject.SystemTracking)
+                {
+                    StopTracking();
+                }
+                break;
         }
-        else if(!_invadeObject.SystemTracking &&
-            other.gameObject.layer == LayerMask.NameToLayer("SafeArea"))
-        {
-            _isDetect = false;
+    }
 
-            ChangeState(InvadeState.Idle);            
-        }
+    public void StopTracking()
+    {
+        _isDetect = false;
+
+        ChangeState(InvadeState.Idle);
     }
 
     private void ChangeState(InvadeState state)

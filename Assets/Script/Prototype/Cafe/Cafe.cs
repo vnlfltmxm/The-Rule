@@ -7,7 +7,7 @@ public class Cafe : MonoBehaviour, IInteractableCafe
     [SerializeField] private Transform _cafePlayerPosition;
     [Header("CafeCamera")]
     [SerializeField] private GameObject _cafeCamera;
-
+    [Header("CafeUIController"), SerializeField]
     private CafeUIController _cafeUIController;
 
     public bool IsInteractable { get; set; } = true;
@@ -49,5 +49,7 @@ public class Cafe : MonoBehaviour, IInteractableCafe
             CafeManager.Instance.SetUnlockPlayerAction(() => UnLockPlayer(playerUtilityController),
                 () => SetActiveCamera(false));
         }
+
+        _cafeUIController.OnActiveMenuUI(MovePlayer, playerObject);
     }
 }

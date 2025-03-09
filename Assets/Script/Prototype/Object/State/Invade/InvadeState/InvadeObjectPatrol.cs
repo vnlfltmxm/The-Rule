@@ -4,7 +4,7 @@ public class InvadeObjectPatrol : InvadeObjectMovement, IObjectState<InvadeObjec
 {
     public InvadeObjectPatrol(InvadeObject invadeObject) : base(invadeObject)
     {
-        _patrolAreaName = _data.Area;
+        _patrolAreaName = invadeObject.AreaName;
     }
 
     private Transform[] _destinationArray;
@@ -102,6 +102,8 @@ public class InvadeObjectPatrol : InvadeObjectMovement, IObjectState<InvadeObjec
 
     public void StateExit()
     {
+        _rigidbody.linearVelocity = Vector3.zero;
+
         _pathListIndex = 0;
     }
 }
