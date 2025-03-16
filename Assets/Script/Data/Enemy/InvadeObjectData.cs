@@ -3,9 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InvadeObjectData", menuName = "Scriptable Objects/InvadeObjectData")]
 public class InvadeObjectData : ScriptableObject
 {
-    [Header("구역"), SerializeField]
-    private string _area;
-
     [Header("Idle 정지시간"), SerializeField]
     private float _waitTime;
 
@@ -24,7 +21,6 @@ public class InvadeObjectData : ScriptableObject
     [Header("플레이어를 감지하는 각도"), SerializeField]
     private float _detectAngle;
 
-    public string Area => _area;
     public float WaitTime => _waitTime;
     public float Speed => _speed;
     public float RotationSpeed => _rotationSpeed;

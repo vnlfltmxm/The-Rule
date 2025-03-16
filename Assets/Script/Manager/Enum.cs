@@ -17,7 +17,8 @@ public enum InvadeState
     Look,
     Patrol,
     Tracking,
-    Trace
+    Trace,
+    CatchPlayer
 }
 
 public enum ColliderType

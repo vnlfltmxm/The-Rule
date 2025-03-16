@@ -6,17 +6,19 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     public InvadeObjectTracking(InvadeObject invadeObject) : base(invadeObject)
     {
         _waitTime = new WaitForSeconds(0.1f);
+        _updateDestinationTime = new WaitForSeconds(0.2f);
     }
 
     private Transform _player;
     private WaitForSeconds _waitTime;
+    private WaitForSeconds _updateDestinationTime;
     private Coroutine _detectCoroutine;
+    private Coroutine _updateDestinationCoroutine;
     private LayerMask _targetLayer = LayerMask.GetMask("Player", "Wall");
     
     private float _calculateTime;
     private float _currentTime;
     private float _maxTime = 2.0f;
-
     private bool _isDetect;
 
     public void SetPlayer(Transform player)
@@ -30,19 +32,29 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
 
         SetNavMeshAgent(true, 3f);
 
+        StartTrackingCoroutine();
+    }
+
+    private void StartTrackingCoroutine()
+    {
+        _updateDestinationCoroutine = _invadeObject.StartCoroutine(UpdateDestination());
+
         if (!_invadeObject.SystemTracking)
         {
             _detectCoroutine = _invadeObject.StartCoroutine(IsDetect());
         }
     }
 
-    public void StateUpdate()
+    private IEnumerator UpdateDestination()
     {
-        if (_isDetect)
+        while (_isDetect)
         {
-            Vector3 playerPosition = _player.position;
+            if(_player != null)
+            {
+                _agent.SetDestination(_player.position);
+            }
 
-            _agent.SetDestination(playerPosition);
+            yield return _updateDestinationTime;
         }
     }
 
@@ -50,29 +62,41 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     {
         SetNavMeshAgent(false, 0f);
 
-        if (_detectCoroutine != null)
+        if (_detectCoroutine != null ||
+            _updateDestinationCoroutine != null)
         {
-            _invadeObject.StopCoroutine(_detectCoroutine);
-
             _detectCoroutine = null;
+            _updateDestinationCoroutine = null;
         }
 
         _currentTime = 0f;
     }
-
+    
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        switch (other.gameObject.layer)
         {
-            Logger.Log("잡았다");
+            case int layer when layer == LayerMask.NameToLayer("Player"):
+                Debug.Log("잡았다");
+                if (_invadeObject.SystemTracking)
+                {
+                    EnemyManager.Instance.StationWorkerCatchPlayer(_invadeObject);
+                }
+                break;
+            case int layer when layer == LayerMask.NameToLayer("SafeArea"):
+                if (!_invadeObject.SystemTracking)
+                {
+                    StopTracking();
+                }
+                break;
         }
-        else if(!_invadeObject.SystemTracking &&
-            other.gameObject.layer == LayerMask.NameToLayer("SafeArea"))
-        {
-            _isDetect = false;
+    }
 
-            ChangeState(InvadeState.Idle);            
-        }
+    public void StopTracking()
+    {
+        _isDetect = false;
+
+        ChangeState(InvadeState.Idle);
     }
 
     private void ChangeState(InvadeState state)

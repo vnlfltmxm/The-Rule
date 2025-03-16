@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using Script.Prop;
 public class TestPlayerInputSystem : MonoBehaviour
 {
     private MakeSound _makeSound;
@@ -70,11 +70,11 @@ public class TestPlayerInputSystem : MonoBehaviour
 
             foreach (var collider in colliders)
             {
-                IInteractionCafe cafe = collider.GetComponent<IInteractionCafe>();
+                IInteractableCafe cafe = collider.GetComponent<IInteractableCafe>();
 
                 if (cafe != null)
                 {
-                    cafe.Interaction(gameObject);
+                    cafe.InteractObject(gameObject);
 
                     return;
                 }

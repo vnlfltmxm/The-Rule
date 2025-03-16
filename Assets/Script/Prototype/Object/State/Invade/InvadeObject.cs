@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
 {
+    [Header("Area"), SerializeField] 
+    private string _area;
     [Header("Data"), SerializeField]
     private InvadeObjectData _data;
     public InvadeObjectData Data => _data;
 
+    public string AreaName => _area;
     public Vector3 SoundPosition { get; set; }
-    public bool SystemTracking { get; set; }
+    public bool SystemTracking { get; set; }    
 
     private Transform _playerTransform;
     private InvadeStateMachine _state;
@@ -32,7 +35,7 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
         }
 
         var currentState = _state.GetCurrentObjectState();
-
+        
         SoundPosition = position;
 
         if(currentState is InvadeObjectTrace
@@ -40,7 +43,7 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
         {
             return;
         }
-
+        
         SetPlayer(player);
 
         _state.ChangeObjectState(InvadeState.Trace);
@@ -57,11 +60,9 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
 
         foreach(var state in stateDictionary)
         {
-            ISetPlayer setplayer = state.Value as ISetPlayer;
-
-            if(setplayer != null)
+            if(state.Value is ISetPlayer setPlayer)
             {
-                setplayer.SetPlayer(transform);
+                setPlayer.SetPlayer(transform);
             }
         }
     }
@@ -73,6 +74,16 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
         SetPlayer(player);
 
         _state.ChangeObjectState(InvadeState.Tracking);
+    }
+
+    public void StopTarcking()
+    {
+        var tarckingState = _state.GetObjectState<InvadeObjectTracking>(InvadeState.Tracking);
+
+        if(tarckingState != null)
+        {
+            tarckingState.StopTracking();
+        }
     }
 
     #region Gizmo

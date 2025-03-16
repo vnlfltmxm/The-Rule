@@ -48,15 +48,9 @@ public class CafeUIController : MonoBehaviour
         _menuUI.SetActive(true);
     }
 
-    public void Exit()
+    public void OnClickCancel()
     {
         CafeManager.Instance.ResetCafeMenu();
-
-        _unlockPlayer?.Invoke();
-
-        _setActiveCamera?.Invoke(false);
-
-        _menuUI.SetActive(false);
     }
 
     private IEnumerator WaitForAlpha(float targetAlpha)
@@ -67,7 +61,7 @@ public class CafeUIController : MonoBehaviour
         }); //Mathf.Approximately -> 부동 소수점값 2개가 거의 같은지 확인. 거의 같다면 true, 벗어난다면 false 리턴
     }
 
-    public void OnClickCancelButton()
+    public void OnClickExitButton()
     {
         //이 부분에 역무원이 현재 플레이어를 계속 추적하도록 하는 메서드 호출.
         CafeManager.Instance.ResetCafeMenu();
@@ -83,6 +77,12 @@ public class CafeUIController : MonoBehaviour
                 stationWorker.OnSystemTracking(player.transform);
             }
         }
+
+        _unlockPlayer?.Invoke();
+
+        _setActiveCamera?.Invoke(false);
+
+        _menuUI.SetActive(false);
     }
 
     public void OnClickBuyButton()
