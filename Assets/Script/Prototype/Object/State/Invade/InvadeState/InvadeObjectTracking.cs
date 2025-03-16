@@ -6,11 +6,14 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     public InvadeObjectTracking(InvadeObject invadeObject) : base(invadeObject)
     {
         _waitTime = new WaitForSeconds(0.1f);
+        _updateDestinationTime = new WaitForSeconds(0.2f);
     }
 
     private Transform _player;
     private WaitForSeconds _waitTime;
+    private WaitForSeconds _updateDestinationTime;
     private Coroutine _detectCoroutine;
+    private Coroutine _updateDestinationCoroutine;
     private LayerMask _targetLayer = LayerMask.GetMask("Player", "Wall");
     
     private float _calculateTime;
@@ -29,17 +32,29 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
 
         SetNavMeshAgent(true, 3f);
 
+        StartTrackingCoroutine();
+    }
+
+    private void StartTrackingCoroutine()
+    {
+        _updateDestinationCoroutine = _invadeObject.StartCoroutine(UpdateDestination());
+
         if (!_invadeObject.SystemTracking)
         {
             _detectCoroutine = _invadeObject.StartCoroutine(IsDetect());
         }
     }
 
-    public void StateUpdate()
+    private IEnumerator UpdateDestination()
     {
-        if (_isDetect)
+        while (_isDetect)
         {
-            _agent.SetDestination(_player.position);
+            if(_player != null)
+            {
+                _agent.SetDestination(_player.position);
+            }
+
+            yield return _updateDestinationTime;
         }
     }
 
@@ -47,11 +62,11 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
     {
         SetNavMeshAgent(false, 0f);
 
-        if (_detectCoroutine != null)
+        if (_detectCoroutine != null ||
+            _updateDestinationCoroutine != null)
         {
-            _invadeObject.StopCoroutine(_detectCoroutine);
-
             _detectCoroutine = null;
+            _updateDestinationCoroutine = null;
         }
 
         _currentTime = 0f;

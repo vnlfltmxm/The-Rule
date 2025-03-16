@@ -35,7 +35,7 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
         }
 
         var currentState = _state.GetCurrentObjectState();
-
+        
         SoundPosition = position;
 
         if(currentState is InvadeObjectTrace
@@ -43,7 +43,7 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
         {
             return;
         }
-
+        
         SetPlayer(player);
 
         _state.ChangeObjectState(InvadeState.Trace);
