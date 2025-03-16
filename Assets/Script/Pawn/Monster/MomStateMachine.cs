@@ -53,13 +53,26 @@ public class MomStateMachine : MonoBehaviour
         _stateMachine.ChangeObjectState(newState);
     }
     
-    private void SetAllowedAreas(AreaType allowedAreas)
+    private void SetAllowedAreas(List<AreaType> allowedAreas)
     {
         int mask = 0;
-        foreach (AreaType area in Enum.GetValues(typeof(AreaType)))
+        
+        foreach (var areaType in allowedAreas)
+        {
+            mask += (int)areaType;
+        }
+        
+        _agent.areaMask = mask;
+        
+        /*foreach (AreaType area in Enum.GetValues(typeof(AreaType)))
         {
             if (area == AreaType.Null) continue; // Null은 제외
 
+            foreach (var areaType in allowedAreas)
+            {
+                
+            }
+            
             if (allowedAreas.HasFlag(area))
             {
                 int areaIndex = NavMesh.GetAreaFromName(area.ToString());
@@ -69,7 +82,7 @@ public class MomStateMachine : MonoBehaviour
                 }
             }
         }
-        _agent.areaMask = mask;
+        _agent.areaMask = mask;*/
     }
 
     public IObjectState GetCurrentObjectState()

@@ -1,25 +1,37 @@
+using System.Collections.Generic;
+using Script.Pawn;
 using Script.Prop;
 using Script.Util;
 using UnityEngine;
 
-public class MonsterBase : MonoBehaviour, IInteractable
+public class MonsterBase : Pawn, IInteractable
 {
-    [Header("WaitTime")]
+    [Header("대기 시간")]
     [SerializeField] private float _waitTime;
 
-    [Header("ObjectSpeed")]
+    [Header("몬스터 이동시간")]
     [SerializeField] private float _moveSpeed;
 
-    [Header("AreaType")]
-    [SerializeField] private AreaType _areaType;
+    [Header("이동 영역")]
+    [SerializeField] private List<AreaType> _areaType;
     
     public float WaitTime => _waitTime;
     public float MoveSpeed => _moveSpeed;
-    public AreaType AreaType => _areaType;
+    public List<AreaType> AreaType => _areaType;
     
     public bool IsInteractable { get; set; }
     public virtual void Interact()
     {
         Debug.Log($"몬스터와 상호작용했다.");
+    }
+
+    protected override void Init()
+    {
+        
+    }
+
+    public override void SetActiveForcedEvent(bool isActive)
+    {
+        
     }
 }

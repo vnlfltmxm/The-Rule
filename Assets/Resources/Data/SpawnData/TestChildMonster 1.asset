@@ -19,6 +19,8 @@ MonoBehaviour:
   _increasedSpawnProbability: 0
   _increasedProbabilityIntervalTime: 180
   _cantSpawnConditions: []
-  _spawnPositionType: 0
+  _spawnAreaTypes: 1000000020000000
+  _specialSpawnType: 1
+  _spawnEventType: 1
   _correctRuleContext: 
   _wrongRuleContext: 

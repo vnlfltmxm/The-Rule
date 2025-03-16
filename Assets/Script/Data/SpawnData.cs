@@ -26,18 +26,22 @@ public class SpawnData : ScriptableObject
 
     [Header("스폰불가 조건"), SerializeField] 
     private List<SpawnCondition> _cantSpawnConditions;
-
+    
     [Header("스폰위치"), SerializeField]
-    private AreaType _spawnAreaType;
+    private List<AreaType> _spawnAreaTypes;
+    
+    [Header("특수 스폰 설정"), SerializeField]
+    private SpecialSpawnType _specialSpawnType;
+    
+    [Header("스폰 발생 이벤트"), SerializeField]
+    private SpawnEventType _spawnEventType;
     
     [Header("올바른 규칙"), SerializeField]
     private string _correctRuleContext;
     
     [Header("틀린 규칙"), SerializeField]
     private string _wrongRuleContext;
-
-
-
+    
 
     public float SpawnStartTime => _spawnStartTime;
     public float StartSpawnProbability => _startSpawnProbability;
@@ -45,7 +49,9 @@ public class SpawnData : ScriptableObject
     public float IncreasedSpawnProbability => _increasedSpawnProbability;
     public float IncreasedProbabilityIntervalTime => _increasedProbabilityIntervalTime;
     public List<SpawnCondition> CantSpawnConditions => _cantSpawnConditions;
-    public AreaType SpawnAreaType => _spawnAreaType;
+    public List<AreaType> SpawnAreaTypes => _spawnAreaTypes;
+    public SpecialSpawnType SpecialSpawnType => _specialSpawnType;
+    public SpawnEventType SpawnEventType => _spawnEventType;
     public string CorrectRuleContext => _correctRuleContext;
     public string WrongRuleContext => _wrongRuleContext;
 }

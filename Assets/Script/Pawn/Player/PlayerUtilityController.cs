@@ -10,9 +10,9 @@ public class PlayerUtilityController : MonoBehaviour
     private ItemInventory _itemInventory;
     private PlayerInput _playerInput;
 
-    [SerializeField] private GameObject EyePanel;
+    //[SerializeField] private GameObject EyePanel;
     [SerializeField] private AudioListener AudioListener;
-    [SerializeField] private GameObject RulePanel;
+    //[SerializeField] private GameObject RulePanel;
     
     public void Init(Player player)
     {
@@ -61,13 +61,16 @@ public class PlayerUtilityController : MonoBehaviour
     private void Secondary()
     {
         secondaryActive = !secondaryActive;
-        EyePanel.gameObject.SetActive(secondaryActive);
+        UIManager.Instance.GetUI<EyeUI>().gameObject.SetActive(secondaryActive);
     }
     private bool ruleActive = false;
     private void CheckRules()
     {
         ruleActive = !ruleActive;
-        RulePanel.gameObject.SetActive(ruleActive);
+        RuleUI ruleUI = UIManager.Instance.GetUI<RuleUI>();
+        ruleUI.gameObject.SetActive(ruleActive);
+        if(ruleActive == true)
+            ruleUI.InitRule();
     }
     //PlayerInput 컴포넌트 제어
     public void PlayerLock(bool isLock)

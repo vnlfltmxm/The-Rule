@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Script.Util;
 using Unity.AI.Navigation;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class AreaBase : MonoBehaviour
 {
     [SerializeField] public AreaType AreaType;
     [SerializeField] public NavMeshModifierVolume NavMeshModifierVolume;
+    [SerializeField] public List<Transform> SpawnPosList = new List<Transform>();
 
     private void Start()
     {
@@ -34,6 +36,16 @@ public class AreaBase : MonoBehaviour
             NavMeshModifierVolume = GetComponent<NavMeshModifierVolume>();
             if (NavMeshModifierVolume == null)
                 NavMeshModifierVolume = gameObject.AddComponent<NavMeshModifierVolume>();
+        }
+    }
+
+    public void LoadSpawnPos()
+    {
+        SpawnPosList.Clear();
+        Transform spawnPos = transform.Find("SpawnPos");
+        foreach (Transform child in spawnPos)
+        {
+            SpawnPosList.Add(child);
         }
     }
 }

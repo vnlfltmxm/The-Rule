@@ -13,6 +13,6 @@ public class MomMonster : MonsterBase
     
     public override void Interact()
     {
-        UIManager.Instance.UICanvas
+        UIManager.Instance.GetUI<DialogSelectionUI>().ShowChoices();
     }
 }

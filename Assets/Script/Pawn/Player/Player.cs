@@ -1,3 +1,4 @@
+using System;
 using Script.Util;
 using UnityEngine;
 using UnityEngine.AI;
@@ -47,22 +48,17 @@ namespace Script.Pawn.Player
             RaycastPropDetector.Init(this);
         }
 
-        public AreaType GetCurrentArea(Vector3 position)
+        protected override void OnFixedUpdate()
         {
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(position, out hit, 0.1f, NavMesh.AllAreas))
-            {
-                int areaIndex = hit.mask; // 현재 위치한 NavMesh Area Index
+            base.OnFixedUpdate();
+            DebugManager.Instance.SetDebugData(DebugType.PlayerCurrentArea, CurrentArea.ToString());
+        }
 
-                foreach (AreaType area in System.Enum.GetValues(typeof(AreaType)))
-                {
-                    if (NavMesh.GetAreaFromName(area.ToString()) == areaIndex)
-                    {
-                        return area;
-                    }
-                }
-            }
-            return AreaType.Null; // 해당하는 Area 없음
+        public override void SetActiveForcedEvent(bool isActive)
+        {
+            PlayerInputHandler.SetActive(!isActive);
+            PlayerUtilityController.gameObject.SetActive(!isActive);
+            RaycastPropDetector.gameObject.SetActive(!isActive);
         }
     }
 }

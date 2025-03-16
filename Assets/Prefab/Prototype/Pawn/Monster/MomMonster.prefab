@@ -202,13 +202,14 @@ GameObject:
   - component: {fileID: 6738985244363496729}
   - component: {fileID: 6003592680428173409}
   - component: {fileID: 8430783650682530019}
+  - component: {fileID: 6343071732842011199}
   m_Layer: 7
   m_Name: MomMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1105939567476722939
 Transform:
   m_ObjectHideFlags: 0
@@ -238,6 +239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be44c01148d14f14b9c63b95f22774d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentArea: 0
+  _waitTime: 0
+  _moveSpeed: 3
+  _areaType: 14
 --- !u!114 &-6228654683179326742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,3 +348,15 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6343071732842011199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235725185423883570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752dd169f9f12b742a6fb98cfdcba3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

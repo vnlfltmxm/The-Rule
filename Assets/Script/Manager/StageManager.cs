@@ -4,6 +4,7 @@ using NUnit.Framework;
 using Script.Manager.Framework;
 using Script.Util;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class StageManager : SingletonMonoBehaviour<StageManager>
 {
@@ -45,6 +46,25 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         }
     }
 
+    public Vector3 GetRandomSpawnPos(List<AreaType> areaTypes)
+    {
+        List<Vector3> posList = new List<Vector3>();
+        foreach (var areaBase in _mapAreaList)
+        {
+            if (areaTypes.Contains(areaBase.AreaType))
+            {
+                int randomIndex = Random.Range(0, areaBase.SpawnPosList.Count);
+                posList.Add(areaBase.SpawnPosList[randomIndex].position);
+            }
+        }
+        if (posList.Count == 0)
+        {
+            Debug.LogWarning("해당하는 스폰 위치가 없습니다.");
+            return Vector3.zero;
+        }
+        int posIndex = Random.Range(0, posList.Count);
+        return posList[posIndex];
+    }
     #region 스폰조건 체크
     public bool CheckCondition(SpawnCondition cantSpawnCondition)
     {
@@ -73,8 +93,6 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
 public class SpawnBehavior
 {
     private bool _isSpawned = false;        //이미 스폰했는가
-    //private bool _isStartBehavior;  //스폰행동이 동작중인가
-    
     
     private float _cumulativeTime; //누적시간
     private float _currentSpawnProbability; //현재 스폰확률
@@ -126,7 +144,7 @@ public class SpawnBehavior
         //스폰확률에 들어왔을 시 스폰
         if (_currentSpawnProbability > randomValue)
         {
-            SpawnManager.Instance.SpawnObject(_spawnData.MonsterPrefab);
+            SpawnManager.Instance.SpawnPawn(_spawnData);
             _isSpawned = true;
         }
     }
