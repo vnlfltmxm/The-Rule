@@ -1,5 +1,6 @@
 
 using System;
+using Script.Util;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.WSA;
@@ -92,6 +93,10 @@ namespace Script.Pawn.Player
 			nextFixedPosition = player.transform.position;
 
 			_inputHandler.OnCrouchEvent = Crouch;
+			
+			DebugManager.Instance.SetDebugData(DebugType.PlayerVelocity, FinalVelocity.ToString());
+			DebugManager.Instance.SetDebugData(DebugType.PlayerPosition, transform.position.ToString());
+			DebugManager.Instance.SetDebugData(DebugType.PlayerRotation, transform.rotation.ToString());
 		}
 		
         private void Update()
@@ -104,7 +109,27 @@ namespace Script.Pawn.Player
 	        transform.rotation = Quaternion.Euler(0, _yBodyAngle, 0);
 	        HeadTransform.rotation = Quaternion.Euler(_xLookAngle, _yLookAngle, 0.0f);
 	        CinemachineCameraTarget.rotation = Quaternion.Euler(_xLookAngle, _yLookAngle, 0.0f);
+	        
+	        DebugManager.Instance.SetDebugData(DebugType.PlayerVelocity, FinalVelocity.ToString());
+	        DebugManager.Instance.SetDebugData(DebugType.PlayerPosition, transform.position.ToString());
+	        DebugManager.Instance.SetDebugData(DebugType.PlayerRotation, transform.rotation.ToString());
         }
+
+        public void LookAt(Vector3 targetEuler)
+        {
+	        float targetX = ClampAngle(targetEuler.x, -80f, 80f); // X축 클램프 적용
+	        float targetY = Mathf.Repeat(targetEuler.y, 360f);
+
+	        // 2️⃣ Lerp로 부드럽게 회전 적용
+	        _xLookAngle = Mathf.LerpAngle(_xLookAngle, targetX, Time.deltaTime * RotationSpeed);
+	        _yLookAngle = Mathf.LerpAngle(_yLookAngle, targetY, Time.deltaTime * RotationSpeed);
+
+	        // 3️⃣ 회전 적용
+	        transform.rotation = Quaternion.Euler(0, _yLookAngle, 0);
+	        /*HeadTransform.rotation = Quaternion.Euler(_xLookAngle, _yLookAngle, 0.0f);
+	        CinemachineCameraTarget.rotation = Quaternion.Euler(_xLookAngle, _yLookAngle, 0.0f);*/
+        }
+        
 
         #region 이동 관련 ----------------------------------------------------------------------
         private void OnUpdateMove()

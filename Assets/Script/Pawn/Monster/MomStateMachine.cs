@@ -1,10 +1,14 @@
+using System;
 using System.Collections.Generic;
+using Script.Util;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MomStateMachine : MonoBehaviour
 {
     private ObjectStateMachine<MomMonster, MomState, MomMonsterStateFactory> _stateMachine;
     private MomMonster _stateObject;
+    private NavMeshAgent _agent;
     
     private void Awake()
     {
@@ -20,11 +24,14 @@ public class MomStateMachine : MonoBehaviour
         _stateMachine.Initialize();
 
         _stateMachine.CreateState(_stateObject);
+        
+        _agent = _stateObject.GetComponent<NavMeshAgent>();
     }
     
     private void Start()
     {
-        _stateMachine.StartState(MomState.Idle);
+        SetAllowedAreas(_stateObject.AreaType);
+        _stateMachine.StartState(MomState.Tracking);
     }
 
     private void FixedUpdate()
@@ -41,10 +48,41 @@ public class MomStateMachine : MonoBehaviour
     {
         _stateMachine.OnTriggerEnter(other);
     }
-
     public void ChangeObjectState(MomState newState)
     {
         _stateMachine.ChangeObjectState(newState);
+    }
+    
+    private void SetAllowedAreas(List<AreaType> allowedAreas)
+    {
+        int mask = 0;
+        
+        foreach (var areaType in allowedAreas)
+        {
+            mask += (int)areaType;
+        }
+        
+        _agent.areaMask = mask;
+        
+        /*foreach (AreaType area in Enum.GetValues(typeof(AreaType)))
+        {
+            if (area == AreaType.Null) continue; // Null은 제외
+
+            foreach (var areaType in allowedAreas)
+            {
+                
+            }
+            
+            if (allowedAreas.HasFlag(area))
+            {
+                int areaIndex = NavMesh.GetAreaFromName(area.ToString());
+                if (areaIndex != -1)
+                {
+                    mask |= 1 << areaIndex;
+                }
+            }
+        }
+        _agent.areaMask = mask;*/
     }
 
     public IObjectState GetCurrentObjectState()

@@ -6,12 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MoonsooMonsterTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MoonsooMonsterTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/SpawnData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/SpawnData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Logger/Logger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Logger/Logger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/RuleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/RuleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AreaBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AreaBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh-Ground 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh-Ground 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +42,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Prototype/Object/State/MomMonster/MomMonsterTracking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Scene/SceneChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/InputSetting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/RebindInputAction.cs" root0="FORCE_HIGHLIGHTING" />
@@ -44,6 +52,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Editor/UGUI/UI/GraphicEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/Layout/HorizontalOrVerticalLayoutGroup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -136,6 +145,13 @@
       <workItem from="1739019234423" duration="3943000" />
       <workItem from="1739090035716" duration="2258000" />
       <workItem from="1740299364824" duration="76000" />
+      <workItem from="1740299445490" duration="6299000" />
+      <workItem from="1740894417944" duration="487000" />
+      <workItem from="1740894928167" duration="1700000" />
+      <workItem from="1740896662419" duration="2864000" />
+      <workItem from="1740899571349" duration="24000" />
+      <workItem from="1740899612895" duration="3752000" />
+      <workItem from="1741445898061" duration="672000" />
     </task>
     <servers />
   </component>
@@ -157,42 +173,55 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs</url>
-          <line>93</line>
+          <line>99</line>
           <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Manager\StageManager.cs" containingFunctionPresentation="메서드 'OnUpdateSpawn'">
             <startOffsets>
-              <option value="2619" />
+              <option value="2786" />
             </startOffsets>
             <endOffsets>
-              <option value="2685" />
+              <option value="2852" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs</url>
-          <line>101</line>
+          <line>107</line>
           <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Manager\StageManager.cs" containingFunctionPresentation="메서드 'OnUpdateSpawn'">
             <startOffsets>
-              <option value="2878" />
+              <option value="3045" />
             </startOffsets>
             <endOffsets>
-              <option value="2907" />
+              <option value="3074" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs</url>
-          <line>46</line>
+          <line>52</line>
           <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Manager\StageManager.cs" containingFunctionPresentation="메서드 'CheckCondition'">
             <startOffsets>
-              <option value="1346" />
+              <option value="1513" />
             </startOffsets>
             <endOffsets>
-              <option value="1368" />
+              <option value="1535" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterTracking.cs</url>
+          <line>28</line>
+          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Pawn\Monster\MomMonsterState\MomMonsterTracking.cs" containingFunctionPresentation="메서드 'StateUpdate'">
+            <startOffsets>
+              <option value="643" />
+            </startOffsets>
+            <endOffsets>
+              <option value="695" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

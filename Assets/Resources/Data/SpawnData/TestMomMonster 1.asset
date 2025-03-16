@@ -21,6 +21,7 @@ MonoBehaviour:
   _cantSpawnConditions:
   - <CantSpawnConditionType>k__BackingField: 1
     <CantSpawnConditionContext>k__BackingField: ChildMonster
-  _spawnPositionType: 0
+  _spawnAreaTypes: 1000000020000000
+  _specialSpawnType: 0
   _correctRuleContext: 
   _wrongRuleContext: 

@@ -1,3 +1,4 @@
+using Script.Util;
 using UnityEngine;
 
 public class PlayerBodyCondition
@@ -14,13 +15,13 @@ public class PlayerBodyCondition
 
     public void Init()
     {
-        TestHpBar.UpdateHpBar(_hp / (float)MaxHp);
+        DebugManager.Instance.SetDebugData(DebugType.PlayerHP, $"{MaxHp} / {_hp}");
     }
 
     public void OnDamage(int damage)
     {
         _hp -= damage;
-        TestHpBar.UpdateHpBar(_hp / (float)MaxHp);
+        DebugManager.Instance.SetDebugData(DebugType.PlayerHP, $"{MaxHp} / {_hp}");
         if (_hp < 0)
             OnDie();
     }

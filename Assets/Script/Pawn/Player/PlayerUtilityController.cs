@@ -10,9 +10,9 @@ public class PlayerUtilityController : MonoBehaviour
     private ItemInventory _itemInventory;
     private PlayerInput _playerInput;
 
-    [SerializeField] private GameObject EyePanel;
+    //[SerializeField] private GameObject EyePanel;
     [SerializeField] private AudioListener AudioListener;
-    [SerializeField] private GameObject RulePanel;
+    //[SerializeField] private GameObject RulePanel;
     
     public void Init(Player player)
     {
@@ -32,7 +32,7 @@ public class PlayerUtilityController : MonoBehaviour
         Logger.Log("Interact", Color.red);
         if (_raycastPropDetector.HasDetected == true)
         {
-            InteractiveProp prop = _raycastPropDetector.CurrentDetectedProp;
+            IInteractable prop = _raycastPropDetector.CurrentDetectedInteractable;
             if(prop is Item item)
             {
                 item.Interact();
@@ -41,6 +41,10 @@ public class PlayerUtilityController : MonoBehaviour
             else if(prop is InteractiveDevice device)
             {
                 device.Interact();
+            }
+            else if(prop is MonsterBase monster)
+            {
+                monster.Interact();
             }
         }
     }
@@ -57,13 +61,16 @@ public class PlayerUtilityController : MonoBehaviour
     private void Secondary()
     {
         secondaryActive = !secondaryActive;
-        EyePanel.gameObject.SetActive(secondaryActive);
+        UIManager.Instance.GetUI<EyeUI>().gameObject.SetActive(secondaryActive);
     }
     private bool ruleActive = false;
     private void CheckRules()
     {
         ruleActive = !ruleActive;
-        RulePanel.gameObject.SetActive(ruleActive);
+        RuleUI ruleUI = UIManager.Instance.GetUI<RuleUI>();
+        ruleUI.gameObject.SetActive(ruleActive);
+        if(ruleActive == true)
+            ruleUI.InitRule();
     }
     //PlayerInput 컴포넌트 제어
     public void PlayerLock(bool isLock)

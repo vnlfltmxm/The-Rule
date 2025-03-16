@@ -1,4 +1,5 @@
 using Script.Pawn.Player;
+using Script.Util;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,6 +24,12 @@ public class MomMonsterTracking : MomMonsterState, IObjectState<MomMonsterTracki
         if (_player == null)
         {
             Logger.Log("플레이어가 존재하지 않음");
+            return;
+        }
+
+        if (_player.CurrentArea == AreaType.Shop)
+        {
+            state.ChangeObjectState(MomState.Idle);
             return;
         }
         

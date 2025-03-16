@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : UIBase
 {
     [SerializeField] private Transform _itemSlotParent;
     
     [SerializeField] private List<DroppableSlotUI> _slotList = new List<DroppableSlotUI>();
-    [SerializeField] private InventoryBase _inventory;
     
     //TODO: ResourceManager로 나중에 빼야함
     [SerializeField] private GameObject droppableSlotUIPrefab;
@@ -15,11 +14,13 @@ public class InventoryUI : MonoBehaviour
 
     public event Action<int, int> OnUIUpdateModelEvent;
 
-    private void Awake()
+    protected override void OnAwake()
     {
-        Init(_inventory);
+        base.OnAwake();
+        RefreshItemUI();
+        //Init(_inventory);
     }
-    private void Init(InventoryBase inventory)
+    /*private void Init(InventoryBase inventory)
     {
         for (int index = 0; index < inventory.InventorySize; index++)
         {
@@ -68,12 +69,21 @@ public class InventoryUI : MonoBehaviour
         int rightIndex = _slotList.IndexOf(rightSlot);
         OnUIUpdateModelEvent?.Invoke(leftIndex, rightIndex);
     }
+    */
+    
+    private void RefreshItemUI()
+    {
+        //InventoryManager.Instance.Items
+    }
+    
     private void OnEnable()
     {
-        _inventory.OnModelUpdateUIEvent += OnModelUpdateUI;
+        //_inventory.OnModelUpdateUIEvent += OnModelUpdateUI;
+        InventoryManager.Instance.OnInventoryDataChangeEvent += RefreshItemUI;
     }
     private void OnDisable()
     {
-        _inventory.OnModelUpdateUIEvent -= OnModelUpdateUI;
+        //_inventory.OnModelUpdateUIEvent -= OnModelUpdateUI;
+        InventoryManager.Instance.OnInventoryDataChangeEvent -= RefreshItemUI;
     }
 }
