@@ -26,6 +26,7 @@ public class TypingDialog
             yield return _typingSpeed;
         }
 
+        yield return new WaitForSeconds(2f);
         ToggleVisibilityGameObject(ui);
     }
 

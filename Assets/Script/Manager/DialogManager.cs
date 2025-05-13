@@ -11,7 +11,7 @@ public class DialogManager : SingletonMonoBehaviour<DialogManager>
         GameObject ui = null)
     {
         if (_typingDialog == null)
-            _typingDialog = new TypingDialog(0.1f);
+            _typingDialog = new TypingDialog(0.05f);
 
         yield return StartCoroutine(_typingDialog.StartTypingDialog(text, textMeshProUGUI, ui));
     }

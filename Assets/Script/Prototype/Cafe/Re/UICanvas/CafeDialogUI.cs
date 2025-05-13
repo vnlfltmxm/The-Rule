@@ -18,8 +18,6 @@ namespace DeathCafe
             var dialogManager = DialogManager.Instance;
 
             yield return StartCoroutine(dialogManager.TypingDialog(dialogText, _dialogText, _dialogImage));
-            yield return new WaitForSeconds(2f);
-
             action?.Invoke();
         }
     }

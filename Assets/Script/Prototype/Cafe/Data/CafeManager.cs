@@ -277,8 +277,6 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
             {
                 Debug.Log("»ýÁ¸ÇÔ");
 
-                UnlockPlayer();
-
                 return;
             }
             else if (result == Rule.Death)
@@ -305,20 +303,6 @@ public class CafeManager : SingletonMonoBehaviour<CafeManager>
                 }
             }
         }
-
-        UnlockPlayer();
-    }
-
-    public void SetUnlockPlayerAction(Action unlock, Action camera)
-    {
-        _unlockPlayer = unlock;
-        _cameraAction = camera;
-    }
-
-    private void UnlockPlayer()
-    {
-        _unlockPlayer.Invoke();
-        _cameraAction.Invoke();
     }
     #endregion
 }

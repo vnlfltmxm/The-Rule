@@ -34,7 +34,12 @@ namespace DeathCafe
 
         private void RegisterBanner(bool register)
         {
-            CafeManager.Instance.RegisterBanner(InitializeBannerUI, register);
+            var cafeManager = CafeManager.Instance;
+
+            if(cafeManager != null)
+            {
+                CafeManager.Instance.RegisterBanner(InitializeBannerUI, register);
+            }
         }
 
         private void InitializeBannerUI()
