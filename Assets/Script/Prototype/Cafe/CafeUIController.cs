@@ -68,7 +68,7 @@ public class CafeUIController : MonoBehaviour
 
         var player = CafeManager.Instance.PlayerPrefab;
 
-        var stationWorkerList = EnemyManager.Instance.StationWorkerList;
+        var stationWorkerList = WorkerManager.Instance.InvadeObjectList;
 
         foreach(var stationWorker in stationWorkerList)
         {

@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class CafeSelectUI : MonoBehaviour
 {
+    public void EnableUI()
+    {
+        gameObject.SetActive(true);
+    }
+
     public void OnClickYes()
     {
         CafeRule._isConcentrate = true;

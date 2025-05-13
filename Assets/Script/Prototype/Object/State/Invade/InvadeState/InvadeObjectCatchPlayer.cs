@@ -1,19 +1,14 @@
 using UnityEngine;
 
-public class InvadeObjectCatchPlayer : InvadeObjectState, IObjectState<InvadeObjectCatchPlayer>, ISetPlayer
+public class InvadeObjectCatchPlayer : InvadeObjectState, IObjectState<InvadeObjectCatchPlayer>
 {
     public InvadeObjectCatchPlayer(InvadeObject invadeObject) : base(invadeObject) { }
 
-    private Transform _player;
-
-    public void SetPlayer(Transform player)
-    {
-        _player = player;
-    }
-
     public void StateEnter()
     {
-
+        ForcedEventManager.Instance.PlayerLookAtEvent(_invadeObject.transform);
     }
+
+
 
 }

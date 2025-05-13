@@ -22,7 +22,7 @@ public class InvadeObject : MonoBehaviour, ISoundTrace, ISystemTrace
 
     private void Start()
     {
-        EnemyManager.Instance.SetStationWorker(this);
+        WorkerManager.Instance.RegisterInvadeObject(this);
     }
 
     public void OnHearSound(Vector3 position, Transform player)

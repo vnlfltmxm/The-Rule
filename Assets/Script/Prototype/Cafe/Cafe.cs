@@ -44,6 +44,7 @@ public class Cafe : MonoBehaviour, IInteractableCafe
 
             _cafeUIController.SetAction(() => UnLockPlayer(playerUtilityController),
                 SetActiveCamera);
+
             _cafeUIController.OnActiveMenuUI(MovePlayer, playerObject);
 
             CafeManager.Instance.SetUnlockPlayerAction(() => UnLockPlayer(playerUtilityController),
@@ -51,5 +52,10 @@ public class Cafe : MonoBehaviour, IInteractableCafe
         }
 
         _cafeUIController.OnActiveMenuUI(MovePlayer, playerObject);
+    }
+
+    public void Test(GameObject player)
+    {
+        
     }
 }

@@ -33,13 +33,6 @@ public interface IEnemy
     public T GetSelf<T>() where T : class;
 }
 
-public interface IInteraction { }
-
-public interface IInteractionCafe : IInteraction
-{
-    public void Interaction(GameObject playerObject);
-}
-
 public interface IResetMenuUI
 {
     public void ResetMenu();

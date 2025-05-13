@@ -37,22 +37,16 @@ public class BannerUI : MonoBehaviour
     }
 
     #region Dialog
+
     public IEnumerator StartClerkDialog(string dialog)
     {
-        ActiveClerkImageUI(true);
+        var dialogManager = DialogManager.Instance;
 
-        _clerkText.text = string.Empty;
-
-        foreach(var text in dialog)
-        {
-            _clerkText.text += text;
-
-            yield return new WaitForSeconds(0.05f);
-        }
+        yield return StartCoroutine(dialogManager.TypingDialog(dialog, _clerkText, _clerkImageUI));
 
         yield return new WaitForSeconds(2f);
 
-        ActiveClerkImageUI(false);
+        //ActiveClerkImageUI(false);
     }
 
     private void ActiveClerkImageUI(bool isActive)

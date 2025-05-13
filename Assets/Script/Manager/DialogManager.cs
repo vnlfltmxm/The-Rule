@@ -1,16 +1,18 @@
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class DialogManager : SingletonMonoBehaviour<DialogManager>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private TypingDialog _typingDialog;
+    
+    public IEnumerator TypingDialog(string text, TextMeshProUGUI textMeshProUGUI,
+        GameObject ui = null)
     {
-        
-    }
+        if (_typingDialog == null)
+            _typingDialog = new TypingDialog(0.1f);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        yield return StartCoroutine(_typingDialog.StartTypingDialog(text, textMeshProUGUI, ui));
     }
 }
