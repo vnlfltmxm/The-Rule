@@ -80,7 +80,8 @@ public class InvadeObjectTracking : InvadeObjectMovement, IObjectState<InvadeObj
                 Debug.Log("잡았다");
                 if (_invadeObject.SystemTracking)
                 {
-                    EnemyManager.Instance.StationWorkerCatchPlayer(_invadeObject);
+                    WorkerManager.Instance.CatchPlayer(_invadeObject);
+                    ChangeState(InvadeState.CatchPlayer);
                 }
                 break;
             case int layer when layer == LayerMask.NameToLayer("SafeArea"):

@@ -70,12 +70,11 @@ public class TestPlayerInputSystem : MonoBehaviour
 
             foreach (var collider in colliders)
             {
-                IInteractableCafe cafe = collider.GetComponent<IInteractableCafe>();
+                IInteractable cafe = collider.GetComponent<IInteractable>();
 
                 if (cafe != null)
                 {
-                    cafe.InteractObject(gameObject);
-
+                    cafe.Interact();
                     return;
                 }
             }
