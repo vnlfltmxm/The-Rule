@@ -111,36 +111,5 @@ public class InvadeObjectStateFactory : IStateFactory<InvadeObject, InvadeState>
         }
     }
 }
-public class MomMonsterStateFactory : IStateFactory<MomMonster, MomState>
-{
-    public IObjectState CreateState(MomMonster classType, MomState enumType)
-    {
-        switch (enumType)
-        {
-            case MomState.Idle:
-                return new MomMonsterIdle(classType);
-            case MomState.Tracking:
-                return new MomMonsterTracking(classType);
-            default:
-                throw new ArgumentException();
-        }
-    }
-}
-public class ChildMonsterStateFactory : IStateFactory<ChildMonster, ChildState>
-{
-    public IObjectState CreateState(ChildMonster classType, ChildState enumType)
-    {
-        switch (enumType)
-        {
-            case ChildState.Idle:
-                return new ChildMonsterIdle(classType);
-            case ChildState.Cry:
-                return new ChildMonsterCry(classType);
-            case ChildState.Tracking:
-                return new ChildMonsterTracking(classType);
-            default:
-                throw new ArgumentException();
-        }
-    }
-}
+
 #endregion

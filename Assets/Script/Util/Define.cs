@@ -2,6 +2,26 @@ using System;
 
 namespace Script.Util
 {
+    public enum CompareType
+    {
+        Greater, 
+        Less, 
+        Equals, 
+        NotEqual,
+        True, 
+        False,
+        IsNull, 
+        IsNotNull,
+    }
+    public enum StateType
+    {
+        Idle,
+        Tracking,
+        Attack,
+        Patrol,
+        FindTarget,
+    }
+    
     public enum InputType
     {
         Move,

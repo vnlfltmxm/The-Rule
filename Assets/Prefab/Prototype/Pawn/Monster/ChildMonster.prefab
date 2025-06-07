@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1105939567476722939
 Transform:
   m_ObjectHideFlags: 0
@@ -240,9 +240,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentArea: 0
+  Target: {fileID: 0}
   _waitTime: 0
   _moveSpeed: 3
-  _areaType: 
+  _areaTypes: 
 --- !u!114 &-174135045156173877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dccca466a44c634ea5e8cbf15a03e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stateElementDatas: []
 --- !u!136 &7401149539984296135
 CapsuleCollider:
   m_ObjectHideFlags: 0

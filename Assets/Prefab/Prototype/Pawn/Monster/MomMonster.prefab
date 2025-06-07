@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1105939567476722939}
   - component: {fileID: -8052291637559459011}
-  - component: {fileID: -6228654683179326742}
+  - component: {fileID: 983060065273900066}
   - component: {fileID: 7401149539984296135}
   - component: {fileID: 6738985244363496729}
   - component: {fileID: 6003592680428173409}
@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1105939567476722939
 Transform:
   m_ObjectHideFlags: 0
@@ -240,10 +240,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentArea: 0
+  Target: {fileID: 0}
   _waitTime: 0
   _moveSpeed: 3
-  _areaType: 14
---- !u!114 &-6228654683179326742
+  _areaTypes: 
+--- !u!114 &983060065273900066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,9 +253,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7235725185423883570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17fdf23c1c3ecfb41884529f3ad99c68, type: 3}
+  m_Script: {fileID: 11500000, guid: 7dccca466a44c634ea5e8cbf15a03e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stateElementDatas: []
 --- !u!136 &7401149539984296135
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -360,3 +362,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752dd169f9f12b742a6fb98cfdcba3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dialogContainer: {fileID: 0}

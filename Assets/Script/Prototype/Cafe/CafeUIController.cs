@@ -58,12 +58,12 @@ public class CafeUIController : MonoBehaviour
         yield return new WaitUntil(() =>
         {
             return Mathf.Approximately(_backGroundController.BackGroundImage.color.a, targetAlpha);
-        }); //Mathf.Approximately -> ºÎµ¿ ¼Ò¼öÁ¡°ª 2°³°¡ °ÅÀÇ °°ÀºÁö È®ÀÎ. °ÅÀÇ °°´Ù¸é true, ¹ş¾î³­´Ù¸é false ¸®ÅÏ
+        }); //Mathf.Approximately -> ë¶€ë™ ì†Œìˆ˜ì ê°’ 2ê°œê°€ ê±°ì˜ ê°™ì€ì§€ í™•ì¸. ê±°ì˜ ê°™ë‹¤ë©´ true, ë²—ì–´ë‚œë‹¤ë©´ false ë¦¬í„´
     }
 
     public void OnClickExitButton()
     {
-        //ÀÌ ºÎºĞ¿¡ ¿ª¹«¿øÀÌ ÇöÀç ÇÃ·¹ÀÌ¾î¸¦ °è¼Ó ÃßÀûÇÏµµ·Ï ÇÏ´Â ¸Ş¼­µå È£Ãâ.
+        //ì´ ë¶€ë¶„ì— ì—­ë¬´ì›ì´ í˜„ì¬ í”Œë ˆì´ì–´ë¥¼ ê³„ì† ì¶”ì í•˜ë„ë¡ í•˜ëŠ” ë©”ì„œë“œ í˜¸ì¶œ.
         CafeManager.Instance.ResetCafeMenu();
 
         var player = CafeManager.Instance.PlayerPrefab;

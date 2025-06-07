@@ -6,21 +6,79 @@
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AreaBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AreaBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Monster/ChildMonster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Monster/ChildMonster.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Monster/MomMonster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Monster/MomMonster.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/ProtoTypeCafe/Cafe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/ProtoTypeCafe/Cafe.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/ProtoTypeCafe/Cafe.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/ProtoTypeCafe/Cafe.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/DialogData/New Narrative.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/DialogData/New Narrative.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/DialogData/New Narrative.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/DialogData/New Narrative.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh-Ground 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh-Ground 1.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/DialogContainer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/DialogContainer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/DialogNodeData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/DialogNodeData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/NodeLinkData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/NodeLinkData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/AreaBaseEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/AreaBaseEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogGraph.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogGraph.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogGraphView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogGraphView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogNode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogNode.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/GraphSaveUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/GraphSaveUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/ItemDataBundleEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/ItemDataBundleEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/ItemDataDrawer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/ItemDataDrawer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/DialogSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/DialogSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterCry.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterCry.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterIdle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterIdle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterTracking.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterTracking.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildStateMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildStateMachine.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterIdle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterIdle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterTracking.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterTracking.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomStateMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomStateMachine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Pawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastInteractableDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastInteractableDetector.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveDevice.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveDevice.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveProp.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveProp.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/BloodMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/BloodMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/Cafe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/Cafe.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/CafeUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/CafeUIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/EnemyFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/EnemyFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,24 +89,51 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42e781e4e2a0411ebbb45e482688fd8d3ea00/06/1f943bcb/GraphElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42e781e4e2a0411ebbb45e482688fd8d3ea00/2f/7853e448/Port.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42e781e4e2a0411ebbb45e482688fd8d3ea00/3f/1e266653/GridBackground.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42e781e4e2a0411ebbb45e482688fd8d3ea00/42/4d7c9e2f/RectangleSelector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42e781e4e2a0411ebbb45e482688fd8d3ea00/4a/983bb9d2/Blackboard.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42e781e4e2a0411ebbb45e482688fd8d3ea00/68/8bbaf209/GraphView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42e781e4e2a0411ebbb45e482688fd8d3ea00/89/1c5fd2d9/Capabilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42e781e4e2a0411ebbb45e482688fd8d3ea00/9d/f05d9123/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45b9485b4ba64564b30d91e935218d549b6e00/24/79f99ed0/ObjectField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45b9485b4ba64564b30d91e935218d549b6e00/70/006a513a/GUID.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c2967a135e648bdb993c5397a44991b573620/7c/209f13db/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/05/4fd13150/AndroidActivityIndicatorStyle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/4b/7971a66e/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/ca/8448650f/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/ed/51030a74/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/f2/7491a461/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b5bf0c891ea345fe93688f835df32fdc1dda00/f3/8645761a/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/09/73e23f0f/BaseElementBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/13/343d1866/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/1a/a1dbc816/TextField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/2d/44972b5d/MouseManipulator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/99/3082e4d3/DropdownField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/ac/529f5947/VisualElementExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/b4/9aa85cd7/VisualElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/ItemUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/SpawnData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Data/State/StateElementData/FindTargetStateData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Data/State/StateMachineData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Scene/SceneChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/InputSetting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Setting/RebindInputAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ProgressLine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateMachineNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/GlobalField/GlobalField.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/GlobalField/GlobalFieldTypeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/GlobalField/Inheritance/StringField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/UI/SettingUI/GameSettingUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionRebindingExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph/Editor/Data/Util/GraphUtil.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Editor/UGUI/UI/GraphicEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
@@ -58,6 +143,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2pOPCPSty7z15RE9MRoglMpNcza" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -101,10 +189,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23800">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="23800" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -152,6 +240,23 @@
       <workItem from="1740899571349" duration="24000" />
       <workItem from="1740899612895" duration="3752000" />
       <workItem from="1741445898061" duration="672000" />
+      <workItem from="1742134446732" duration="1114000" />
+      <workItem from="1742655294725" duration="4163000" />
+      <workItem from="1743324681785" duration="504000" />
+      <workItem from="1743325322375" duration="1010000" />
+      <workItem from="1743934825353" duration="902000" />
+      <workItem from="1744795222724" duration="145000" />
+      <workItem from="1744795387709" duration="2978000" />
+      <workItem from="1744798855581" duration="39312000" />
+      <workItem from="1746895971527" duration="11383000" />
+      <workItem from="1747505382374" duration="3731000" />
+      <workItem from="1747544778924" duration="5409000" />
+      <workItem from="1747556115941" duration="7975000" />
+      <workItem from="1747865361938" duration="85000" />
+      <workItem from="1748686623054" duration="1180000" />
+      <workItem from="1748743858226" duration="26786000" />
+      <workItem from="1749026436371" duration="6644000" />
+      <workItem from="1749289078875" duration="28420000" />
     </task>
     <servers />
   </component>
@@ -172,56 +277,16 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs</url>
-          <line>99</line>
-          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Manager\StageManager.cs" containingFunctionPresentation="메서드 'OnUpdateSpawn'">
-            <startOffsets>
-              <option value="2786" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2852" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs</url>
-          <line>107</line>
-          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Manager\StageManager.cs" containingFunctionPresentation="메서드 'OnUpdateSpawn'">
-            <startOffsets>
-              <option value="3045" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3074" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Script/Manager/StageManager.cs</url>
-          <line>52</line>
-          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Manager\StageManager.cs" containingFunctionPresentation="메서드 'CheckCondition'">
-            <startOffsets>
-              <option value="1513" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1535" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterTracking.cs</url>
-          <line>28</line>
-          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Pawn\Monster\MomMonsterState\MomMonsterTracking.cs" containingFunctionPresentation="메서드 'StateUpdate'">
-            <startOffsets>
-              <option value="643" />
-            </startOffsets>
-            <endOffsets>
-              <option value="695" />
-            </endOffsets>
-          </properties>
+          <line>27</line>
+          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Pawn\Monster\MomMonsterState\MomMonsterTracking.cs" containingFunctionPresentation="메서드 'StateUpdate'" />
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/Pawn/StateCondition/HasTargetCondition.cs</url>
+          <line>15</line>
+          <properties documentPath="E:\UnityProject\The-Rule\Assets\Script\Pawn\StateCondition\HasTargetCondition.cs" containingFunctionPresentation="메서드 'CheckCondition'" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

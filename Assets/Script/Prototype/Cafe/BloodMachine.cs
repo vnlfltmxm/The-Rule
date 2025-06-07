@@ -6,6 +6,10 @@ public class BloodMachine : MonoBehaviour, IInteractableBloodMachine
     private const float COST = 0.2f;
 
     public bool IsInteractable { get; set; } = true;
+    public void OnInteract(IInteractor sender)
+    {
+        
+    }
 
     public void InteractObject(PlayerBodyCondition type)
     {

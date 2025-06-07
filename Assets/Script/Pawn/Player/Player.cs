@@ -1,4 +1,5 @@
 using System;
+using Script.Prop;
 using Script.Util;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,7 +8,7 @@ using UnityEngine.Serialization;
 
 namespace Script.Pawn.Player
 {
-    public class Player : Pawn
+    public class Player : Pawn, IInteractor
     {
         public static Player S_Player;
 
@@ -18,7 +19,7 @@ namespace Script.Pawn.Player
         [HideInInspector] public PlayerMovementController PlayerMovementController;
         [HideInInspector] public PlayerUtilityController PlayerUtilityController;
         [HideInInspector] public PlayerInput PlayerInput;
-        [HideInInspector] public RaycastPropDetector RaycastPropDetector;
+        [HideInInspector] public RaycastInteractableDetector RaycastInteractableDetector;
         [HideInInspector] public Rigidbody Rigidbody;
 
         [Header("시네머신 카메라 타겟 위치")] public Transform VirtualCamera;
@@ -37,7 +38,7 @@ namespace Script.Pawn.Player
             PlayerMovementController = GetComponent<PlayerMovementController>();
             PlayerUtilityController = GetComponent<PlayerUtilityController>();
             PlayerInput = GetComponent<PlayerInput>();
-            RaycastPropDetector = GetComponent<RaycastPropDetector>();
+            RaycastInteractableDetector = GetComponent<RaycastInteractableDetector>();
             Rigidbody = GetComponent<Rigidbody>();
 
             PlayerBodyCondition.Init();
@@ -45,7 +46,7 @@ namespace Script.Pawn.Player
             ItemInventory.Init(this);
             PlayerMovementController.Init(this);
             PlayerUtilityController.Init(this);
-            RaycastPropDetector.Init(this);
+            RaycastInteractableDetector.Init(this);
         }
 
         protected override void OnFixedUpdate()
@@ -58,7 +59,26 @@ namespace Script.Pawn.Player
         {
             PlayerInputHandler.SetActive(!isActive);
             PlayerUtilityController.gameObject.SetActive(!isActive);
-            RaycastPropDetector.gameObject.SetActive(!isActive);
+            RaycastInteractableDetector.gameObject.SetActive(!isActive);
+        }
+
+        public GameObject GameObject => this.gameObject;
+
+        public void Interact()
+        {
+            Logger.Log("Interact", Color.red);
+            if (RaycastInteractableDetector.HasDetected == true)
+            {
+                IInteractable interactable = RaycastInteractableDetector.CurrentDetectedInteractable;
+                
+                interactable.OnInteract(this);
+            }
+        }
+        
+        //PlayerInput 컴포넌트 제어
+        public void ControlLock(bool isLock)
+        {
+            PlayerInput.enabled = !isLock;
         }
     }
 }

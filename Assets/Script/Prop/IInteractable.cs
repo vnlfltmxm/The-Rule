@@ -5,7 +5,7 @@ namespace Script.Prop
     public interface IInteractable
     {
         bool IsInteractable { get; set; }
-        void Interact() { }
+        void OnInteract(IInteractor sender);
     }
 
     public interface IInteractableObject<T> : IInteractable 

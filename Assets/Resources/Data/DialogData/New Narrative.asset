@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ee8891e2ac63d4fb09cb299ced00f8, type: 3}
   m_Name: New Narrative
   m_EditorClassIdentifier: 
+  EntryPointNode:
+    Guid: adcd0063-ce2b-4e36-bc37-c9c755f00930
+    DialogText: ENTRY_POINT
+    Position: {x: 100, y: 200}
   NodeLinks:
   - BaseNodeGuid: adcd0063-ce2b-4e36-bc37-c9c755f00930
     PortName: Next
@@ -22,6 +26,9 @@ MonoBehaviour:
   - BaseNodeGuid: 5d09cf6f-8684-45d4-9fab-2d7f576080b5
     PortName: Choice 2
     TargetNodeGuid: a033dd1f-fd1e-4785-9a85-8376b3f0fb9c
+  - BaseNodeGuid: a033dd1f-fd1e-4785-9a85-8376b3f0fb9c
+    PortName: Choice 1
+    TargetNodeGuid: a3e6aec2-a652-476e-a4fa-c50665b28864
   DialogNodeData:
   - Guid: 5d09cf6f-8684-45d4-9fab-2d7f576080b5
     DialogText: "\uD558\uD558\uD558\uD558\uD558"
@@ -32,3 +39,13 @@ MonoBehaviour:
   - Guid: a033dd1f-fd1e-4785-9a85-8376b3f0fb9c
     DialogText: "\uD6C4\uD6C4\uD6C4"
     Position: {x: 703, y: 277}
+  - Guid: a3e6aec2-a652-476e-a4fa-c50665b28864
+    DialogText: Dialog Node
+    Position: {x: 924, y: 273}
+  ExposedProperties:
+  - PropertyName: AA
+    PropertyValue: New Value
+  - PropertyName: BB
+    PropertyValue: New Value
+  - PropertyName: CC
+    PropertyValue: New Value

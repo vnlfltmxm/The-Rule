@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerUtilityController : MonoBehaviour
 {
-    private RaycastPropDetector _raycastPropDetector;
+    private RaycastInteractableDetector _raycastInteractableDetector;
     private ItemInventory _itemInventory;
     private PlayerInput _playerInput;
 
@@ -14,68 +14,42 @@ public class PlayerUtilityController : MonoBehaviour
     [SerializeField] private AudioListener AudioListener;
     //[SerializeField] private GameObject RulePanel;
     
+    //귀막기
+    private bool _primaryActive = false;
+    //눈막기
+    private bool _secondaryActive = false;
+    //규칙 출력
+    private bool _ruleActive = false;
+    
     public void Init(Player player)
     {
-        _playerInput = player.PlayerInput;
-        _raycastPropDetector = player.RaycastPropDetector;
+        _raycastInteractableDetector = player.RaycastInteractableDetector;
         _itemInventory = player.ItemInventory;
+        _playerInput = player.PlayerInput;
         PlayerInputHandler playerInputHandler = player.PlayerInputHandler;
 
-        playerInputHandler.OnInteractEvent = Interact;
+        playerInputHandler.OnInteractEvent = player.Interact;
         playerInputHandler.OnPrimaryEvent = Primary;
         playerInputHandler.OnSecondaryEvent = Secondary;
         playerInputHandler.OnCheckRulesEvent = CheckRules;
     }
-
-    private void Interact()
-    {
-        Logger.Log("Interact", Color.red);
-        if (_raycastPropDetector.HasDetected == true)
-        {
-            IInteractable prop = _raycastPropDetector.CurrentDetectedInteractable;
-            if(prop is Item item)
-            {
-                item.Interact();
-                _itemInventory.AddItem(item);
-            }
-            else if(prop is InteractiveDevice device)
-            {
-                device.Interact();
-            }
-            else if(prop is MonsterBase monster)
-            {
-                monster.Interact();
-            }
-        }
-    }
-
-    //귀막기
-    private bool primaryActive = false;
+    
     private void Primary()
     {
-        primaryActive = !primaryActive;
-        AudioListener.volume = primaryActive ? 0f : 1f;
+        _primaryActive = !_primaryActive;
+        AudioListener.volume = _primaryActive ? 0f : 1f;
     }
-    //눈막기
-    private bool secondaryActive = false;
     private void Secondary()
     {
-        secondaryActive = !secondaryActive;
-        UIManager.Instance.GetUI<EyeUI>().gameObject.SetActive(secondaryActive);
+        _secondaryActive = !_secondaryActive;
+        UIManager.Instance.GetUI<EyeUI>().gameObject.SetActive(_secondaryActive);
     }
-    private bool ruleActive = false;
     private void CheckRules()
     {
-        ruleActive = !ruleActive;
+        _ruleActive = !_ruleActive;
         RuleUI ruleUI = UIManager.Instance.GetUI<RuleUI>();
-        ruleUI.gameObject.SetActive(ruleActive);
-        if(ruleActive == true)
+        ruleUI.gameObject.SetActive(_ruleActive);
+        if(_ruleActive == true)
             ruleUI.InitRule();
     }
-    //PlayerInput 컴포넌트 제어
-    public void PlayerLock(bool isLock)
-    {
-        _playerInput.enabled = !isLock;
-    }
-
 }

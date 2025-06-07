@@ -1,7 +1,8 @@
+using Script.Pawn.Player;
 using UnityEngine;
 using Script.Prop;
 
-public class Cafe : MonoBehaviour, IInteractableCafe
+public class Cafe : MonoBehaviour, IInteractable
 {
     [Header("PlayerPosition")]
     [SerializeField] private Transform _cafePlayerPosition;
@@ -19,11 +20,11 @@ public class Cafe : MonoBehaviour, IInteractableCafe
         SetActiveCamera(true);
     }
 
-    public void UnLockPlayer(PlayerUtilityController controller)
+    public void UnLockPlayer(Player player)
     {
         SetActiveCamera(false);
 
-        controller.PlayerLock(false);
+        player.ControlLock(false);
     }
 
     public void SetActiveCamera(bool isActive)
@@ -31,25 +32,26 @@ public class Cafe : MonoBehaviour, IInteractableCafe
         _cafeCamera.SetActive(isActive);
     }
 
-    public void InteractObject(GameObject playerObject)
+    
+    public void OnInteract(IInteractor sender)
     {
-        CafeManager.Instance.PlayerPrefab = playerObject;
+        CafeManager.Instance.PlayerPrefab = sender.GameObject;
+        
+        Player player =
+            sender.GameObject.GetComponent<Player>();
 
-        PlayerUtilityController playerUtilityController =
-            playerObject.GetComponent<PlayerUtilityController>();
-
-        if(playerUtilityController != null)
+        if(player != null)
         {
-            playerUtilityController.PlayerLock(true);
+            player.ControlLock(true);
 
-            _cafeUIController.SetAction(() => UnLockPlayer(playerUtilityController),
+            _cafeUIController.SetAction(() => UnLockPlayer(player),
                 SetActiveCamera);
-            _cafeUIController.OnActiveMenuUI(MovePlayer, playerObject);
+            _cafeUIController.OnActiveMenuUI(MovePlayer, sender.GameObject);
 
-            CafeManager.Instance.SetUnlockPlayerAction(() => UnLockPlayer(playerUtilityController),
+            CafeManager.Instance.SetUnlockPlayerAction(() => UnLockPlayer(player),
                 () => SetActiveCamera(false));
         }
 
-        _cafeUIController.OnActiveMenuUI(MovePlayer, playerObject);
+        _cafeUIController.OnActiveMenuUI(MovePlayer, sender.GameObject);
     }
 }

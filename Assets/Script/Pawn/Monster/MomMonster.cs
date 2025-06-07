@@ -1,17 +1,29 @@
+using Script.Pawn;
+using Script.Prop;
 using Script.Util;
 using UnityEngine;
 
 public class MomMonster : MonsterBase
 {
-    private MomStateMachine _state;
+    private StateMachine _stateMachine;
     
     private void Awake()
     {
-        _state = GetComponent<MomStateMachine>();
+        _stateMachine = GetComponent<StateMachine>();
         IsInteractable = true;
     }
-    
-    public override void Interact()
+
+    protected override void Init()
+    {
+        
+    }
+
+    public override void SetActiveForcedEvent(bool isActive)
+    {
+        
+    }
+
+    public override void OnInteract(IInteractor sender)
     {
         UIManager.Instance.GetUI<DialogSelectionUI>().ShowChoices();
     }

@@ -7,11 +7,10 @@ public class DialogSystem : MonoBehaviour
 
     public void ActiveDialog()
     {
-        NodeLinkData linkData = _dialogContainer.NodeLinks.First();
-        DialogNodeData nodeData = _dialogContainer.DialogNodeData.First(data => data.Guid == linkData.TargetNodeGuid);
+        DialogNodeData nodeData = _dialogContainer.EntryPointNode;
         UIManager.Instance.GetUI<DialogUI>().ShowText(transform, nodeData.DialogText);
     }
-    public void InactiveEndDialog()
+    public void InactiveDialog()
     {
         
     }

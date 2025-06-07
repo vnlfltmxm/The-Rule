@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Script.Prop;
 using Script.Util;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,6 +10,8 @@ namespace Script.Pawn
     public abstract class Pawn : MonoBehaviour
     {
         public AreaType CurrentArea = AreaType.Null;
+        
+        public Pawn Target;
         
         private void Start()
         {
@@ -40,6 +44,11 @@ namespace Script.Pawn
                 return areaType;
             }
             return AreaType.Null; // 해당하는 Area 없음
+        }
+        
+        public void OnDamage(float value)
+        {
+            
         }
     }
 }

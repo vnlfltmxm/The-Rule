@@ -1,13 +1,16 @@
 using System;
+using Script.Pawn.Player;
 using UnityEngine;
 
 namespace Script.Prop
 {
-    public class Item : InteractiveProp, IUsable
+    public class Item : Prop, IInteractable, IUsable
     {
-        public bool IsUsable { get; set; } = false;
         [HideInInspector] public Collider Collider;
         [HideInInspector] public Rigidbody Rigidbody;
+
+        public bool IsUsable { get; set; } = false;
+        public bool IsInteractable { get; set; } = true;
         
         public override void Init(string propId)
         {
@@ -18,7 +21,7 @@ namespace Script.Prop
             Rigidbody = GetComponent<Rigidbody>();
             Collider = GetComponent<Collider>();
         }
-        public sealed override void Interact()
+        public void OnInteract(IInteractor sender)
         {
             Logger.Log("Item Interact");
         }
