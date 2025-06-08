@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -65,7 +66,10 @@ public class ProgressLine : GraphElement
             this.MarkDirtyRepaint();
         });
 
+        //StateMachineUtil.StateMachineData.StateElements.Add(stateElement);
         _startNode.StateElement.NewConditionDictionary(_endNode.StateElement.Guid);
+        EditorUtility.SetDirty(StateMachineUtil.StateMachineData);
+        AssetDatabase.SaveAssets(); // 반드시 필요하진 않지만 저장 강제
     }
     public void SetTemporaryEnd(Vector2 mousePosition)
     {

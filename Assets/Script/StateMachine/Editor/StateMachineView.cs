@@ -51,7 +51,10 @@ public class StateMachineView : GraphView
     {
         ClearView();
         if(StateMachineUtil.StateMachineData == null)
+        {
+            Debug.LogError($"StateMachineData가 로드되지 않았습니다");
             return;
+        }
         //모든 노드를 생성
         foreach (var stateElement in StateMachineUtil.StateMachineData.StateElements)
             LoadStateMachineNode(stateElement);

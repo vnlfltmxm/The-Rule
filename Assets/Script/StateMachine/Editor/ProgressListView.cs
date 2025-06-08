@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class ProgressListView : VisualElement
@@ -31,7 +32,10 @@ public class ProgressListView : VisualElement
 
     private void InitStyle()
     {
-        
+        style.width = 250;
+        style.minHeight = 100;
+        style.backgroundColor = new StyleColor(Color.grey);
+        style.overflow = Overflow.Hidden;
     }
 
     #region Toolbar

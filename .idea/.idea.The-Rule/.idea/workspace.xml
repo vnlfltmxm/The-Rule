@@ -6,39 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/StateData/aa.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/StateData/aa.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/BooleanConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/BooleanConditionData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/ConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/ConditionData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/FloatConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/FloatConditionData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/IntConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/IntConditionData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/UnityObjectConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/UnityObjectConditionData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateMachineData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/CompareElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/CompareElement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldElement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldUtil.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/InspectorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/InspectorView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ConditionNode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ConditionNode.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ProgressLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ProgressLine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateMachineNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateMachineNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateNode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateNode.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/ProgressListView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/ProgressListView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineUtil.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/GlobalField/GlobalField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/GlobalField/GlobalField.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/AttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/FindTargetState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/FindTargetState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/IdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/PatrolState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/PatrolState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/StateElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/StateElement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/TrackingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/TrackingState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateMachine.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +199,7 @@
       <workItem from="1748686623054" duration="1180000" />
       <workItem from="1748743858226" duration="26786000" />
       <workItem from="1749026436371" duration="6644000" />
-      <workItem from="1749289078875" duration="54863000" />
+      <workItem from="1749289078875" duration="55536000" />
     </task>
     <servers />
   </component>

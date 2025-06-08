@@ -20,9 +20,11 @@ public class StateMachineWindow : EditorWindow
             stateMachine.StateMachineData = StateMachineUtil.CreateStateMachineData($"{owner.name}State");
         else
             StateMachineUtil.StateMachineData = stateMachine.StateMachineData;
+
+        window.LoadStateMachineWindow();
     }
     
-    private void OnEnable()
+    private void LoadStateMachineWindow()
     {
         rootVisualElement.style.flexDirection = FlexDirection.Row;
         ConstructLeftPanelView();

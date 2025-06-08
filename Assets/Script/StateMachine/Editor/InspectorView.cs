@@ -22,7 +22,8 @@ public class InspectorView : VisualElement
 
     private void InitStyle()
     {
-        
+        style.width = 300;
+        style.overflow = Overflow.Hidden;
     }
     
     private void GenerateScrollArea()

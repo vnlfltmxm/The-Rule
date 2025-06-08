@@ -38,7 +38,10 @@ public class GlobalFieldView : VisualElement
     {
         ClearView();
         if(StateMachineUtil.StateMachineData == null)
+        {
+            Debug.LogError($"StateMachineData가 로드되지 않았습니다");
             return;
+        }
         foreach (var globalField in StateMachineUtil.StateMachineData.GlobalFields)
             AddGlobalFieldElement(globalField);
         

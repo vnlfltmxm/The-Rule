@@ -12,7 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7bd02b65f9b2841b776cf8f087f513, type: 3}
   m_Name: MomMonsterState
   m_EditorClassIdentifier: 
-  <StateElements>k__BackingField: []
+  <StateElements>k__BackingField:
+  - rid: 7598287421709484111
+  - rid: 7598287421709484112
+  - rid: 7598287421709484113
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7598287421709484111
+      type: {class: IdleState, ns: , asm: Assembly-CSharp}
+      data:
+        <Guid>k__BackingField: aea8215a-db22-4e49-8400-02d9a02f77ab
+        <TargetGuidConditionDictionary>k__BackingField:
+          m_Keys:
+          - eaf3382a-1203-45df-8621-fab4444ace59
+        <NodePosition>k__BackingField: {x: 257.08353, y: 98.335594}
+    - rid: 7598287421709484112
+      type: {class: AttackState, ns: , asm: Assembly-CSharp}
+      data:
+        <Guid>k__BackingField: 50ad6a30-1c5b-4d32-882c-c0c3a8131438
+        <TargetGuidConditionDictionary>k__BackingField:
+          m_Keys:
+          - aea8215a-db22-4e49-8400-02d9a02f77ab
+          - eaf3382a-1203-45df-8621-fab4444ace59
+        <NodePosition>k__BackingField: {x: 422.23425, y: 359.90045}
+    - rid: 7598287421709484113
+      type: {class: FindTargetState, ns: , asm: Assembly-CSharp}
+      data:
+        <Guid>k__BackingField: eaf3382a-1203-45df-8621-fab4444ace59
+        <TargetGuidConditionDictionary>k__BackingField:
+          m_Keys:
+          - 50ad6a30-1c5b-4d32-882c-c0c3a8131438
+        <NodePosition>k__BackingField: {x: 520, y: 76}
