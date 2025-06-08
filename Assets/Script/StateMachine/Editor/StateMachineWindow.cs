@@ -6,18 +6,20 @@ using UnityEngine.UIElements;
 public class StateMachineWindow : EditorWindow
 {
     private VisualElement _leftPanelView;
-    private GlobalFieldView _fieldView;
-    private InspectorView _inspectorView;
-    private StateMachineView _stateView;
-    private Blackboard _blackBoard;
+    public GlobalFieldView FieldView;
+    public InspectorView InspectorView;
+    public StateMachineView StateView;
     
-    [MenuItem("StateMachine/State Machine")]
-    public static void OpenStateMachineWindow()
+    //[MenuItem("StateMachine/State Machine")]
+    public static void OpenStateMachineWindow(StateMachine stateMachine, GameObject owner)
     {
         var window = GetWindow<StateMachineWindow>();
         window.titleContent = new GUIContent("State Machine Editor");
 
-        StateMachineUtil.CreateStateMachineData("aa");
+        if (stateMachine.StateMachineData == null)
+            stateMachine.StateMachineData = StateMachineUtil.CreateStateMachineData($"{owner.name}State");
+        else
+            StateMachineUtil.StateMachineData = stateMachine.StateMachineData;
     }
     
     private void OnEnable()
@@ -27,6 +29,9 @@ public class StateMachineWindow : EditorWindow
         ConstructFieldView();
         ConstructInspectorView();
         ConstructStateView();
+
+        FieldView.LoadData();
+        StateView.LoadData();
     }
 
     private void ConstructLeftPanelView()
@@ -41,20 +46,20 @@ public class StateMachineWindow : EditorWindow
     //글로벌 필드 뷰 생성
     private void ConstructFieldView()
     {
-        _fieldView = new GlobalFieldView(this)
+        FieldView = new GlobalFieldView(this)
         {
             name = "Global Field"
         };
-        _leftPanelView.Add(_fieldView);
+        _leftPanelView.Add(FieldView);
     }
     
     private void ConstructInspectorView()
     {
-        _inspectorView = new InspectorView(this)
+        InspectorView = new InspectorView(this)
         {
             name = "Inspector"
         };
-        _leftPanelView.Add(_fieldView);
+        _leftPanelView.Add(FieldView);
     }
     
     //상태머신 뷰 생성
@@ -63,10 +68,10 @@ public class StateMachineWindow : EditorWindow
         var graphContainer = new VisualElement();
         graphContainer.style.flexGrow = 1;
         rootVisualElement.Add(graphContainer);
-        _stateView = new StateMachineView(this)
+        StateView = new StateMachineView(this)
         {
             name = "State Machine"
         };
-        graphContainer.Add(_stateView);
+        graphContainer.Add(StateView);
     }
 }

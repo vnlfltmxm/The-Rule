@@ -6,79 +6,39 @@
   <component name="ChangeListManager">
     <list default="true" id="762423d8-f98c-401f-9259-04df45872f83" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Rule/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Monster/ChildMonster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Monster/ChildMonster.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Monster/MomMonster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/Pawn/Monster/MomMonster.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/ProtoTypeCafe/Cafe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/ProtoTypeCafe/Cafe.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/ProtoTypeCafe/Cafe.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/ProtoTypeCafe/Cafe.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/DialogData/New Narrative.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/DialogData/New Narrative.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/DialogData/New Narrative.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/DialogData/New Narrative.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh-Ground 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene/NavMesh-Ground 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Junhyung.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/DialogContainer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/DialogContainer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/DialogNodeData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/DialogNodeData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/NodeLinkData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DialogSystem/NodeLinkData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/AreaBaseEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/AreaBaseEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogGraph.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogGraph.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogGraphView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogGraphView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogNode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/DialogNode.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/GraphSaveUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/DialogSystem/GraphSaveUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/ItemDataBundleEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/ItemDataBundleEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/ItemDataDrawer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Editor/ItemDataDrawer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/DialogSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/DialogSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterCry.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterCry.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterIdle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterIdle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterTracking.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildMonsterState/ChildMonsterTracking.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildStateMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/ChildStateMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterIdle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterIdle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterTracking.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomMonsterState/MomMonsterTracking.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomStateMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MomStateMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Monster/MonsterBase.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerInputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/PlayerUtilityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastInteractableDetector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastPropDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Pawn/Player/RaycastInteractableDetector.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveDevice.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveDevice.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveProp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/InteractiveProp.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prop/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/BloodMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/BloodMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/Cafe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/Cafe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/CafeUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Cafe/CafeUIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Prototype/Object/EnemyFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Prototype/Object/EnemyFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Util/Define.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/StateData/aa.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/StateData/aa.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/BooleanConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/BooleanConditionData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/ConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/ConditionData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/FloatConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/FloatConditionData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/IntConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/IntConditionData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/UnityObjectConditionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateConditionData/UnityObjectConditionData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Data/State/StateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Data/State/StateMachineData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/CompareElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/CompareElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/GlobalFieldView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/InspectorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/InspectorView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ConditionNode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ConditionNode.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ProgressLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/ProgressLine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateMachineNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateMachineNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateNode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/Node/StateNode.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/ProgressListView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/ProgressListView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Editor/StateMachineWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/GlobalField/GlobalField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/GlobalField/GlobalField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/AttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/FindTargetState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/FindTargetState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/PatrolState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/PatrolState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/StateElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/StateElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/TrackingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateElement/TrackingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/StateMachine/Runtime/StateMachine.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,10 +73,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/99/3082e4d3/DropdownField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/ac/529f5947/VisualElementExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dc61ba37583d47bc957110bffa4cd12c1f4200/b4/9aa85cd7/VisualElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/ItemUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/SpawnData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Data/State/StateElementData/FindTargetStateData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Data/State/StateMachineData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Manager/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Prop/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -150,28 +110,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Unity 에디터에 연결.Unity 에디터에 연결.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Unity 에디터에 연결.Unity 에디터에 연결.executor": "Debug",
+    "git-widget-placeholder": "MoonSoo/AAAA",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\GONG\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\GONG\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\GONG\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\GONG\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\GONG\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\GONG\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Grunt" flag="true" />
+      <visibility group="Gulp" flag="true" />
+      <visibility group="HTTP 요청" flag="true" />
+      <visibility group="Node.js" flag="true" />
+      <visibility group="Recent projects" flag="true" />
+      <visibility group="Run configurations" flag="true" />
+      <visibility group="npm" flag="true" />
+      <visibility group="yarn" flag="true" />
+    </myKeys>
+  </component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\UnityEditor\6000.0.28f1\Editor\Unity.exe" />
@@ -256,7 +228,7 @@
       <workItem from="1748686623054" duration="1180000" />
       <workItem from="1748743858226" duration="26786000" />
       <workItem from="1749026436371" duration="6644000" />
-      <workItem from="1749289078875" duration="28420000" />
+      <workItem from="1749289078875" duration="54863000" />
     </task>
     <servers />
   </component>

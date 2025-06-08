@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7bd02b65f9b2841b776cf8f087f513, type: 3}
   m_Name: aa
   m_EditorClassIdentifier: 
-  <StateElementDatas>k__BackingField: []
+  <StateElements>k__BackingField: []
   <GlobalFieldDictionary>k__BackingField:
     m_Keys: []
-    m_Values: []
+  references:
+    version: 2
+    RefIds: []

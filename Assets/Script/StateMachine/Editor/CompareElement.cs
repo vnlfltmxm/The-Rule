@@ -38,7 +38,9 @@ public class CompareElement : VisualElement
     private DropdownField CreateGlobalFieldElement()
     {
         //모든 글로벌 필드를 드롭다운 필드에 추가
-        List<string> options = StateMachineUtil.StateMachineData.GlobalFieldDictionary.Keys.ToList();
+        
+        // = StateMachineUtil.StateMachineData.GlobalFields..ToList();
+        List<string> options = StateMachineUtil.StateMachineData.GlobalFields.Select(globalField => globalField.Guid).ToList();
         _globalDropdownField = new DropdownField(options, options.First());
         return _globalDropdownField;
     }

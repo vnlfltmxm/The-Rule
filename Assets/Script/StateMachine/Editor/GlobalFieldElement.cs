@@ -7,14 +7,12 @@ using UnityEngine.UIElements;
 public class GlobalFieldElement : VisualElement
 {
     private GlobalFieldView _globalFieldView;
-    public string ElementName { get; private set; }
-    public string ElementType { get; private set; }
+    public GlobalField GlobalField { get; private set; }
     private float[] _elementsWidth = new[] { 0.2f, 0.3f, 0.38f, 0.1f };
-    public GlobalFieldElement(GlobalFieldView globalFieldView, string elementName, string type)
+    public GlobalFieldElement(GlobalFieldView globalFieldView, GlobalField globalField)//string elementName, string type)
     {
         _globalFieldView = globalFieldView;
-        ElementName = elementName;
-        ElementType = type;
+        GlobalField = globalField;
         
         InitStyle();
         InitElement();
@@ -41,19 +39,19 @@ public class GlobalFieldElement : VisualElement
     #region CreateElement
     private VisualElement CreateNameElement()
     {
-        Label label = new Label(ElementName);
+        Label label = new Label(GlobalField.GlobalFieldName);
         label.style.width = _globalFieldView.layout.width * _elementsWidth[0];
         return label;
     }
     private VisualElement CreateTypeElement()
     {
-        Label label = new Label(ElementType);
+        Label label = new Label(GlobalField.GetType().ToString());
         label.style.width = _globalFieldView.layout.width * _elementsWidth[1];
         return label;
     }
     private VisualElement CreateFieldElement()
     {
-        VisualElement field = GlobalFieldUtil.CreateGlobalFieldForType(ElementType);
+        VisualElement field = GlobalFieldUtil.CreateGlobalFieldForType(GlobalField.GetType());
         field.style.width = _globalFieldView.layout.width * _elementsWidth[2];
         return field;
     }

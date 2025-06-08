@@ -1,14 +1,9 @@
 using System;
 using Script.Pawn;
-using Script.Util;
-using UnityEngine;
 
+[Serializable, StateElementType(typeof(AttackState))]
 public class IdleState : StateElement
 {
-    public override StateType StateType => StateType.Idle;
-    public IdleState(Pawn t, IdleStateData data) : base(t, data)
-    {
-    }
     
     public override void Enter()
     {

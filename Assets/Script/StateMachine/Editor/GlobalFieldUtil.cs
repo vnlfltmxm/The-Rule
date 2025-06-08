@@ -31,16 +31,16 @@ public static class GlobalFieldUtil
             _ => typeof(string)
         };
     }
-    public static VisualElement CreateGlobalFieldForType(string typeName)
+    public static VisualElement CreateGlobalFieldForType(Type fieldType)
     {
-        Type fieldType = TypeAliasResolver(typeName);
-        if (fieldType == typeof(int))
+        //Type fieldType = TypeAliasResolver(typeName);
+        if (fieldType == typeof(IntField))
             return new UnityEngine.UIElements.IntegerField();
-        else if (fieldType == typeof(float))
+        else if (fieldType == typeof(FloatField))
             return new UnityEngine.UIElements.FloatField();
-        else if (fieldType == typeof(bool))
+        else if (fieldType == typeof(BooleanField))
             return new UnityEngine.UIElements.Toggle();
-        else if (fieldType == typeof(string))
+        else if (fieldType == typeof(StringField))
             return new UnityEngine.UIElements.TextField();
         else if (typeof(UnityEngine.Object).IsAssignableFrom(fieldType))
         {

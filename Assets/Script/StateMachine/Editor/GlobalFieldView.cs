@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -32,6 +33,17 @@ public class GlobalFieldView : VisualElement
         style.height = Length.Percent(100); // 세로 방향 100%
         style.overflow = Overflow.Hidden;
     }
+    
+    public void LoadData()
+    {
+        ClearView();
+        if(StateMachineUtil.StateMachineData == null)
+            return;
+        foreach (var globalField in StateMachineUtil.StateMachineData.GlobalFields)
+            AddGlobalFieldElement(globalField);
+        
+    }
+    
     #region Toolbar
     //툴바 생성
     private void GenerateToolbar()
@@ -78,7 +90,7 @@ public class GlobalFieldView : VisualElement
         Add(_scrollView);
     }
     
-    private void AddGlobalField()
+    private void AddGlobalField()//GlobalField globalField = null)
     {
         if (string.IsNullOrWhiteSpace(_textField.value))
         {
@@ -90,17 +102,54 @@ public class GlobalFieldView : VisualElement
         }
         else
         {
-            GlobalFieldElement globalFieldElement = new GlobalFieldElement(this, _textField.value, _dropdownField.value);
-            _fieldElements.Add(globalFieldElement);
-            _scrollView.Add(globalFieldElement);
+            //_textField.value, _dropdownField.value;
+
+            GlobalField globalField = null;
+            var types = TypeCache.GetTypesWithAttribute<GlobalFieldTypeAttribute>();
+            foreach (var type in types)
+            {
+                if (!type.IsClass || type.IsAbstract) continue;
+                var attr = type.GetCustomAttribute<GlobalFieldTypeAttribute>();
+                if (attr == null) continue;
+                //if (!dropdownData.Contains(attr.Name))
+                //    dropdownData.Add(attr.Name);
+
+                if (attr.Name == _dropdownField.value)
+                {
+                    globalField = (GlobalField)Activator.CreateInstance(type);
+                    globalField.Guid = Guid.NewGuid().ToString();
+                    globalField.GlobalFieldName = _textField.value;
+                    break;
+                }
+            }
+
+            if (globalField != null)
+            {
+                StateMachineUtil.StateMachineData.GlobalFields.Add(globalField);
+                //GlobalFieldElement globalFieldElement = new GlobalFieldElement(this, globalField);
+                //_fieldElements.Add(globalFieldElement);
+                //_scrollView.Add(globalFieldElement);
+                AddGlobalFieldElement(globalField);
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("글로벌 필드 생성 오류", "글로벌 필드 객체가 생성되지 않았습니다", "확인");
+            }
         }
+    }
+
+    private void AddGlobalFieldElement(GlobalField globalField)
+    {
+        GlobalFieldElement globalFieldElement = new GlobalFieldElement(this, globalField);
+        _fieldElements.Add(globalFieldElement);
+        _scrollView.Add(globalFieldElement);
     }
 
     private bool ContainsDuplicateName(string elementName)
     {
         foreach (var globalFieldElement in _fieldElements)
         {
-            if (globalFieldElement.ElementName == elementName)
+            if (globalFieldElement.GlobalField.GlobalFieldName == elementName)
                 return true;
         }
         return false;
@@ -111,5 +160,12 @@ public class GlobalFieldView : VisualElement
         var findElement = _fieldElements.Find(x => x == globalFieldElement);
         _fieldElements.Remove(findElement);
         _scrollView.Remove(findElement);
+    }
+
+    public void ClearView()
+    {
+        foreach (var globalFieldElement in _fieldElements)
+            _scrollView.Remove(globalFieldElement);
+        _fieldElements.Clear();
     }
 }

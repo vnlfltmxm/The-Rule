@@ -7,16 +7,28 @@ using UnityEngine.UIElements;
 public class StateMachineNode : GraphElement
 {
     protected StateMachineView StateMachineView;
-    public string GUID;
+    public StateElement StateElement;
+    
+    public bool EntryPoint = false;
 
-    public StateMachineNode(StateMachineView stateMachineView, Guid guid)
+    public StateMachineNode(StateMachineView stateMachineView, StateElement stateElement)
     {
         StateMachineView = stateMachineView;
-        GUID = guid.ToString();
+        StateElement = stateElement;
 
         InitStyle();
         
         InstallManipulator();
+        
+        CreateNameLabel();
+        
+        // 클릭 및 드래그 기능 활성화
+        this.capabilities |= Capabilities.Selectable | Capabilities.Movable;
+
+        // 선택 및 드래그 가능하도록 조작기(Manipulator) 추가
+        this.AddManipulator(new Dragger());
+        
+        RegisterCallback<MouseUpEvent>(OnDragEnd);
     }
 
     #region Style
@@ -41,17 +53,28 @@ public class StateMachineNode : GraphElement
         style.borderTopColor = color;
     }
     #endregion
+
+    private void CreateNameLabel()
+    {
+        var stateLabel = new Label(StateElement.GetType().ToString());
+        stateLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
+        stateLabel.style.flexGrow = 1;
+        stateLabel.pickingMode = PickingMode.Ignore;
+        Add(stateLabel);
+    }
     
     public override void OnSelected()
     {
         base.OnSelected();
         SetBorderColor(Color.yellow);
+        StateMachineView.OnClickNode(this);
     }
 
     public override void OnUnselected()
     {
         base.OnUnselected();
         SetBorderColor(Color.black);
+        StateMachineView.OnClickNode(null);
     }
     
     #region Manipulator
@@ -79,13 +102,10 @@ public class StateMachineNode : GraphElement
         this.AddManipulator(deleteManipulator); // <-- 반드시 필요!
     }
     #endregion
-
-    public static StateMachineNode Factory(StateMachineView stateMachineView, Guid guid, Type stateDataType)
+    
+    private void OnDragEnd(MouseUpEvent evt)
     {
-        if (stateDataType.IsSubclassOf(typeof(StateElementData)))
-            return new StateNode(stateMachineView, guid, stateDataType);
-        else if (stateDataType.IsSubclassOf(typeof(ConditionData)))
-            return new ConditionNode(stateMachineView, guid, stateDataType);
-        return null;
+        var position = GetPosition().position; // 실제 위치 얻기
+        StateElement.NodePosition = position;  // 저장
     }
 }

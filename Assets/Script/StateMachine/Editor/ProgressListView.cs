@@ -1,4 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 public class ProgressListView : VisualElement
@@ -6,6 +10,10 @@ public class ProgressListView : VisualElement
     private InspectorView _inspectorView;
 
     private string _targetGuid;
+    
+    private TextField _textField;
+    private DropdownField _dropdownField;
+    
     private List<ConditionData> _conditionDataList;
     private List<CompareElement> _compareElements = new List<CompareElement>();
     
@@ -16,6 +24,8 @@ public class ProgressListView : VisualElement
         _conditionDataList = conditionDataList;
         InitStyle();
 
+        GenerateToolbar();
+        
         LoadConditionData();
     }
 
@@ -24,6 +34,30 @@ public class ProgressListView : VisualElement
         
     }
 
+    #region Toolbar
+    //툴바 생성
+    private void GenerateToolbar()
+    {
+        var toolbar = new Toolbar();
+
+        _dropdownField = new DropdownField();
+        _dropdownField.style.width = 90;
+        toolbar.Add(_dropdownField);
+        toolbar.Add(new Button(AddCondition){text = "추가"});
+        
+        /*//신규노드 생성 버튼
+        var nodeCreateButton = new Button(() => { _graphView.CreateNode("Dialog Node"); });
+        nodeCreateButton.text = "신규 노드 생성";
+        toolbar.Add(nodeCreateButton);*/
+        
+        Add(toolbar);
+    }
+    private void AddCondition()
+    {
+        
+    }
+    #endregion
+    
     private void LoadConditionData()
     {
         ClearElements();

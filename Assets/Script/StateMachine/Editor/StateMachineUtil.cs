@@ -13,6 +13,7 @@ public static class StateMachineUtil
     public static List<ProgressLine> ProgressLines = new List<ProgressLine>();
     #endregion
     
+    public static string GetPath(string assetName) => $"Assets/Resources/Data/StateData/{assetName}.asset";
 
     public static void LoadData(StateMachineData data)
     {
@@ -32,18 +33,22 @@ public static class StateMachineUtil
         
     }
 
-    public static void CreateStateMachineData(string assetName)
+    public static void LoadStateMachineData(string assetName)
     {
-        StateMachineData asset = ScriptableObject.CreateInstance<StateMachineData>();
+        StateMachineData = AssetDatabase.LoadAssetAtPath<StateMachineData>(GetPath(assetName));
+    }
+    public static StateMachineData CreateStateMachineData(string assetName)
+    {
+        StateMachineData = ScriptableObject.CreateInstance<StateMachineData>();
         
         // 에셋으로 저장
-        string path = $"Assets/Resources/Data/StateData/{assetName}.asset";
-        AssetDatabase.CreateAsset(asset, path);
+        AssetDatabase.CreateAsset(StateMachineData, GetPath(assetName));
         AssetDatabase.SaveAssets();
 
         // 생성된 에셋을 선택
         EditorUtility.FocusProjectWindow();
-        Selection.activeObject = asset;
+        Selection.activeObject = StateMachineData;
+        return StateMachineData;
     }
 
     /*public static List<ProgressLine> FindProgressLines()

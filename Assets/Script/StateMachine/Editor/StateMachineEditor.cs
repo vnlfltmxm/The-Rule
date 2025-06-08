@@ -5,13 +5,11 @@ using UnityEngine;
 public class StateMachineEditor : Editor
 {
     private SerializedProperty _stateData;
-    private SerializedProperty _globalFieldDatasProp;
-    private SerializedProperty _stateElementDatasProp;
     private void OnEnable()
     {
-        _stateData = serializedObject.FindProperty("_stateData");
-        _globalFieldDatasProp = _stateData.FindPropertyRelative("GlobalFieldDatas");
-        _stateElementDatasProp = _stateData.FindPropertyRelative("StateElementDatas");
+        _stateData = serializedObject.FindProperty("_stateMachineData");
+        //_globalFieldDatasProp = _stateData.FindPropertyRelative("GlobalFieldDatas");
+        //_stateElementDatasProp = _stateData.FindPropertyRelative("StateElementDatas");
     }
     public override void OnInspectorGUI()
     {
@@ -29,26 +27,16 @@ public class StateMachineEditor : Editor
         {
             // 에디터 창 열기
             StateMachine comp = (StateMachine)target;
-            StateMachineWindow.OpenStateMachineWindow();
+            StateMachineWindow.OpenStateMachineWindow(comp, comp.gameObject);
         }
 
         EditorGUILayout.EndHorizontal();
         
         EditorGUILayout.Space();
-        EditorGUILayout.LabelField("글로벌 필드", EditorStyles.boldLabel);
-        if (_globalFieldDatasProp != null)
-        {
-            for (int i = 0; i < _globalFieldDatasProp.arraySize; i++)
-            {
-                SerializedProperty element = _globalFieldDatasProp.GetArrayElementAtIndex(i);
-                EditorGUILayout.PropertyField(element, new GUIContent($"Field {i}"), true);
-            }
-        }
-        else
-        {
-            EditorGUILayout.LabelField("    필드가 존재하지 않음", EditorStyles.label);
-        }
-
+        EditorGUILayout.LabelField("상태 머신 데이터", EditorStyles.boldLabel);
+        
+        EditorGUILayout.PropertyField(_stateData, new GUIContent($"StateMachineData"), true);
+        
         serializedObject.ApplyModifiedProperties();
     }
 }

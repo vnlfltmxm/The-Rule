@@ -1,28 +1,25 @@
 using System;
 using Script.Pawn;
-using Script.Pawn.Player;
-using Script.Util;
-using UnityEngine;
 using UnityEngine.AI;
 
+[Serializable, StateElementType(typeof(AttackState))]
 public class TrackingState : StateElement
 {
-    public override StateType StateType => StateType.Tracking;
     private NavMeshAgent _agent;
     private Pawn _targetPawn;
     
-    public TrackingState(Pawn owner, TrackingStateData data) : base(owner, data)
+    /*public TrackingState(StateMachine stateMachine) : base(stateMachine)
     {
-        _agent = owner.GetComponent<NavMeshAgent>();
-        _targetPawn = owner.Target;
-        _agent.speed = data.TrackingSpeed;
-        _agent.enabled = true;
-    }
+        //_agent = owner.GetComponent<NavMeshAgent>();
+        //_targetPawn = owner.Target;
+        //_agent.speed = data.TrackingSpeed;
+        //_agent.enabled = true;
+    }*/
 
     public override void Enter()
     {
         base.Enter();
-        _targetPawn = StateObject.Target;
+        //_targetPawn = StateObject.Target;
     }
     public override void Stay()
     {

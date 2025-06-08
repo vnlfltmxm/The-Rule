@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 public class ProgressLine : GraphElement
 {
     private StateMachineView _stateMachineView;
-    private GraphElement _startElement;
-    private GraphElement _endElement;
+    private StateMachineNode _startNode;
+    private StateMachineNode _endNode;
     private Vector2 _startPoint;
     private Vector2 _endPoint;
 
@@ -19,13 +19,13 @@ public class ProgressLine : GraphElement
     
     public List<ConditionData> ConditionDatas = new List<ConditionData>();
 
-    public ProgressLine(StateMachineView stateMachineView, GraphElement startElement)
+    public ProgressLine(StateMachineView stateMachineView, StateMachineNode startNode)
     {
         _stateMachineView = stateMachineView;
 
         InitStyle();
         
-        SetStartElement(startElement);
+        SetStartNode(startNode);
         
         // 클릭 방지 (선 위에서는 선택 X)
         //pickingMode = PickingMode.Ignore;
@@ -45,25 +45,27 @@ public class ProgressLine : GraphElement
         style.height = 1000;
     }
     
-    public void SetStartElement(GraphElement startElement)
+    public void SetStartNode(StateMachineNode startNode)
     {
-        _startElement = startElement;
-        _startPoint = GetPosition(_startElement);
-        _startElement.RegisterCallback<GeometryChangedEvent>(evt =>
+        _startNode = startNode;
+        _startPoint = GetPosition(_startNode);
+        _startNode.RegisterCallback<GeometryChangedEvent>(evt =>
         {
-            _startPoint = GetPosition(_startElement);
+            _startPoint = GetPosition(_startNode);
             this.MarkDirtyRepaint();
         });
     }
-    public void SetEndElement(GraphElement endElement)
+    public void SetEndElement(StateMachineNode endNode)
     {
-        _endElement = endElement;
-        _endPoint = GetPosition(_endElement);
-        _endElement.RegisterCallback<GeometryChangedEvent>(evt =>
+        _endNode = endNode;
+        _endPoint = GetPosition(_endNode);
+        _endNode.RegisterCallback<GeometryChangedEvent>(evt =>
         {
-            _endPoint = GetPosition(_endElement);
+            _endPoint = GetPosition(_endNode);
             this.MarkDirtyRepaint();
         });
+
+        _startNode.StateElement.NewConditionDictionary(_endNode.StateElement.Guid);
     }
     public void SetTemporaryEnd(Vector2 mousePosition)
     {

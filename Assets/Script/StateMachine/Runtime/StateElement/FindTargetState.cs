@@ -1,21 +1,16 @@
-using System.Linq;
+using System;
 using Script.Pawn;
-using Script.Util;
-using UnityEngine;
 
+[Serializable, StateElementType(typeof(AttackState))]
 public class FindTargetState : StateElement
 {
-    public override StateType StateType => StateType.FindTarget;
-    private FindTargetStateData _data;
+    //private FindTargetStateData _data;
     
-    public FindTargetState(Pawn owner, FindTargetStateData data) : base(owner, data)
-    {
-        _data = data;
-    }
+    
 
     public override void Enter()
     {
-        base.Enter();
+        /*base.Enter();
 
         // _targetLayer 해당하는 오브젝트들만 감지
         Collider[] hits = Physics.OverlapSphere(StateObject.transform.position, _data.Distance, LayerMask.GetMask("InvadeObject"));
@@ -40,7 +35,7 @@ public class FindTargetState : StateElement
         if (closest != null)
         {
             StateObject.Target = closest;
-        }
+        }*/
     }
 
     public override void Stay()

@@ -1,26 +1,15 @@
+using System;
 using Script.Pawn;
-using Script.Util;
 using UnityEngine;
 
+[Serializable, StateElementType(typeof(AttackState))]
 public class AttackState : StateElement
 {
-    public override StateType StateType => StateType.Attack;
-    private Pawn _targetPawn;
-    private float _intervalTime;
+    private GameObjectField _targetPawn;
+    private FloatField _intervalTime;
+    private FloatField _damage;
+    
     private float _elapsedTime;
-    private float _damage;
-    
-    //private GameObjectField _targetPawn;
-    //private FloatField _intervalTime;
-    //private FloatField _elapsedTime;
-    //private FloatField _damage;
-    
-    public AttackState(Pawn owner, StateElementData data) : base(owner, data)
-    {
-        _targetPawn = owner.Target;
-        _intervalTime = data.IntervalTime;
-        _damage = data.Damage;
-    }
     
     public override void Enter()
     {
@@ -31,9 +20,9 @@ public class AttackState : StateElement
     public override void Stay()
     {
         _elapsedTime += Time.deltaTime;
-        if(_intervalTime < _elapsedTime)
+        if(_intervalTime.Value < _elapsedTime)
             return;
-        _targetPawn.OnDamage(_damage);
+        _targetPawn.Value.GetComponent<Pawn>().OnDamage(_damage.Value);
     }
     public override void Exit()
     {
